@@ -40,6 +40,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import com.anylogic.engine.presentation.Shape;
 import com.anylogic.engine.presentation.ShapeEmbeddedObjectPresentation; // Neu!]]></Import>
+			<StartupCode><![CDATA[navigate( viewLogic );]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1759583674835</Id>
@@ -117,7 +118,7 @@ import com.anylogic.engine.presentation.ShapeEmbeddedObjectPresentation; // Neu!
 				<Name><![CDATA[scale]]></Name>
 				<Description><![CDATA[langes fließband: 50cm x 2.5 = 125px
 kurzes fließband: 20cm x 2.5 = 50px]]></Description>
-				<X>0</X><Y>-150</Y>
+				<X>-300</X><Y>-150</Y>
 				<PublicFlag>false</PublicFlag>
 				<PresentationFlag>true</PresentationFlag>
 				<ShowLabel>false</ShowLabel>
@@ -151,7 +152,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Variable Class="PlainVariable">
 					<Id>1761085886832</Id>
 					<Name><![CDATA[v_zuletztErzeugterAuftragNr]]></Name>
-					<X>-500</X><Y>200</Y>
+					<X>-500</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -163,11 +164,26 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761244887144</Id>
+					<Name><![CDATA[selectedViewArea]]></Name>
+					<X>-1290</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[ViewArea]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[view2D]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1760634315310</Id>
 					<Name><![CDATA[p_conveyorGap]]></Name>
 					<Description><![CDATA[gap in Metern]]></Description>
-					<X>-150</X><Y>150</Y>
+					<X>-150</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -192,7 +208,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Variable Class="Parameter">
 					<Id>1761082536194</Id>
 					<Name><![CDATA[p_hantelnProAuftrag]]></Name>
-					<X>-500</X><Y>50</Y>
+					<X>-500</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -202,7 +218,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[100]]></Code>
+							<Code><![CDATA[20]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1761082536192</Id>
@@ -216,7 +232,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Variable Class="CollectionVariable">
 					<Id>1761143103799</Id>
 					<Name><![CDATA[col_sourceBlöcke]]></Name>
-					<X>-500</X><Y>250</Y>
+					<X>-500</X><Y>310</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -233,8 +249,8 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1761165408829</Id>
-					<Name><![CDATA[col_QueuesAlleTypes]]></Name>
-					<X>-500</X><Y>400</Y>
+					<Name><![CDATA[col_queuesAllTypes]]></Name>
+					<X>-500</X><Y>460</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -251,8 +267,8 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1761167749759</Id>
-					<Name><![CDATA[col_HoldAlleTypes]]></Name>
-					<X>-500</X><Y>450</Y>
+					<Name><![CDATA[col_holdAllTypes]]></Name>
+					<X>-500</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -272,7 +288,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760387049069</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>600</X><Y>-600</Y>
+					<X>200</X><Y>-600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -305,7 +321,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760568420253</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>695</X><Y>-150</Y>
+					<X>295</X><Y>-150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -338,7 +354,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760570815606</Id>
 					<Name><![CDATA[connector]]></Name>
-					<X>1050</X><Y>-150</Y>
+					<X>650</X><Y>-150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -371,7 +387,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760570815608</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>70</X><Y>-20</Y>
+					<X>-330</X><Y>-20</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -404,7 +420,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760643634618</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>890</X><Y>-150</Y>
+					<X>490</X><Y>-150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -437,7 +453,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760643634620</Id>
 					<Name><![CDATA[connector7]]></Name>
-					<X>770</X><Y>-150</Y>
+					<X>370</X><Y>-150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -470,7 +486,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760644490334</Id>
 					<Name><![CDATA[connector8]]></Name>
-					<X>830</X><Y>-100</Y>
+					<X>430</X><Y>-100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -503,7 +519,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760644822757</Id>
 					<Name><![CDATA[connector9]]></Name>
-					<X>890</X><Y>-100</Y>
+					<X>490</X><Y>-100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -536,7 +552,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760645324629</Id>
 					<Name><![CDATA[connector10]]></Name>
-					<X>930</X><Y>-100</Y>
+					<X>530</X><Y>-100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -569,7 +585,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760919263825</Id>
 					<Name><![CDATA[connector14]]></Name>
-					<X>730</X><Y>-300</Y>
+					<X>330</X><Y>-300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -602,7 +618,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760919927803</Id>
 					<Name><![CDATA[connector15]]></Name>
-					<X>790</X><Y>-300</Y>
+					<X>390</X><Y>-300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -635,7 +651,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760919933662</Id>
 					<Name><![CDATA[connector16]]></Name>
-					<X>790</X><Y>-240</Y>
+					<X>390</X><Y>-240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -668,7 +684,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760920170761</Id>
 					<Name><![CDATA[connector18]]></Name>
-					<X>630</X><Y>-150</Y>
+					<X>230</X><Y>-150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -701,7 +717,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760921046227</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>550</X><Y>-150</Y>
+					<X>150</X><Y>-150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -734,7 +750,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1760921112569</Id>
 					<Name><![CDATA[connector12]]></Name>
-					<X>830</X><Y>-240</Y>
+					<X>430</X><Y>-240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -767,7 +783,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761001023162</Id>
 					<Name><![CDATA[connector17]]></Name>
-					<X>830</X><Y>-300</Y>
+					<X>430</X><Y>-300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -800,7 +816,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761001140594</Id>
 					<Name><![CDATA[connector19]]></Name>
-					<X>950</X><Y>-300</Y>
+					<X>550</X><Y>-300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -833,7 +849,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761001556048</Id>
 					<Name><![CDATA[connector20]]></Name>
-					<X>1020</X><Y>-300</Y>
+					<X>620</X><Y>-300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -866,7 +882,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761001603039</Id>
 					<Name><![CDATA[connector22]]></Name>
-					<X>1050</X><Y>-240</Y>
+					<X>650</X><Y>-240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -899,7 +915,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761001665482</Id>
 					<Name><![CDATA[connector21]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>-400</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -932,7 +948,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761001730114</Id>
 					<Name><![CDATA[connector24]]></Name>
-					<X>1090</X><Y>-240</Y>
+					<X>690</X><Y>-240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -965,7 +981,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761002020142</Id>
 					<Name><![CDATA[connector23]]></Name>
-					<X>1190</X><Y>-300</Y>
+					<X>790</X><Y>-300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -998,7 +1014,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761002056414</Id>
 					<Name><![CDATA[connector25]]></Name>
-					<X>1240</X><Y>-300</Y>
+					<X>840</X><Y>-300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1031,7 +1047,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761002094330</Id>
 					<Name><![CDATA[connector27]]></Name>
-					<X>1300</X><Y>-250</Y>
+					<X>900</X><Y>-250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1064,7 +1080,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761002101702</Id>
 					<Name><![CDATA[connector28]]></Name>
-					<X>1300</X><Y>-200</Y>
+					<X>900</X><Y>-200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1097,7 +1113,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761002184368</Id>
 					<Name><![CDATA[connector26]]></Name>
-					<X>1340</X><Y>-300</Y>
+					<X>940</X><Y>-300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1130,7 +1146,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761002184370</Id>
 					<Name><![CDATA[connector29]]></Name>
-					<X>1470</X><Y>-300</Y>
+					<X>1070</X><Y>-300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1157,13 +1173,13 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>230</X><Y>0</Y></Point>
+						<Point><X>130</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1761002214258</Id>
 					<Name><![CDATA[connector30]]></Name>
-					<X>1340</X><Y>-250</Y>
+					<X>940</X><Y>-250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1196,7 +1212,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761002217349</Id>
 					<Name><![CDATA[connector31]]></Name>
-					<X>1340</X><Y>-200</Y>
+					<X>940</X><Y>-200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1229,7 +1245,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761082398002</Id>
 					<Name><![CDATA[connector32]]></Name>
-					<X>670</X><Y>-600</Y>
+					<X>270</X><Y>-600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1262,7 +1278,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761082508004</Id>
 					<Name><![CDATA[connector33]]></Name>
-					<X>1060</X><Y>-600</Y>
+					<X>660</X><Y>-600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1295,7 +1311,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761142618838</Id>
 					<Name><![CDATA[connector35]]></Name>
-					<X>550</X><Y>-690</Y>
+					<X>150</X><Y>-690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1328,7 +1344,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761142621779</Id>
 					<Name><![CDATA[connector36]]></Name>
-					<X>550</X><Y>-660</Y>
+					<X>150</X><Y>-660</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1361,7 +1377,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761142625364</Id>
 					<Name><![CDATA[connector37]]></Name>
-					<X>550</X><Y>-630</Y>
+					<X>150</X><Y>-630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1394,7 +1410,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761142628338</Id>
 					<Name><![CDATA[connector38]]></Name>
-					<X>550</X><Y>-600</Y>
+					<X>150</X><Y>-600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1427,7 +1443,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761160146559</Id>
 					<Name><![CDATA[connector34]]></Name>
-					<X>0</X><Y>-90</Y>
+					<X>-400</X><Y>-90</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1460,7 +1476,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761160149326</Id>
 					<Name><![CDATA[connector39]]></Name>
-					<X>850</X><Y>-600</Y>
+					<X>450</X><Y>-600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1493,7 +1509,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761160149328</Id>
 					<Name><![CDATA[connector40]]></Name>
-					<X>770</X><Y>-600</Y>
+					<X>370</X><Y>-600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1526,7 +1542,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761162497697</Id>
 					<Name><![CDATA[connector11]]></Name>
-					<X>550</X><Y>-300</Y>
+					<X>150</X><Y>-300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1559,7 +1575,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761164833207</Id>
 					<Name><![CDATA[connector42]]></Name>
-					<X>1280</X><Y>-600</Y>
+					<X>880</X><Y>-600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1592,7 +1608,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761164976666</Id>
 					<Name><![CDATA[connector43]]></Name>
-					<X>1280</X><Y>-550</Y>
+					<X>880</X><Y>-550</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1625,7 +1641,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761165051747</Id>
 					<Name><![CDATA[connector44]]></Name>
-					<X>1280</X><Y>-500</Y>
+					<X>880</X><Y>-500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1658,7 +1674,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761165059904</Id>
 					<Name><![CDATA[connector45]]></Name>
-					<X>1280</X><Y>-450</Y>
+					<X>880</X><Y>-450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1691,7 +1707,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761167642044</Id>
 					<Name><![CDATA[connector2]]></Name>
-					<X>1490</X><Y>-600</Y>
+					<X>1090</X><Y>-600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1724,7 +1740,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761167642046</Id>
 					<Name><![CDATA[connector13]]></Name>
-					<X>1350</X><Y>-600</Y>
+					<X>950</X><Y>-600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1757,7 +1773,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761167699234</Id>
 					<Name><![CDATA[connector46]]></Name>
-					<X>1350</X><Y>-550</Y>
+					<X>950</X><Y>-550</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1790,7 +1806,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761167704362</Id>
 					<Name><![CDATA[connector47]]></Name>
-					<X>1350</X><Y>-500</Y>
+					<X>950</X><Y>-500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1823,7 +1839,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761167709118</Id>
 					<Name><![CDATA[connector48]]></Name>
-					<X>1350</X><Y>-450</Y>
+					<X>950</X><Y>-450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1856,7 +1872,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761167726747</Id>
 					<Name><![CDATA[connector49]]></Name>
-					<X>1370</X><Y>-550</Y>
+					<X>970</X><Y>-550</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1889,7 +1905,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761167730264</Id>
 					<Name><![CDATA[connector50]]></Name>
-					<X>1370</X><Y>-500</Y>
+					<X>970</X><Y>-500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1922,7 +1938,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761167733522</Id>
 					<Name><![CDATA[connector51]]></Name>
-					<X>1370</X><Y>-450</Y>
+					<X>970</X><Y>-450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1955,7 +1971,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761169059365</Id>
 					<Name><![CDATA[connector41]]></Name>
-					<X>1100</X><Y>-600</Y>
+					<X>700</X><Y>-600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1988,7 +2004,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Connector>
 					<Id>1761169564267</Id>
 					<Name><![CDATA[connector52]]></Name>
-					<X>1210</X><Y>-520</Y>
+					<X>810</X><Y>-520</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2025,7 +2041,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Event>
 					<Id>1759877059956</Id>
 					<Name><![CDATA[ev_startModel]]></Name>
-					<X>-150</X><Y>50</Y>
+					<X>-150</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2061,7 +2077,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1759877085753</Id>
 					<Name><![CDATA[f_startModel]]></Name>
-					<X>-150</X><Y>100</Y>
+					<X>-150</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2084,7 +2100,7 @@ f_auftragErzeugen();
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1760282691522</Id>
 					<Name><![CDATA[f_onMessageReceived]]></Name>
-					<X>-1100</X><Y>100</Y>
+					<X>-1100</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2100,7 +2116,7 @@ f_auftragErzeugen();
 					<ReturnType><![CDATA[boolean]]></ReturnType>
 					<Id>1760921280520</Id>
 					<Name><![CDATA[f_chooseBohrstation]]></Name>
-					<X>-750</X><Y>100</Y>
+					<X>-750</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2132,7 +2148,7 @@ if (agent.p_type == 2) {
 					<ReturnType><![CDATA[boolean]]></ReturnType>
 					<Id>1761001193337</Id>
 					<Name><![CDATA[f_chooseDrehmaschine]]></Name>
-					<X>-750</X><Y>150</Y>
+					<X>-750</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2157,7 +2173,7 @@ if (agent.p_type == 1 || agent.p_type == 2) {
 					<ReturnType><![CDATA[int]]></ReturnType>
 					<Id>1761002862789</Id>
 					<Name><![CDATA[f_chooseLackierstation]]></Name>
-					<X>-750</X><Y>200</Y>
+					<X>-750</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2197,7 +2213,7 @@ if (agent.p_type == 0) {
 					<ReturnType><![CDATA[long]]></ReturnType>
 					<Id>1761006969315</Id>
 					<Name><![CDATA[f_getProcessTime]]></Name>
-					<X>-750</X><Y>50</Y>
+					<X>-750</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2251,7 +2267,7 @@ traceln("Auftrag Nr." + v_zuletztErzeugterAuftragNr + " erzeugt:" + Arrays.toStr
 v_zuletztErzeugterAuftragNr ++;
 
 ]]></Description>
-					<X>-500</X><Y>100</Y>
+					<X>-500</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2292,7 +2308,7 @@ traceln("Auftrag Nr." + v_zuletztErzeugterAuftragNr + " erzeugt:" + Arrays.toStr
 					<ReturnType><![CDATA[double[]]]></ReturnType>
 					<Id>1761083926887</Id>
 					<Name><![CDATA[f_generiereZufaelligeVerteilung]]></Name>
-					<X>-500</X><Y>150</Y>
+					<X>-500</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2360,7 +2376,7 @@ return ergebnisDouble;]]></Body>
 					<ReturnType><![CDATA[int]]></ReturnType>
 					<Id>1761157424400</Id>
 					<Name><![CDATA[f_getAuftragInQAktuellerAuftrag]]></Name>
-					<X>-500</X><Y>300</Y>
+					<X>-500</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2386,12 +2402,12 @@ if (q_aktuellerAuftrag.size()>0) {
 					<ReturnType><![CDATA[int]]></ReturnType>
 					<Id>1761165129824</Id>
 					<Name><![CDATA[f_sizeQueuesAlleTypes]]></Name>
-					<X>-500</X><Y>350</Y>
+					<X>-500</X><Y>410</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[double summe = sum(col_QueuesAlleTypes, p -> p.size());
+					<Body><![CDATA[double summe = sum(col_queuesAllTypes, p -> p.size());
 
 return (int) summe;]]></Body>
 				</Function>
@@ -2400,25 +2416,94 @@ return (int) summe;]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1761167989456</Id>
 					<Name><![CDATA[f_sendNextAgent]]></Name>
-					<X>-750</X><Y>250</Y>
+					<X>-750</X><Y>310</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[int typ;
+					<Body><![CDATA[// Wähle den Typ des nächsten Agenten, der gesendet werden soll (nur aus nicht-leeren Queues)
+int chosenType = f_chooseNextAgent();
 
-typ = uniform_discr(0, 3);
-col_HoldAlleTypes.get(typ).unblock();
+// Nur entblocken, wenn ein gültiger, nicht-leerer Typ gefunden wurde (Index >= 0)
+if (chosenType != -1) {
+    //traceln("Entblocke Hold-Block für Typ " + chosenType);
+    // Hole den korrekten Hold-Block aus der Collection und entblocke ihn
+    col_holdAllTypes.get(chosenType).unblock();
+} else {
+    // Nichts tun, wenn alle Queues leer sind. exit_aufträge wird nächsten auftrag starten
+    
+    //traceln("Neuer Auftrag in Bearbeitung");
+}]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[int]]></ReturnType>
+					<Id>1761240301531</Id>
+					<Name><![CDATA[f_chooseNextAgent]]></Name>
+					<X>-750</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[// Liste zum Speichern der Indizes von nicht-leeren Queues
+ArrayList<Integer> verfuegbareTypen = new ArrayList<>();
+
+// Prüfe jede Queue in der Collection col_queuesAllTypes
+for (int i = 0; i < col_queuesAllTypes.size(); i++) {
+    if (col_queuesAllTypes.get(i).size() > 0) {
+        // Wenn die Queue nicht leer ist, füge ihren Index zur Liste hinzu
+        verfuegbareTypen.add(i);
+    }
+}
+
+// Prüfe, ob mindestens eine nicht-leere Queue gefunden wurde
+if (!verfuegbareTypen.isEmpty()) {
+    // Wähle zufällig einen Index aus der Liste der verfügbaren Typen
+    int zufallsIndexAusListe = uniform_discr(0, verfuegbareTypen.size() - 1);
+    int gewaehlterTyp = verfuegbareTypen.get(zufallsIndexAusListe);
+    traceln("Auswahl für nächsten Agenten: Typ " + gewaehlterTyp + " (Queues verfügbar: " + verfuegbareTypen + ")");
+    return gewaehlterTyp; // Gib den Index der ausgewählten, nicht-leeren Queue zurück
+} else {
+    // Alle Queues sind leer
+    traceln("Auswahl für nächsten Agenten: Alle Queues (q_type0-3) sind leer.");
+    return -1; // Signalisiert, dass nichts zu tun ist
+}
+
+
+
+
+
+
+
+
 
 ]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1761244887140</Id>
+					<Name><![CDATA[navigate]]></Name>
+					<X>-1290</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[viewArea]]></Name>
+						<Type><![CDATA[ViewArea]]></Type>
+					</Parameter>
+					<Body><![CDATA[selectedViewArea = viewArea;
+viewArea.navigateTo();
+groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1759583674831</Id>
 					<Name><![CDATA[connections]]></Name>
-					<X>50</X><Y>-50</Y>
-					<Label><X>15</X><Y>0</Y></Label>
+					<X>-180</X><Y>-80</Y>
+					<Label><X>-25</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -2439,7 +2524,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1759583759842</Id>
 					<Name><![CDATA[sink]]></Name>
-					<X>1050</X><Y>-160</Y>
+					<X>650</X><Y>-160</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2491,7 +2576,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1759877851621</Id>
 					<Name><![CDATA[pop_testJavaClass]]></Name>
-					<X>-1100</X><Y>50</Y>
+					<X>-1100</X><Y>110</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2538,7 +2623,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760381052793</Id>
 					<Name><![CDATA[pop_hanteln]]></Name>
-					<X>-900</X><Y>50</Y>
+					<X>-900</X><Y>110</Y>
 					<Label><X>5</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2598,7 +2683,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760387047673</Id>
 					<Name><![CDATA[aufträgeGesamt]]></Name>
-					<X>600</X><Y>-620</Y>
+					<X>200</X><Y>-620</Y>
 					<Label><X>-35</X><Y>45</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2698,7 +2783,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760485613023</Id>
 					<Name><![CDATA[railCar]]></Name>
-					<X>-900</X><Y>100</Y>
+					<X>-900</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2746,7 +2831,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760567933097</Id>
 					<Name><![CDATA[con_start]]></Name>
-					<X>650</X><Y>-310</Y>
+					<X>250</X><Y>-310</Y>
 					<Label><X>-10</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2882,7 +2967,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760568015571</Id>
 					<Name><![CDATA[schieben]]></Name>
-					<X>890</X><Y>-160</Y>
+					<X>490</X><Y>-160</Y>
 					<Label><X>-10</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3132,7 +3217,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760568040044</Id>
 					<Name><![CDATA[hold]]></Name>
-					<X>650</X><Y>-160</Y>
+					<X>250</X><Y>-160</Y>
 					<Label><X>-10</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3196,7 +3281,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760568419010</Id>
 					<Name><![CDATA[convey1]]></Name>
-					<X>695</X><Y>-160</Y>
+					<X>295</X><Y>-160</Y>
 					<Label><X>-10</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3326,7 +3411,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760570814656</Id>
 					<Name><![CDATA[convey2]]></Name>
-					<X>970</X><Y>-160</Y>
+					<X>570</X><Y>-160</Y>
 					<Label><X>-10</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3456,7 +3541,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760643633475</Id>
 					<Name><![CDATA[selectOutput]]></Name>
-					<X>760</X><Y>-160</Y>
+					<X>360</X><Y>-160</Y>
 					<Label><X>-23</X><Y>-12</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3526,7 +3611,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760644461010</Id>
 					<Name><![CDATA[convey3]]></Name>
-					<X>830</X><Y>-110</Y>
+					<X>430</X><Y>-110</Y>
 					<Label><X>-10</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3656,7 +3741,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760644821372</Id>
 					<Name><![CDATA[convey4]]></Name>
-					<X>890</X><Y>-110</Y>
+					<X>490</X><Y>-110</Y>
 					<Label><X>-10</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3786,7 +3871,7 @@ col_HoldAlleTypes.get(typ).unblock();
 				<EmbeddedObject>
 					<Id>1760917578592</Id>
 					<Name><![CDATA[exit_aufträge]]></Name>
-					<X>1490</X><Y>-610</Y>
+					<X>1090</X><Y>-610</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3806,8 +3891,9 @@ col_HoldAlleTypes.get(typ).unblock();
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (f_sizeQueuesAlleTypes()==0){
-	hold_aktuellerAuftrag.unblock();
+								<Code><![CDATA[// Startet den nächsten Auftrag wenn aktueller Auftrag abgeschloossen ist
+if (f_sizeQueuesAlleTypes()==0){
+	    hold_aktuellerAuftrag.unblock();
 }
 
 enter_bearbeiten.take(agent);]]></Code>
@@ -3842,7 +3928,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1760917605623</Id>
 					<Name><![CDATA[enter_bearbeiten]]></Name>
-					<X>530</X><Y>-310</Y>
+					<X>130</X><Y>-310</Y>
 					<Label><X>-75</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3958,109 +4044,9 @@ enter_bearbeiten.take(agent);]]></Code>
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1760918630209</Id>
-					<Name><![CDATA[queue]]></Name>
-					<X>350</X><Y>-260</Y>
-					<Label><X>-5</X><Y>-15</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-						<ClassName><![CDATA[Queue]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
-							<ClassName><![CDATA[Queue]]></ClassName>
-							<ItemName><![CDATA[1412336242932]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[capacity]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maximumCapacity]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[true]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[entityLocation]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[queuing]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[priority]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[comparison]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[enableTimeout]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[timeout]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[enablePreemption]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[restoreEntityLocationOnExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[forceStatisticsCollection]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onAtExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExitTimeout]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExitPreempted]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onRemove]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1760918630207</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
 					<Id>1760919262174</Id>
 					<Name><![CDATA[select_bohrstation]]></Name>
-					<X>720</X><Y>-310</Y>
+					<X>320</X><Y>-310</Y>
 					<Label><X>-35</X><Y>-40</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4142,7 +4128,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1760919926404</Id>
 					<Name><![CDATA[con_bohrstation1]]></Name>
-					<X>790</X><Y>-310</Y>
+					<X>390</X><Y>-310</Y>
 					<Label><X>-30</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4272,7 +4258,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1760919929305</Id>
 					<Name><![CDATA[con_bohrstation2]]></Name>
-					<X>790</X><Y>-250</Y>
+					<X>390</X><Y>-250</Y>
 					<Label><X>-25</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4402,7 +4388,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1760920169401</Id>
 					<Name><![CDATA[convey7]]></Name>
-					<X>590</X><Y>-160</Y>
+					<X>190</X><Y>-160</Y>
 					<Label><X>-10</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4529,7 +4515,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1760921044631</Id>
 					<Name><![CDATA[enter_pruefen]]></Name>
-					<X>530</X><Y>-160</Y>
+					<X>130</X><Y>-160</Y>
 					<Label><X>-55</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4644,7 +4630,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1760921064167</Id>
 					<Name><![CDATA[exit_bearbeiten]]></Name>
-					<X>1700</X><Y>-310</Y>
+					<X>1200</X><Y>-310</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4696,7 +4682,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761001021173</Id>
 					<Name><![CDATA[con_ausBohrstation]]></Name>
-					<X>910</X><Y>-310</Y>
+					<X>510</X><Y>-310</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4823,7 +4809,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761001137761</Id>
 					<Name><![CDATA[select_drehmaschine]]></Name>
-					<X>990</X><Y>-310</Y>
+					<X>590</X><Y>-310</Y>
 					<Label><X>-35</X><Y>-45</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4899,7 +4885,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761001552151</Id>
 					<Name><![CDATA[con_drehmaschine]]></Name>
-					<X>1050</X><Y>-310</Y>
+					<X>650</X><Y>-310</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5029,7 +5015,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761001601208</Id>
 					<Name><![CDATA[con_keineDrehmaschine]]></Name>
-					<X>1050</X><Y>-250</Y>
+					<X>650</X><Y>-250</Y>
 					<Label><X>-50</X><Y>35</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5156,7 +5142,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761001662186</Id>
 					<Name><![CDATA[con_ausDrehmachine]]></Name>
-					<X>1150</X><Y>-310</Y>
+					<X>750</X><Y>-310</Y>
 					<Label><X>-10</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5283,7 +5269,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761002018051</Id>
 					<Name><![CDATA[select_Lackierstation]]></Name>
-					<X>1210</X><Y>-310</Y>
+					<X>810</X><Y>-310</Y>
 					<Label><X>-40</X><Y>-45</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5389,7 +5375,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761002052011</Id>
 					<Name><![CDATA[con_lackierstation1]]></Name>
-					<X>1300</X><Y>-310</Y>
+					<X>900</X><Y>-310</Y>
 					<Label><X>-30</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5519,7 +5505,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761002075506</Id>
 					<Name><![CDATA[con_lackierstation2]]></Name>
-					<X>1300</X><Y>-260</Y>
+					<X>900</X><Y>-260</Y>
 					<Label><X>-25</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5649,7 +5635,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761002091086</Id>
 					<Name><![CDATA[con_lackierstation3]]></Name>
-					<X>1300</X><Y>-210</Y>
+					<X>900</X><Y>-210</Y>
 					<Label><X>-35</X><Y>35</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5779,7 +5765,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761002182538</Id>
 					<Name><![CDATA[con_ausLackierstation]]></Name>
-					<X>1430</X><Y>-310</Y>
+					<X>1030</X><Y>-310</Y>
 					<Label><X>-50</X><Y>-35</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5906,7 +5892,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761082395156</Id>
 					<Name><![CDATA[select_auftrag]]></Name>
-					<X>660</X><Y>-610</Y>
+					<X>260</X><Y>-610</Y>
 					<Label><X>-30</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5979,7 +5965,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761082468102</Id>
 					<Name><![CDATA[q_aktuellerAuftrag]]></Name>
-					<X>1060</X><Y>-620</Y>
+					<X>660</X><Y>-620</Y>
 					<Label><X>-20</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6079,7 +6065,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761082506029</Id>
 					<Name><![CDATA[hold_aktuellerAuftrag]]></Name>
-					<X>1000</X><Y>-610</Y>
+					<X>600</X><Y>-610</Y>
 					<Label><X>-65</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6146,7 +6132,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761142472017</Id>
 					<Name><![CDATA[s_typ0]]></Name>
-					<X>520</X><Y>-700</Y>
+					<X>120</X><Y>-700</Y>
 					<Label><X>-40</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6271,6 +6257,18 @@ enter_bearbeiten.take(agent);]]></Code>
 										</GenericParameterSubstituteReference>
 									</GenericParameterSubstitute>
 									<Parameters>
+										<Parameter>
+											<Name><![CDATA[p_farbe]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_type]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_auftragsNr]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_nrInnerhalbDesAuftrags]]></Name>
+										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
 									<Replication Class="CodeValue">
@@ -6379,7 +6377,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761142517686</Id>
 					<Name><![CDATA[s_typ1]]></Name>
-					<X>520</X><Y>-670</Y>
+					<X>120</X><Y>-670</Y>
 					<Label><X>-40</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6504,6 +6502,18 @@ enter_bearbeiten.take(agent);]]></Code>
 										</GenericParameterSubstituteReference>
 									</GenericParameterSubstitute>
 									<Parameters>
+										<Parameter>
+											<Name><![CDATA[p_farbe]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_type]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_auftragsNr]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_nrInnerhalbDesAuftrags]]></Name>
+										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
 									<Replication Class="CodeValue">
@@ -6612,7 +6622,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761142552139</Id>
 					<Name><![CDATA[s_typ2]]></Name>
-					<X>520</X><Y>-640</Y>
+					<X>120</X><Y>-640</Y>
 					<Label><X>-40</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6737,6 +6747,18 @@ enter_bearbeiten.take(agent);]]></Code>
 										</GenericParameterSubstituteReference>
 									</GenericParameterSubstitute>
 									<Parameters>
+										<Parameter>
+											<Name><![CDATA[p_farbe]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_type]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_auftragsNr]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_nrInnerhalbDesAuftrags]]></Name>
+										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
 									<Replication Class="CodeValue">
@@ -6845,7 +6867,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761142560591</Id>
 					<Name><![CDATA[s_typ3]]></Name>
-					<X>520</X><Y>-610</Y>
+					<X>120</X><Y>-610</Y>
 					<Label><X>-40</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6970,6 +6992,18 @@ enter_bearbeiten.take(agent);]]></Code>
 										</GenericParameterSubstituteReference>
 									</GenericParameterSubstitute>
 									<Parameters>
+										<Parameter>
+											<Name><![CDATA[p_farbe]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_type]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_auftragsNr]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[p_nrInnerhalbDesAuftrags]]></Name>
+										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
 									<Replication Class="CodeValue">
@@ -7078,7 +7112,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761156367240</Id>
 					<Name><![CDATA[q_naechsterAuftrag1]]></Name>
-					<X>850</X><Y>-620</Y>
+					<X>450</X><Y>-620</Y>
 					<Label><X>-10</X><Y>45</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7183,7 +7217,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761156367263</Id>
 					<Name><![CDATA[hold_naechsterAuftrag]]></Name>
-					<X>770</X><Y>-610</Y>
+					<X>370</X><Y>-610</Y>
 					<Label><X>-85</X><Y>55</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7252,7 +7286,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Name><![CDATA[select_aktuellerAuftrag]]></Name>
 					<Description><![CDATA[agent.p_type + 1;
 ]]></Description>
-					<X>1180</X><Y>-610</Y>
+					<X>780</X><Y>-610</Y>
 					<Label><X>-50</X><Y>-65</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7372,7 +7406,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761164831036</Id>
 					<Name><![CDATA[q_type0]]></Name>
-					<X>1280</X><Y>-620</Y>
+					<X>880</X><Y>-620</Y>
 					<Label><X>-4</X><Y>42</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7472,7 +7506,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761164973063</Id>
 					<Name><![CDATA[q_type1]]></Name>
-					<X>1280</X><Y>-570</Y>
+					<X>880</X><Y>-570</Y>
 					<Label><X>-4</X><Y>42</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7572,7 +7606,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761165048670</Id>
 					<Name><![CDATA[q_type2]]></Name>
-					<X>1280</X><Y>-520</Y>
+					<X>880</X><Y>-520</Y>
 					<Label><X>-4</X><Y>42</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7672,7 +7706,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761165057423</Id>
 					<Name><![CDATA[q_type3]]></Name>
-					<X>1280</X><Y>-470</Y>
+					<X>880</X><Y>-470</Y>
 					<Label><X>-4</X><Y>42</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7772,7 +7806,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761167639623</Id>
 					<Name><![CDATA[hold_type0]]></Name>
-					<X>1350</X><Y>-610</Y>
+					<X>950</X><Y>-610</Y>
 					<Label><X>-5</X><Y>30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7839,7 +7873,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761167696397</Id>
 					<Name><![CDATA[hold_type1]]></Name>
-					<X>1350</X><Y>-560</Y>
+					<X>950</X><Y>-560</Y>
 					<Label><X>-5</X><Y>30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7906,7 +7940,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761167701699</Id>
 					<Name><![CDATA[hold_type2]]></Name>
-					<X>1350</X><Y>-510</Y>
+					<X>950</X><Y>-510</Y>
 					<Label><X>-5</X><Y>30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7973,7 +8007,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObject>
 					<Id>1761167706432</Id>
 					<Name><![CDATA[hold_type3]]></Name>
-					<X>1350</X><Y>-460</Y>
+					<X>950</X><Y>-460</Y>
 					<Label><X>-5</X><Y>30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8057,7 +8091,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1759964531535</Id>
 					<Name><![CDATA[but_connect]]></Name>
-					<X>-1100</X><Y>150</Y>
+					<X>-1100</X><Y>210</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8078,7 +8112,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1760027206951</Id>
 					<Name><![CDATA[but_test]]></Name>
-					<X>320</X><Y>-580</Y>
+					<X>160</X><Y>-490</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8098,9 +8132,9 @@ enter_bearbeiten.take(agent);]]></Code>
 				<Control Type="Window3D">
 					<Id>1760398343113</Id>
 					<Name><![CDATA[window3d]]></Name>
-					<X>0</X><Y>800</Y>
-					<Width>1000</Width>
-					<Height>550</Height>
+					<X>0</X><Y>950</Y>
+					<Width>1400</Width>
+					<Height>750</Height>
 					<MakeDefaultViewArea>true</MakeDefaultViewArea>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<ShowLabel>false</ShowLabel>
@@ -8111,7 +8145,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<Camera3D>
 					<Id>1760398349719</Id>
 					<Name><![CDATA[camera]]></Name>
-					<X>478.46</X><Y>836.13</Y><Z>527.43</Z>
+					<X>620</X><Y>1040</Y><Z>527.43</Z>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<ShowLabel>false</ShowLabel>
 					<RotationX>45.0</RotationX>
@@ -8120,7 +8154,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorNetwork>
 					<Id>1760468676832</Id>
 					<Name><![CDATA[conveyorNetwork]]></Name>
-					<X>148</X><Y>452</Y>
+					<X>268</X><Y>632</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8132,7 +8166,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760468823532</Id>
 					<Name><![CDATA[Conveyor3]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>275</X><Y>510</Y>
+					<X>395</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8275,7 +8309,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760468997342</Id>
 					<Name><![CDATA[Conveyor7]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>400</X><Y>510</Y>
+					<X>520</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8585,7 +8619,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760468999785</Id>
 					<Name><![CDATA[conveyorPointNode4]]></Name>
-					<X>400</X><Y>510</Y>
+					<X>520</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8601,7 +8635,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469017240</Id>
 					<Name><![CDATA[Conveyor8]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>450</X><Y>510</Y>
+					<X>570</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8739,7 +8773,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760469020120</Id>
 					<Name><![CDATA[conveyorPointNode5]]></Name>
-					<X>450</X><Y>510</Y>
+					<X>570</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8755,7 +8789,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469249964</Id>
 					<Name><![CDATA[Conveyor10]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>575</X><Y>510</Y>
+					<X>695</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8897,7 +8931,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760469260516</Id>
 					<Name><![CDATA[conveyorPointNode7]]></Name>
-					<X>575</X><Y>510</Y>
+					<X>695</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8913,7 +8947,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469575629</Id>
 					<Name><![CDATA[Conveyor13]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>625</X><Y>510</Y>
+					<X>745</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9055,7 +9089,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760469578732</Id>
 					<Name><![CDATA[conveyorPointNode9]]></Name>
-					<X>625</X><Y>510</Y>
+					<X>745</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9071,7 +9105,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469669082</Id>
 					<Name><![CDATA[Conveyor15]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>750</X><Y>510</Y>
+					<X>870</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9213,7 +9247,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760469671221</Id>
 					<Name><![CDATA[conveyorPointNode11]]></Name>
-					<X>750</X><Y>510</Y>
+					<X>870</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9229,7 +9263,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469696380</Id>
 					<Name><![CDATA[Conveyor17]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>800</X><Y>510</Y>
+					<X>920</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9372,7 +9406,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760487845788</Id>
 					<Name><![CDATA[Conveyor2]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>225</X><Y>510</Y>
+					<X>345</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9515,7 +9549,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760468676773</Id>
 					<Name><![CDATA[Conveyor1]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>100</X><Y>510</Y>
+					<X>220</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9660,7 +9694,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760487850032</Id>
 					<Name><![CDATA[conveyorPointNode1]]></Name>
-					<X>275</X><Y>510</Y>
+					<X>395</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9675,7 +9709,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760487850029</Id>
 					<Name><![CDATA[conveyorPointNode]]></Name>
-					<X>225</X><Y>510</Y>
+					<X>345</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9690,7 +9724,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760623018555</Id>
 					<Name><![CDATA[transferTable1]]></Name>
-					<X>481</X><Y>510</Y>
+					<X>601</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9772,7 +9806,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760623020280</Id>
 					<Name><![CDATA[Conveyor46]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>499.75</X><Y>510</Y>
+					<X>619.75</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9915,7 +9949,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760623039004</Id>
 					<Name><![CDATA[Conveyor47]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>481</X><Y>488.75</Y>
+					<X>601</X><Y>668.75</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10057,7 +10091,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760622964134</Id>
 					<Name><![CDATA[transferTable]]></Name>
-					<X>481</X><Y>470</Y>
+					<X>601</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10139,7 +10173,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469026175</Id>
 					<Name><![CDATA[Conveyor9]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>450</X><Y>470</Y>
+					<X>570</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10278,7 +10312,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760468983875</Id>
 					<Name><![CDATA[Conveyor6]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>400</X><Y>470</Y>
+					<X>520</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10589,7 +10623,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760468876919</Id>
 					<Name><![CDATA[Conveyor5]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>275</X><Y>470</Y>
+					<X>395</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10732,7 +10766,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760468834982</Id>
 					<Name><![CDATA[Conveyor4]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>225</X><Y>470</Y>
+					<X>345</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -10875,7 +10909,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760622967618</Id>
 					<Name><![CDATA[Conveyor45]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>499.75</X><Y>470</Y>
+					<X>619.75</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11013,7 +11047,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760469028933</Id>
 					<Name><![CDATA[conveyorPointNode6]]></Name>
-					<X>450</X><Y>470</Y>
+					<X>570</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11028,7 +11062,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760468988116</Id>
 					<Name><![CDATA[conveyorPointNode3]]></Name>
-					<X>400</X><Y>470</Y>
+					<X>520</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11043,7 +11077,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760468903050</Id>
 					<Name><![CDATA[conveyorPointNode2]]></Name>
-					<X>275</X><Y>470</Y>
+					<X>395</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11058,7 +11092,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760637092023</Id>
 					<Name><![CDATA[conveyorPointNode34]]></Name>
-					<X>800</X><Y>510</Y>
+					<X>920</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11073,7 +11107,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760637075337</Id>
 					<Name><![CDATA[transferTable2]]></Name>
-					<X>869</X><Y>510</Y>
+					<X>989</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11155,7 +11189,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469854898</Id>
 					<Name><![CDATA[Conveyor18]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>540</Y>
+					<X>989</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11298,7 +11332,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760637077356</Id>
 					<Name><![CDATA[Conveyor48]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>491.25</Y>
+					<X>989</X><Y>671.25</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11441,7 +11475,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469922973</Id>
 					<Name><![CDATA[Conveyor19]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>490</Y>
+					<X>989</X><Y>670</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11584,7 +11618,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470058914</Id>
 					<Name><![CDATA[Conveyor21]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>440</Y>
+					<X>989</X><Y>620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11727,7 +11761,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470073661</Id>
 					<Name><![CDATA[Conveyor22]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>390</Y>
+					<X>989</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11870,7 +11904,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470087096</Id>
 					<Name><![CDATA[Conveyor23]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>340</Y>
+					<X>989</X><Y>520</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12013,7 +12047,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470207238</Id>
 					<Name><![CDATA[Conveyor24]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>290</Y>
+					<X>989</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12156,7 +12190,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470261923</Id>
 					<Name><![CDATA[Conveyor25]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>240</Y>
+					<X>989</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12299,7 +12333,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470738409</Id>
 					<Name><![CDATA[Conveyor27]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>190</Y>
+					<X>989</X><Y>370</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12441,7 +12475,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760469927685</Id>
 					<Name><![CDATA[conveyorPointNode14]]></Name>
-					<X>869</X><Y>490</Y>
+					<X>989</X><Y>670</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12456,7 +12490,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470154778</Id>
 					<Name><![CDATA[conveyorPointNode15]]></Name>
-					<X>869</X><Y>440</Y>
+					<X>989</X><Y>620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12471,7 +12505,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470080090</Id>
 					<Name><![CDATA[conveyorPointNode17]]></Name>
-					<X>869</X><Y>390</Y>
+					<X>989</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12486,7 +12520,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470091929</Id>
 					<Name><![CDATA[conveyorPointNode18]]></Name>
-					<X>869</X><Y>340</Y>
+					<X>989</X><Y>520</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12501,7 +12535,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470256319</Id>
 					<Name><![CDATA[conveyorPointNode16]]></Name>
-					<X>869</X><Y>290</Y>
+					<X>989</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12516,7 +12550,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470265652</Id>
 					<Name><![CDATA[conveyorPointNode19]]></Name>
-					<X>869</X><Y>240</Y>
+					<X>989</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12531,7 +12565,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470742047</Id>
 					<Name><![CDATA[conveyorPointNode20]]></Name>
-					<X>869</X><Y>190</Y>
+					<X>989</X><Y>370</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12546,7 +12580,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760637107887</Id>
 					<Name><![CDATA[transferTable3]]></Name>
-					<X>869</X><Y>470</Y>
+					<X>989</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12628,7 +12662,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760637112189</Id>
 					<Name><![CDATA[Conveyor49]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>451.25</Y>
+					<X>989</X><Y>631.25</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12771,7 +12805,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469689458</Id>
 					<Name><![CDATA[Conveyor16]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>800</X><Y>470</Y>
+					<X>920</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12914,7 +12948,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469659790</Id>
 					<Name><![CDATA[Conveyor14]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>750</X><Y>470</Y>
+					<X>870</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13225,7 +13259,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469562454</Id>
 					<Name><![CDATA[Conveyor12]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>625</X><Y>470</Y>
+					<X>745</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13368,7 +13402,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760469264370</Id>
 					<Name><![CDATA[Conveyor11]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>575</X><Y>470</Y>
+					<X>695</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13510,7 +13544,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760469691802</Id>
 					<Name><![CDATA[conveyorPointNode12]]></Name>
-					<X>800</X><Y>470</Y>
+					<X>920</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13525,7 +13559,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760469662679</Id>
 					<Name><![CDATA[conveyorPointNode10]]></Name>
-					<X>750</X><Y>470</Y>
+					<X>870</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13540,7 +13574,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760469566609</Id>
 					<Name><![CDATA[conveyorPointNode8]]></Name>
-					<X>625</X><Y>470</Y>
+					<X>745</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13555,7 +13589,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760637298245</Id>
 					<Name><![CDATA[transferTable4]]></Name>
-					<X>869</X><Y>365</Y>
+					<X>989</X><Y>545</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13637,7 +13671,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470276602</Id>
 					<Name><![CDATA[Conveyor20]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>850</X><Y>365</Y>
+					<X>970</X><Y>545</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13780,7 +13814,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470832636</Id>
 					<Name><![CDATA[Conveyor31]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>725</X><Y>365</Y>
+					<X>845</X><Y>545</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14091,7 +14125,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470997921</Id>
 					<Name><![CDATA[Conveyor34]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>675</X><Y>365</Y>
+					<X>795</X><Y>545</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14234,7 +14268,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470989246</Id>
 					<Name><![CDATA[Conveyor32]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>675</X><Y>165</Y>
+					<X>795</X><Y>345</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14377,7 +14411,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470790537</Id>
 					<Name><![CDATA[Conveyor29]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>725</X><Y>165</Y>
+					<X>845</X><Y>345</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14688,7 +14722,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470750356</Id>
 					<Name><![CDATA[Conveyor28]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>850.25</X><Y>165</Y>
+					<X>970.25</X><Y>345</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14831,7 +14865,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470993735</Id>
 					<Name><![CDATA[Conveyor33]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>675</X><Y>265</Y>
+					<X>795</X><Y>445</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14974,7 +15008,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470826214</Id>
 					<Name><![CDATA[Conveyor30]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>725</X><Y>265</Y>
+					<X>845</X><Y>445</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15285,7 +15319,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760470424181</Id>
 					<Name><![CDATA[Conveyor26]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>850.25</X><Y>265</Y>
+					<X>970.25</X><Y>445</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15428,7 +15462,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760637300619</Id>
 					<Name><![CDATA[Conveyor50]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>346.25</Y>
+					<X>989</X><Y>526.25</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15570,7 +15604,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470834871</Id>
 					<Name><![CDATA[conveyorPointNode23]]></Name>
-					<X>725</X><Y>365</Y>
+					<X>845</X><Y>545</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15585,7 +15619,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760471000278</Id>
 					<Name><![CDATA[conveyorPointNode26]]></Name>
-					<X>675</X><Y>365</Y>
+					<X>795</X><Y>545</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15600,7 +15634,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470992214</Id>
 					<Name><![CDATA[conveyorPointNode24]]></Name>
-					<X>675</X><Y>165</Y>
+					<X>795</X><Y>345</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15615,7 +15649,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470806155</Id>
 					<Name><![CDATA[conveyorPointNode21]]></Name>
-					<X>725</X><Y>165</Y>
+					<X>845</X><Y>345</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15630,7 +15664,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470995880</Id>
 					<Name><![CDATA[conveyorPointNode25]]></Name>
-					<X>675</X><Y>265</Y>
+					<X>795</X><Y>445</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15645,7 +15679,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760470828685</Id>
 					<Name><![CDATA[conveyorPointNode22]]></Name>
-					<X>725</X><Y>265</Y>
+					<X>845</X><Y>445</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15660,7 +15694,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760637310597</Id>
 					<Name><![CDATA[transferTable5]]></Name>
-					<X>869</X><Y>265</Y>
+					<X>989</X><Y>445</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15742,7 +15776,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760637313340</Id>
 					<Name><![CDATA[Conveyor51]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>246.25</Y>
+					<X>989</X><Y>426.25</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15884,7 +15918,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760637325326</Id>
 					<Name><![CDATA[transferTable6]]></Name>
-					<X>869</X><Y>165</Y>
+					<X>989</X><Y>345</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15966,7 +16000,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760637328588</Id>
 					<Name><![CDATA[Conveyor52]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>869</X><Y>146.25</Y>
+					<X>989</X><Y>326.25</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -16108,7 +16142,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760637401352</Id>
 					<Name><![CDATA[transferTable7]]></Name>
-					<X>606</X><Y>365</Y>
+					<X>726</X><Y>545</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -16190,7 +16224,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760471386358</Id>
 					<Name><![CDATA[Conveyor35]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>606</X><Y>390</Y>
+					<X>726</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -16333,7 +16367,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760637403148</Id>
 					<Name><![CDATA[Conveyor53]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>606</X><Y>346.25</Y>
+					<X>726</X><Y>526.25</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -16476,7 +16510,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760471423558</Id>
 					<Name><![CDATA[Conveyor36]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>606</X><Y>340</Y>
+					<X>726</X><Y>520</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -16619,7 +16653,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760471429874</Id>
 					<Name><![CDATA[Conveyor37]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>606</X><Y>290</Y>
+					<X>726</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -16762,7 +16796,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760471436078</Id>
 					<Name><![CDATA[Conveyor38]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>606</X><Y>240</Y>
+					<X>726</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -16905,7 +16939,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760471441063</Id>
 					<Name><![CDATA[Conveyor39]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>606</X><Y>190</Y>
+					<X>726</X><Y>370</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17047,7 +17081,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760471427423</Id>
 					<Name><![CDATA[conveyorPointNode27]]></Name>
-					<X>606</X><Y>340</Y>
+					<X>726</X><Y>520</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17062,7 +17096,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760471431978</Id>
 					<Name><![CDATA[conveyorPointNode28]]></Name>
-					<X>606</X><Y>290</Y>
+					<X>726</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17077,7 +17111,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760471438437</Id>
 					<Name><![CDATA[conveyorPointNode29]]></Name>
-					<X>606</X><Y>240</Y>
+					<X>726</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17092,7 +17126,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760471443656</Id>
 					<Name><![CDATA[conveyorPointNode30]]></Name>
-					<X>606</X><Y>191</Y>
+					<X>726</X><Y>371</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17107,7 +17141,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760637410883</Id>
 					<Name><![CDATA[transferTable8]]></Name>
-					<X>606</X><Y>265</Y>
+					<X>726</X><Y>445</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17189,7 +17223,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760637412615</Id>
 					<Name><![CDATA[Conveyor54]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>606</X><Y>246.25</Y>
+					<X>726</X><Y>426.25</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17331,7 +17365,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760637423253</Id>
 					<Name><![CDATA[transferTable9]]></Name>
-					<X>606</X><Y>165</Y>
+					<X>726</X><Y>345</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17413,7 +17447,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760637425014</Id>
 					<Name><![CDATA[Conveyor55]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>606</X><Y>146.25</Y>
+					<X>726</X><Y>326.25</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17558,7 +17592,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760637557637</Id>
 					<Name><![CDATA[transferTable10]]></Name>
-					<X>606</X><Y>121</Y>
+					<X>726</X><Y>301</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17640,7 +17674,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760471573859</Id>
 					<Name><![CDATA[Conveyor40]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>625</X><Y>121</Y>
+					<X>745</X><Y>301</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17783,7 +17817,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760637560624</Id>
 					<Name><![CDATA[Conveyor56]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>587.25</X><Y>121</Y>
+					<X>707.25</X><Y>301</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17926,7 +17960,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760484593106</Id>
 					<Name><![CDATA[Conveyor41]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>500</X><Y>121</Y>
+					<X>620</X><Y>301</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18069,7 +18103,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760484614081</Id>
 					<Name><![CDATA[Conveyor42]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>450</X><Y>121</Y>
+					<X>570</X><Y>301</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18282,7 +18316,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760484654903</Id>
 					<Name><![CDATA[Conveyor43]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>325</X><Y>121</Y>
+					<X>445</X><Y>301</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18494,7 +18528,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760484607600</Id>
 					<Name><![CDATA[conveyorPointNode31]]></Name>
-					<X>500</X><Y>121</Y>
+					<X>620</X><Y>301</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18509,7 +18543,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760484619810</Id>
 					<Name><![CDATA[conveyorPointNode32]]></Name>
-					<X>450</X><Y>121</Y>
+					<X>570</X><Y>301</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18524,7 +18558,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<ConveyorPointNode>
 					<Id>1760484659794</Id>
 					<Name><![CDATA[conveyorPointNode33]]></Name>
-					<X>325</X><Y>121</Y>
+					<X>445</X><Y>301</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18540,7 +18574,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760643825519</Id>
 					<Name><![CDATA[Conveyor57]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>268.75</X><Y>510</Y>
+					<X>388.75</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18682,7 +18716,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760643818480</Id>
 					<Name><![CDATA[transferTable11]]></Name>
-					<X>250</X><Y>510</Y>
+					<X>370</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18764,7 +18798,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760643874152</Id>
 					<Name><![CDATA[Conveyor58]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>268.75</X><Y>470</Y>
+					<X>388.75</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18906,7 +18940,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760643872175</Id>
 					<Name><![CDATA[transferTable12]]></Name>
-					<X>250</X><Y>470</Y>
+					<X>370</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18984,7 +19018,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760643891351</Id>
 					<Name><![CDATA[Conveyor59]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>250</X><Y>491.25</Y>
+					<X>370</X><Y>671.25</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19127,7 +19161,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760644963019</Id>
 					<Name><![CDATA[Conveyor60]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>618.75</X><Y>470</Y>
+					<X>738.75</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19269,7 +19303,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760644960451</Id>
 					<Name><![CDATA[transferTable13]]></Name>
-					<X>600</X><Y>470</Y>
+					<X>720</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19350,7 +19384,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<TransferTable>
 					<Id>1760644990365</Id>
 					<Name><![CDATA[transferTable14]]></Name>
-					<X>600</X><Y>510</Y>
+					<X>720</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19428,7 +19462,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760644992445</Id>
 					<Name><![CDATA[Conveyor61]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>618.75</X><Y>510</Y>
+					<X>738.75</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19571,7 +19605,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760645030827</Id>
 					<Name><![CDATA[Conveyor62]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>600</X><Y>491.25</Y>
+					<X>720</X><Y>671.25</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19728,7 +19762,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<RailTrack>
 					<Id>1760485427481</Id>
 					<Name><![CDATA[railwayTrack]]></Name>
-					<X>180</X><Y>80</Y>
+					<X>300</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19761,7 +19795,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<EmbeddedObjectPresentation>
 					<Id>1760485616557</Id>
 					<Name><![CDATA[railCar_presentation]]></Name>
-					<X>180</X><Y>130</Y>
+					<X>300</X><Y>310</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19791,7 +19825,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<Id>1760484687834</Id>
 					<Name><![CDATA[Conveyor44]]></Name>
 					<Description><![CDATA[muster Conveyor der länge 60cm]]></Description>
-					<X>387</X><Y>140</Y>
+					<X>507</X><Y>320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20007,7 +20041,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<Robot>
 					<Id>1760486174560</Id>
 					<Name><![CDATA[robot]]></Name>
-					<X>220</X><Y>160</Y>
+					<X>340</X><Y>340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20126,8 +20160,8 @@ enter_bearbeiten.take(agent);]]></Code>
 						<Value Class="Double">36</Value>
 						<Unit Class="LengthUnits"><![CDATA[CENTIMETER]]></Unit>
 					</MaximumArmReach>
-					<InitialEndEffectorX>270.0</InitialEndEffectorX>
-					<InitialEndEffectorY>160.0</InitialEndEffectorY>
+					<InitialEndEffectorX>390.0</InitialEndEffectorX>
+					<InitialEndEffectorY>340.0</InitialEndEffectorY>
 					<InitialEndEffectorZ>0.0</InitialEndEffectorZ>
 					
 					<LinksColor>-23296</LinksColor>
@@ -20142,7 +20176,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<Robot>
 					<Id>1760560924880</Id>
 					<Name><![CDATA[schieber1]]></Name>
-					<X>386</X><Y>50</Y>
+					<X>506</X><Y>230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20261,8 +20295,8 @@ enter_bearbeiten.take(agent);]]></Code>
 						<Value Class="Double">50</Value>
 						<Unit Class="LengthUnits"><![CDATA[CENTIMETER]]></Unit>
 					</MaximumArmReach>
-					<InitialEndEffectorX>386.0</InitialEndEffectorX>
-					<InitialEndEffectorY>90.0</InitialEndEffectorY>
+					<InitialEndEffectorX>506.0</InitialEndEffectorX>
+					<InitialEndEffectorY>270.0</InitialEndEffectorY>
 					<InitialEndEffectorZ>0.0</InitialEndEffectorZ>
 					
 					<LinksColor>-23296</LinksColor>
@@ -20282,7 +20316,7 @@ enter_bearbeiten.take(agent);]]></Code>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<OnClickCode><![CDATA[return true;]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -20296,7 +20330,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<Text>
 					<Id>1761157094397</Id>
 					<Name><![CDATA[text]]></Name>
-					<X>1070</X><Y>-590</Y>
+					<X>670</X><Y>-590</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20324,7 +20358,7 @@ q_aktuellerAuftrag.size() > 0 ?
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1761157989319</Id>
 					<Name><![CDATA[button]]></Name>
-					<X>250</X><Y>-380</Y>
+					<X>590</X><Y>-490</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20341,6 +20375,276 @@ q_aktuellerAuftrag.size() > 0 ?
 						<LabelText><![CDATA[test]]></LabelText>
 					</ExtendedProperties>
 				</Control>
+				<Group>
+					<Id>1761244395165</Id>
+					<Name><![CDATA[groupMainMenu]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<Rectangle>
+					<Id>1761244395167</Id>
+					<Name><![CDATA[rectangle116]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>290</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-14774017</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Rectangle>
+					<Id>1761244395169</Id>
+					<Name><![CDATA[rectangle117]]></Name>
+					<X>810</X><Y>0</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>590</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-8272897</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1761244395171</Id>
+					<Name><![CDATA[text85]]></Name>
+					<X>20</X><Y>12</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1</Color>
+					<Text><![CDATA[MINIS-Miniaturfabrik]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>22</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1761244395173</Id>
+					<Name><![CDATA[rectangle127]]></Name>
+					<X>290</X><Y>0</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<OnClickCode><![CDATA[navigate( view3D );]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>60</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-8272897</FillColor>
+					<FillColorCode><![CDATA[selectedViewArea == view3D ? 
+	dodgerBlue :
+	new Color(129, 195, 255)]]></FillColorCode>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1761244395175</Id>
+					<Name><![CDATA[text113]]></Name>
+					<X>306</X><Y>13</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1</Color>
+					<Text><![CDATA[3D]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>22</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1761244395177</Id>
+					<Name><![CDATA[rectangle128]]></Name>
+					<X>350</X><Y>0</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<OnClickCode><![CDATA[navigate( view2D );]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>60</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-8272897</FillColor>
+					<FillColorCode><![CDATA[selectedViewArea == view2D ? 
+	dodgerBlue :
+	new Color(129, 195, 255)]]></FillColorCode>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1761244395179</Id>
+					<Name><![CDATA[text114]]></Name>
+					<X>365</X><Y>13</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1</Color>
+					<Text><![CDATA[2D]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>22</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1761244395181</Id>
+					<Name><![CDATA[rectangle129]]></Name>
+					<X>410</X><Y>0</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<OnClickCode><![CDATA[navigate( viewLogic );]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>210</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-8272897</FillColor>
+					<FillColorCode><![CDATA[selectedViewArea == viewLogic ? 
+	dodgerBlue :
+	new Color(129, 195, 255)]]></FillColorCode>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1761244395183</Id>
+					<Name><![CDATA[text115]]></Name>
+					<X>425</X><Y>12</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1</Color>
+					<Text><![CDATA[Logic and Statistics]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>22</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1761244395185</Id>
+					<Name><![CDATA[rectangle118]]></Name>
+					<X>620</X><Y>0</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<OnClickCode><![CDATA[navigate( viewEinstellungen );]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>190</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-8272897</FillColor>
+					<FillColorCode><![CDATA[selectedViewArea == viewEinstellungen ? 
+	dodgerBlue :
+	new Color(129, 195, 255)]]></FillColorCode>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1761244395187</Id>
+					<Name><![CDATA[text116]]></Name>
+					<X>640</X><Y>12</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1</Color>
+					<Text><![CDATA[Einstellungen]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>22</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -20359,6 +20663,56 @@ q_aktuellerAuftrag.size() > 0 ?
 
 				</Level>
 			</Presentation>
+			<Areas>
+				<Area>
+					<Id>1761244493811</Id>
+					<Name><![CDATA[view2D]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Title><![CDATA[]]></Title>
+					<Width>1400</Width>
+					<Height>800</Height>
+				</Area>
+				<Area>
+					<Id>1761244533344</Id>
+					<Name><![CDATA[viewLogic]]></Name>
+					<X>0</X><Y>-800</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Title><![CDATA[]]></Title>
+					<Width>1400</Width>
+					<Height>800</Height>
+				</Area>
+				<Area>
+					<Id>1761244624217</Id>
+					<Name><![CDATA[viewEinstellungen]]></Name>
+					<X>-1400</X><Y>0</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Title><![CDATA[]]></Title>
+					<Width>1400</Width>
+					<Height>800</Height>
+				</Area>
+				<Area>
+					<Id>1761244974526</Id>
+					<Name><![CDATA[view3D]]></Name>
+					<X>0</X><Y>900</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Title><![CDATA[]]></Title>
+					<Width>1400</Width>
+					<Height>800</Height>
+				</Area>
+			</Areas>
 
 		</ActiveObjectClass>
 		<!--   =========   Active Object Class   ========  -->
@@ -23471,8 +23825,8 @@ else {return false;}]]></Body>
 	<InspectionWindowColorTheme>DEFAULT</InspectionWindowColorTheme>
 	<Frame>
 		<Id>1759583674828</Id>
-		<Width>1000</Width>
-		<Height>600</Height>
+		<Width>1400</Width>
+		<Height>800</Height>
 	</Frame>
 	<Database>
 		<Id>1759583674827</Id>
