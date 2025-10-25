@@ -135,21 +135,6 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 			<ConnectionsId>1759583674831</ConnectionsId>
 			<Variables>
 				<Variable Class="PlainVariable">
-					<Id>1760915795948</Id>
-					<Name><![CDATA[v_hantelnInBereich1]]></Name>
-					<X>20</X><Y>430</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[int[]]]></Type>        
-						<InitialValue Class="CodeValue">
-							<Code><![CDATA[new int[4]]]></Code>
-						</InitialValue>
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
 					<Id>1761085886832</Id>
 					<Name><![CDATA[v_zuletztErzeugterAuftragNr]]></Name>
 					<X>-500</X><Y>260</Y>
@@ -176,6 +161,165 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<Type><![CDATA[ViewArea]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[view2D]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761392752294</Id>
+					<Name><![CDATA[v_hantelnStart]]></Name>
+					<Description><![CDATA[Hanteln in Bereich1 sortiert nach Type]]></Description>
+					<X>-750</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[4]]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761392752296</Id>
+					<Name><![CDATA[v_hantelnBohrstation1]]></Name>
+					<Description><![CDATA[Hanteln in Bereich1 sortiert nach Type]]></Description>
+					<X>-750</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[4]]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761392752299</Id>
+					<Name><![CDATA[v_hantelnBohrstation2]]></Name>
+					<Description><![CDATA[Hanteln in Bereich1 sortiert nach Type]]></Description>
+					<X>-750</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[4]]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761392752301</Id>
+					<Name><![CDATA[v_hantelnAusBohrstation]]></Name>
+					<Description><![CDATA[Hanteln in Bereich1 sortiert nach Type]]></Description>
+					<X>-750</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[4]]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761392752303</Id>
+					<Name><![CDATA[v_hantelnDrehmaschine]]></Name>
+					<Description><![CDATA[Hanteln in Bereich1 sortiert nach Type]]></Description>
+					<X>-750</X><Y>520</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[4]]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761392752305</Id>
+					<Name><![CDATA[v_hantelnKeineDrehmaschine]]></Name>
+					<Description><![CDATA[Hanteln in Bereich1 sortiert nach Type]]></Description>
+					<X>-750</X><Y>540</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[4]]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761392752307</Id>
+					<Name><![CDATA[v_hantelnLackierstation1]]></Name>
+					<Description><![CDATA[Hanteln in Bereich1 sortiert nach Type]]></Description>
+					<X>-750</X><Y>560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[4]]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761392752309</Id>
+					<Name><![CDATA[v_hantelnLackierstation2]]></Name>
+					<Description><![CDATA[Hanteln in Bereich1 sortiert nach Type]]></Description>
+					<X>-750</X><Y>580</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[4]]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761392752311</Id>
+					<Name><![CDATA[v_hantelnLackierstation3]]></Name>
+					<Description><![CDATA[Hanteln in Bereich1 sortiert nach Type]]></Description>
+					<X>-750</X><Y>600</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[4]]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761404609273</Id>
+					<Name><![CDATA[v_optStart]]></Name>
+					<X>-900</X><Y>1240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[]{p_optHantelnStartType0, p_optHantelnStartType1, p_optHantelnStartType2, p_optHantelnStartType3}]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -224,6 +368,906 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 							<Id>1761082536192</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761392855528</Id>
+					<Name><![CDATA[p_optHantelnStartType0]]></Name>
+					<X>-898.4</X><Y>1000.4</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761392855526</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761398119551</Id>
+					<Name><![CDATA[p_optHantelnStartType1]]></Name>
+					<X>-900</X><Y>1050</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761398119549</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761398122178</Id>
+					<Name><![CDATA[p_optHantelnStartType2]]></Name>
+					<X>-900</X><Y>1099.6</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761398122176</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761398125657</Id>
+					<Name><![CDATA[p_optHantelnStartType3]]></Name>
+					<X>-899.2</X><Y>1150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761398125655</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402229868</Id>
+					<Name><![CDATA[p_optHantelnBohrstation1Type0]]></Name>
+					<X>-600</X><Y>1000</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402229866</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402258214</Id>
+					<Name><![CDATA[p_optHantelnBohrstation1Type1]]></Name>
+					<X>-600</X><Y>1050</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402258212</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402269554</Id>
+					<Name><![CDATA[p_optHantelnBohrstation1Type2]]></Name>
+					<X>-600</X><Y>1100.8</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402269552</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402272524</Id>
+					<Name><![CDATA[p_optHantelnBohrstation1Type3]]></Name>
+					<X>-600</X><Y>1148</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402272522</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402281357</Id>
+					<Name><![CDATA[p_optHantelnBohrstation2Type0]]></Name>
+					<X>-300</X><Y>1000</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402281355</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402301667</Id>
+					<Name><![CDATA[p_optHantelnBohrstation2Type1]]></Name>
+					<X>-300</X><Y>1052.667</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402301665</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402303910</Id>
+					<Name><![CDATA[p_optHantelnBohrstation2Type2]]></Name>
+					<X>-300</X><Y>1102.667</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402303908</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402307075</Id>
+					<Name><![CDATA[p_optHantelnBohrstation2Type3]]></Name>
+					<X>-300</X><Y>1153.667</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402307073</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402348406</Id>
+					<Name><![CDATA[p_optHantelnAusBohrstationType0]]></Name>
+					<X>-900</X><Y>1300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402348404</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402410671</Id>
+					<Name><![CDATA[p_optHantelnAusBohrstationType1]]></Name>
+					<X>-899.667</X><Y>1353.333</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402410669</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402412812</Id>
+					<Name><![CDATA[p_optHantelnAusBohrstationType2]]></Name>
+					<X>-898.667</X><Y>1401.333</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402412810</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402415202</Id>
+					<Name><![CDATA[p_optHantelnAusBohrstationType3]]></Name>
+					<X>-899.667</X><Y>1452.333</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402415200</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402600392</Id>
+					<Name><![CDATA[p_optHantelnDrehmaschineType0]]></Name>
+					<X>-600</X><Y>1300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402600390</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402633286</Id>
+					<Name><![CDATA[p_optHantelnDrehmaschineType1]]></Name>
+					<X>-600</X><Y>1351</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402633284</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402638920</Id>
+					<Name><![CDATA[p_optHantelnDrehmaschineType2]]></Name>
+					<X>-599</X><Y>1399</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402638918</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402642593</Id>
+					<Name><![CDATA[p_optHantelnDrehmaschineType3]]></Name>
+					<X>-600</X><Y>1450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402642591</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402713699</Id>
+					<Name><![CDATA[p_optHantelnKeineDrehmaschineType0]]></Name>
+					<X>-300</X><Y>1300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402713697</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402734605</Id>
+					<Name><![CDATA[p_optHantelnKeineDrehmaschineType1]]></Name>
+					<X>-300</X><Y>1350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402734603</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402737541</Id>
+					<Name><![CDATA[p_optHantelnKeineDrehmaschineType2]]></Name>
+					<X>-300</X><Y>1400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402737539</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402741510</Id>
+					<Name><![CDATA[p_optHantelnKeineDrehmaschineType3]]></Name>
+					<X>-300</X><Y>1450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402741508</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402794037</Id>
+					<Name><![CDATA[p_optHantelnLackierstation1Type0]]></Name>
+					<X>-898</X><Y>1610</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402794035</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402815324</Id>
+					<Name><![CDATA[p_optHantelnLackierstation1Type1]]></Name>
+					<X>-899</X><Y>1658</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402815322</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402819255</Id>
+					<Name><![CDATA[p_optHantelnLackierstation1Type2]]></Name>
+					<X>-899</X><Y>1707</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402819253</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402821745</Id>
+					<Name><![CDATA[p_optHantelnLackierstation1Type3]]></Name>
+					<X>-900</X><Y>1760</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402821743</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402851229</Id>
+					<Name><![CDATA[p_optHantelnLackierstation2Type0]]></Name>
+					<X>-599</X><Y>1611</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402851227</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402866431</Id>
+					<Name><![CDATA[p_optHantelnLackierstation2Type1]]></Name>
+					<X>-600</X><Y>1660</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402866429</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402868810</Id>
+					<Name><![CDATA[p_optHantelnLackierstation2Type2]]></Name>
+					<X>-599</X><Y>1710</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402868808</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402872310</Id>
+					<Name><![CDATA[p_optHantelnLackierstation2Type3]]></Name>
+					<X>-600</X><Y>1762</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402872308</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402904675</Id>
+					<Name><![CDATA[p_optHantelnLackierstation3Type0]]></Name>
+					<X>-299</X><Y>1610</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402904673</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402923852</Id>
+					<Name><![CDATA[p_optHantelnLackierstation3Type1]]></Name>
+					<X>-299</X><Y>1660</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402923850</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402926815</Id>
+					<Name><![CDATA[p_optHantelnLackierstation3Type2]]></Name>
+					<X>-299</X><Y>1709</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402926813</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761402929335</Id>
+					<Name><![CDATA[p_optHantelnLackierstation3Type3]]></Name>
+					<X>-300</X><Y>1760</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761402929333</Id>
+							<Label><![CDATA[p_optHantelnStart]]></Label>
+							<EditorContolType>SLIDER</EditorContolType>
+							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
 							<DelimeterType>NO_DELIMETER</DelimeterType>
 						</ParameterEditor>
@@ -279,6 +1323,168 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
 							<Code><![CDATA[{ hold_type0, hold_type1, hold_type2, hold_type3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761403220643</Id>
+					<Name><![CDATA[col_optStart]]></Name>
+					<X>-900</X><Y>1200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ p_optHantelnStartType0, p_optHantelnStartType1, p_optHantelnStartType2, p_optHantelnStartType3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761403294883</Id>
+					<Name><![CDATA[col_optBohrstation1]]></Name>
+					<X>-597.3333333333334</X><Y>1198.6666666666667</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ p_optHantelnBohrstation1Type0, p_optHantelnBohrstation1Type1, p_optHantelnBohrstation1Type2, p_optHantelnBohrstation1Type3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761403360266</Id>
+					<Name><![CDATA[col_optBohrstation2]]></Name>
+					<X>-300</X><Y>1201.3333333333333</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ p_optHantelnBohrstation2Type0, p_optHantelnBohrstation2Type1, p_optHantelnBohrstation2Type2, p_optHantelnBohrstation2Type3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761403461490</Id>
+					<Name><![CDATA[col_optAusBohrstation]]></Name>
+					<X>-899.3333333333334</X><Y>1501.3333333333333</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ p_optHantelnAusBohrstationType0, p_optHantelnAusBohrstationType1, p_optHantelnAusBohrstationType2, p_optHantelnAusBohrstationType3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761403498938</Id>
+					<Name><![CDATA[col_optDrehmaschine]]></Name>
+					<X>-599.3333333333334</X><Y>1501.3333333333333</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ p_optHantelnDrehmaschineType0, p_optHantelnDrehmaschineType1, p_optHantelnDrehmaschineType2, p_optHantelnDrehmaschineType3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761403536089</Id>
+					<Name><![CDATA[col_optKeineDrehmaschine]]></Name>
+					<X>-299.33333333333337</X><Y>1500.6666666666667</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ p_optHantelnKeineDrehmaschineType0, p_optHantelnKeineDrehmaschineType1, p_optHantelnKeineDrehmaschineType2, p_optHantelnKeineDrehmaschineType3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761403600249</Id>
+					<Name><![CDATA[col_optLackierstation1]]></Name>
+					<X>-900</X><Y>1800</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ p_optHantelnLackierstation1Type0, p_optHantelnLackierstation1Type1, p_optHantelnLackierstation1Type2, p_optHantelnLackierstation1Type3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761403634747</Id>
+					<Name><![CDATA[col_optLackierstation2]]></Name>
+					<X>-600</X><Y>1800.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ p_optHantelnLackierstation2Type0, p_optHantelnLackierstation2Type1, p_optHantelnLackierstation2Type2, p_optHantelnLackierstation2Type3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761403656554</Id>
+					<Name><![CDATA[col_optLackierstation3]]></Name>
+					<X>-299</X><Y>1800.5</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ p_optHantelnLackierstation3Type0, p_optHantelnLackierstation3Type1, p_optHantelnLackierstation3Type2, p_optHantelnLackierstation3Type3 }]]></Code>
 						</CollectionInitializer>
 					</Properties>
 
@@ -2070,6 +3276,38 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 					</Properties>
 					<Action><![CDATA[f_startModel();]]></Action>
 				</Event>
+				<Event>
+					<Id>1761397443454</Id>
+					<Name><![CDATA[event_test]]></Name>
+					<X>10</X><Y>-250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="cyclic">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<Id>1761397443452</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1761465600000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[200]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[200]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[f_auftragErzeugen();]]></Action>
+				</Event>
 			</Events>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
@@ -2133,12 +3371,10 @@ if (agent.p_type == 2) {
 } else if (agent.p_type == 3) {
     return false; // Muss zu Station 2
 } else {
-    // Intelligente Verteilung für Typ 0 und 1 basierend auf der Anzahl der Agenten im Convey-Block
+    // Verteilung für Typ 0 und 1 basierend auf der Anzahl der Agenten im Convey-Block
     if (con_bohrstation1.size() <= con_bohrstation2.size()) {
-        // Wenn Convey 1 weniger oder gleich viele Agenten transportiert
         return true; // Schicke zu Station 1
     } else {
-        // Wenn Convey 2 weniger Agenten transportiert
         return false; // Schicke zu Station 2
     }
 }]]></Body>
@@ -2422,53 +3658,47 @@ return (int) summe;]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[// Wähle den Typ des nächsten Agenten, der gesendet werden soll (nur aus nicht-leeren Queues)
-int chosenType = f_chooseNextAgent();
+int chosenType = 0;
 
-// Nur entblocken, wenn ein gültiger, nicht-leerer Typ gefunden wurde (Index >= 0)
-if (chosenType != -1) {
-    //traceln("Entblocke Hold-Block für Typ " + chosenType);
-    // Hole den korrekten Hold-Block aus der Collection und entblocke ihn
+// speichert verfügbare hantel-types
+ArrayList<Integer> verfuegbareTypen = f_getAvailableTypes();
+
+// Prüfe, ob mindestens eine nicht-leere Queue gefunden wurde
+if (!verfuegbareTypen.isEmpty()) {
+    // Wähle zufällig einen Index aus der Liste der verfügbaren Typen
+    chosenType = f_chooseNextAgent(verfuegbareTypen);
+    traceln("Auswahl für nächsten Agenten: Typ " + chosenType + " (Queues verfügbar: " + verfuegbareTypen + ")");
+	
+	// Hole den korrekten Hold-Block aus der Collection und entblocke ihn
     col_holdAllTypes.get(chosenType).unblock();
-} else {
-    // Nichts tun, wenn alle Queues leer sind. exit_aufträge wird nächsten auftrag starten
-    
-    //traceln("Neuer Auftrag in Bearbeitung");
-}]]></Body>
+}
+
+ else {
+    // Alle Queues sind leer
+    traceln("Auswahl für nächsten Agenten: Alle Queues (q_type0-3) sind leer.");
+    chosenType = -1; // Signalisiert, dass nichts zu tun ist. exit_aufträge wird nen nächsten Auftrag anfordern
+}
+
+]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 					<ReturnType><![CDATA[int]]></ReturnType>
 					<Id>1761240301531</Id>
 					<Name><![CDATA[f_chooseNextAgent]]></Name>
-					<X>-750</X><Y>360</Y>
+					<X>-750</X><Y>400</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[// Liste zum Speichern der Indizes von nicht-leeren Queues
-ArrayList<Integer> verfuegbareTypen = new ArrayList<>();
+					<Parameter>
+						<Name><![CDATA[verfuegbareTypen]]></Name>
+						<Type><![CDATA[ArrayList<Integer>]]></Type>
+					</Parameter>
+					<Body><![CDATA[int zufallsIndexAusListe = uniform_discr(0, verfuegbareTypen.size() - 1);
 
-// Prüfe jede Queue in der Collection col_queuesAllTypes
-for (int i = 0; i < col_queuesAllTypes.size(); i++) {
-    if (col_queuesAllTypes.get(i).size() > 0) {
-        // Wenn die Queue nicht leer ist, füge ihren Index zur Liste hinzu
-        verfuegbareTypen.add(i);
-    }
-}
-
-// Prüfe, ob mindestens eine nicht-leere Queue gefunden wurde
-if (!verfuegbareTypen.isEmpty()) {
-    // Wähle zufällig einen Index aus der Liste der verfügbaren Typen
-    int zufallsIndexAusListe = uniform_discr(0, verfuegbareTypen.size() - 1);
-    int gewaehlterTyp = verfuegbareTypen.get(zufallsIndexAusListe);
-    traceln("Auswahl für nächsten Agenten: Typ " + gewaehlterTyp + " (Queues verfügbar: " + verfuegbareTypen + ")");
-    return gewaehlterTyp; // Gib den Index der ausgewählten, nicht-leeren Queue zurück
-} else {
-    // Alle Queues sind leer
-    traceln("Auswahl für nächsten Agenten: Alle Queues (q_type0-3) sind leer.");
-    return -1; // Signalisiert, dass nichts zu tun ist
-}
-
+int chosenType = verfuegbareTypen.get(zufallsIndexAusListe);
+return chosenType;
 
 
 
@@ -2496,6 +3726,40 @@ if (!verfuegbareTypen.isEmpty()) {
 					<Body><![CDATA[selectedViewArea = viewArea;
 viewArea.navigateTo();
 groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[int]]></ReturnType>
+					<Id>1761397667820</Id>
+					<Name><![CDATA[function]]></Name>
+					<X>660</X><Y>-120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[return sink.count();]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[ArrayList<Integer>]]></ReturnType>
+					<Id>1761398392170</Id>
+					<Name><![CDATA[f_getAvailableTypes]]></Name>
+					<X>-750</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[// Liste zum Speichern der Indizes von nicht-leeren Queues
+ArrayList<Integer> verfuegbareTypen = new ArrayList<>();
+
+// Prüfe jede Queue in der Collection col_queuesAllTypes
+for (int i = 0; i < col_queuesAllTypes.size(); i++) {
+    if (col_queuesAllTypes.get(i).size() > 0) {
+        // Wenn die Queue nicht leer ist, füge ihren Index zur Liste hinzu
+        verfuegbareTypen.add(i);
+    }
+}
+return verfuegbareTypen;]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -2922,15 +4186,21 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[v_hantelnStart[agent.p_type] ++;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onAtExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[f_sendNextAgent();]]></Code>
+								<Code><![CDATA[f_sendNextAgent(); //forgert die nächste Hantel an]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[v_hantelnStart[agent.p_type] --;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onRemove]]></Name>
@@ -8145,7 +9415,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<Camera3D>
 					<Id>1760398349719</Id>
 					<Name><![CDATA[camera]]></Name>
-					<X>620</X><Y>1040</Y><Z>527.43</Z>
+					<X>688.5</X><Y>1091.48</Y><Z>555.19</Z>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<ShowLabel>false</ShowLabel>
 					<RotationX>45.0</RotationX>
@@ -23908,13 +25178,121 @@ else {return false;}]]></Body>
 				<Parameter>
 					<ParameterName><![CDATA[p_hantelnProAuftrag]]></ParameterName>
 				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnStartType0]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnStartType1]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnStartType2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnStartType3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnBohrstation1Type0]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnBohrstation1Type1]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnBohrstation1Type2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnBohrstation1Type3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnBohrstation2Type0]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnBohrstation2Type1]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnBohrstation2Type2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnBohrstation2Type3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnAusBohrstationType0]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnAusBohrstationType1]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnAusBohrstationType2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnAusBohrstationType3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnDrehmaschineType0]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnDrehmaschineType1]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnDrehmaschineType2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnDrehmaschineType3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnKeineDrehmaschineType0]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnKeineDrehmaschineType1]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnKeineDrehmaschineType2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnKeineDrehmaschineType3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation1Type0]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation1Type1]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation1Type2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation1Type3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation2Type0]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation2Type1]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation2Type2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation2Type3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation3Type0]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation3Type1]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation3Type2]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_optHantelnLackierstation3Type3]]></ParameterName>
+				</Parameter>
 			</Parameters>
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
 				<ExecutionMode><![CDATA[realTimeScaled]]></ExecutionMode>
 				<Title><![CDATA[Masterarbeit : Simulation]]></Title>
 				<EnableDeveloperPanel>true</EnableDeveloperPanel>
-				<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
+				<ShowDeveloperPanelOnStart>true</ShowDeveloperPanelOnStart>
 				<RealTimeScale>1.0</RealTimeScale>
 			</PresentationProperties>
 			<ModelTimeProperties>
