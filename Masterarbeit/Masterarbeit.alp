@@ -18,6 +18,8 @@
 		<ActiveObjectClass>
 			<Id>1759583674830</Id>
 			<Name><![CDATA[Main]]></Name>
+			<Description><![CDATA[
+]]></Description>
 			<AdditionalClassCode><![CDATA[// Hilfsklasse zum Sortieren nach Nachkommaanteil (absteigend)
 class FractionalPartComparator implements Comparator<double[]> {
     @Override
@@ -40,7 +42,142 @@ import java.util.Arrays;
 import java.util.Comparator;
 import com.anylogic.engine.presentation.Shape;
 import com.anylogic.engine.presentation.ShapeEmbeddedObjectPresentation; // Neu!]]></Import>
-			<StartupCode><![CDATA[navigate( viewLogic );]]></StartupCode>
+			<StartupCode><![CDATA[navigate( view2D);
+
+
+
+// Setze alle Optimierungs-Parameter auf den Wert 1
+
+// Start-Prioritäten
+p_optHantelnStartType0 = 1;
+p_optHantelnStartType1 = 1;
+p_optHantelnStartType2 = 1;
+p_optHantelnStartType3 = 1;
+
+// Bohrstation 1 Prioritäten
+p_optHantelnBohrstation1Type0 = 1;
+p_optHantelnBohrstation1Type1 = 1;
+p_optHantelnBohrstation1Type2 = 1;
+p_optHantelnBohrstation1Type3 = 1;
+
+// Bohrstation 2 Prioritäten
+p_optHantelnBohrstation2Type0 = 1;
+p_optHantelnBohrstation2Type1 = 1;
+p_optHantelnBohrstation2Type2 = 1;
+p_optHantelnBohrstation2Type3 = 1;
+
+// Prioritäten nach Bohrstation
+p_optHantelnAusBohrstationType0 = 1;
+p_optHantelnAusBohrstationType1 = 1;
+p_optHantelnAusBohrstationType2 = 1;
+p_optHantelnAusBohrstationType3 = 1;
+
+// Drehmaschine Prioritäten
+p_optHantelnDrehmaschineType0 = 1;
+p_optHantelnDrehmaschineType1 = 1;
+p_optHantelnDrehmaschineType2 = 1;
+p_optHantelnDrehmaschineType3 = 1;
+
+// Prioritäten, wenn keine Drehmaschine
+p_optHantelnKeineDrehmaschineType0 = 1;
+p_optHantelnKeineDrehmaschineType1 = 1;
+p_optHantelnKeineDrehmaschineType2 = 1;
+p_optHantelnKeineDrehmaschineType3 = 1;
+
+// Prioritäten nach Drehmaschine
+p_optHantelnAusDrehmaschineType0 = 1;
+p_optHantelnAusDrehmaschineType1 = 1;
+p_optHantelnAusDrehmaschineType2 = 1;
+p_optHantelnAusDrehmaschineType3 = 1;
+
+// Lackierstation 1 Prioritäten
+p_optHantelnLackierstation1Type0 = 1;
+p_optHantelnLackierstation1Type1 = 1;
+p_optHantelnLackierstation1Type2 = 1;
+p_optHantelnLackierstation1Type3 = 1;
+
+// Lackierstation 2 Prioritäten
+p_optHantelnLackierstation2Type0 = 1;
+p_optHantelnLackierstation2Type1 = 1;
+p_optHantelnLackierstation2Type2 = 1;
+p_optHantelnLackierstation2Type3 = 1;
+
+// Lackierstation 3 Prioritäten
+p_optHantelnLackierstation3Type0 = 1;
+p_optHantelnLackierstation3Type1 = 1;
+p_optHantelnLackierstation3Type2 = 1;
+p_optHantelnLackierstation3Type3 = 1;
+
+traceln("Alle p_opt... Parameter wurden auf 1 gesetzt.");
+
+// Wichtig: Arrays neu initialisieren, da die Initialisierung VOR dem On startup Code geschieht.
+// Verwende hier die korrekten Variablennamen, wie in deinem Modell definiert:
+v_optStart = new int[]{p_optHantelnStartType0, p_optHantelnStartType1, p_optHantelnStartType2, p_optHantelnStartType3};
+v_optBohrstation1 = new int[]{p_optHantelnBohrstation1Type0, p_optHantelnBohrstation1Type1, p_optHantelnBohrstation1Type2, p_optHantelnBohrstation1Type3}; // Korrigierter Name
+v_optBohrstation2 = new int[]{p_optHantelnBohrstation2Type0, p_optHantelnBohrstation2Type1, p_optHantelnBohrstation2Type2, p_optHantelnBohrstation2Type3};
+v_optAusBohrstation = new int[]{p_optHantelnAusBohrstationType0, p_optHantelnAusBohrstationType1, p_optHantelnAusBohrstationType2, p_optHantelnAusBohrstationType3};
+v_optDrehmaschine = new int[]{p_optHantelnDrehmaschineType0, p_optHantelnDrehmaschineType1, p_optHantelnDrehmaschineType2, p_optHantelnDrehmaschineType3};
+v_optKeineDrehmaschine = new int[]{p_optHantelnKeineDrehmaschineType0, p_optHantelnKeineDrehmaschineType1, p_optHantelnKeineDrehmaschineType2, p_optHantelnKeineDrehmaschineType3};
+v_optAusDrehmaschine = new int[]{p_optHantelnAusDrehmaschineType0, p_optHantelnAusDrehmaschineType1, p_optHantelnAusDrehmaschineType2, p_optHantelnAusDrehmaschineType3};
+v_optLackierstation1 = new int[]{p_optHantelnLackierstation1Type0, p_optHantelnLackierstation1Type1, p_optHantelnLackierstation1Type2, p_optHantelnLackierstation1Type3}; // Korrigierter Name
+v_optLackierstation2 = new int[]{p_optHantelnLackierstation2Type0, p_optHantelnLackierstation2Type1, p_optHantelnLackierstation2Type2, p_optHantelnLackierstation2Type3}; // Korrigierter Name
+v_optLackierstation3 = new int[]{p_optHantelnLackierstation3Type0, p_optHantelnLackierstation3Type1, p_optHantelnLackierstation3Type2, p_optHantelnLackierstation3Type3}; // Korrigierter Name
+
+
+// --- Initialisierung der zentralen Array-Variablen ---
+
+// 1. Array für Stationsnamen (ersetzt coll_optStationsNamen / coll_stationsNamen)
+//    (Kann alternativ auch direkt im "Initial value" der Variable v_optStationsNamen stehen)
+v_stationsNamen = new String[]{
+    "Start",             // Index 0
+    "Bohrstation1",      // Index 1
+    "Bohrstation2",      // Index 2
+    "AusBohrstation",    // Index 3
+    "Drehmaschine",      // Index 4
+    "KeineDrehmaschine", // Index 5
+    "AusDrehmaschine",   // Index 6
+    "Lackierstation1",   // Index 7
+    "Lackierstation2",   // Index 8
+    "Lackierstation3"    // Index 9
+};
+traceln("Array v_optStationsNamen initialisiert.");
+
+
+// 2. 2D-Array für Optimierungswerte (ersetzt col_optAlleStationen)
+//    Dieses Array speichert Referenzen auf die bereits initialisierten v_opt... Arrays
+v_optAlleStationen = new int[][]{
+    v_optStart,             // Index 0
+    v_optBohrstation1,      // Index 1
+    v_optBohrstation2,      // Index 2
+    v_optAusBohrstation,    // Index 3
+    v_optDrehmaschine,      // Index 4
+    v_optKeineDrehmaschine, // Index 5
+    v_optAusDrehmaschine,   // Index 6
+    v_optLackierstation1,   // Index 7
+    v_optLackierstation2,   // Index 8
+    v_optLackierstation3    // Index 9
+};
+traceln("2D-Array v_optAlleStationenWerte initialisiert.");
+
+
+// 3. 2D-Array für Hantelanzahlen (ersetzt col_hantelnAlleStationen)
+//    Dieses Array speichert Referenzen auf die bereits initialisierten v_hanteln... Arrays
+v_hantelnAlleStationen = new int[][]{
+    v_hantelnStart,             // Index 0
+    v_hantelnBohrstation1,      // Index 1
+    v_hantelnBohrstation2,      // Index 2
+    v_hantelnAusBohrstation,    // Index 3
+    v_hantelnDrehmaschine,      // Index 4
+    v_hantelnKeineDrehmaschine, // Index 5
+    v_hantelnAusDrehmaschine,   // Index 6
+    v_hantelnLackierstation1,   // Index 7
+    v_hantelnLackierstation2,   // Index 8
+    v_hantelnLackierstation3    // Index 9
+};
+traceln("2D-Array v_hantelnAlleStationenWerte initialisiert.");
+
+
+traceln("v_opt... Arrays wurden mit den neuen Parameterwerten aktualisiert.");]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1759583674835</Id>
@@ -474,6 +611,84 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761513841103</Id>
+					<Name><![CDATA[v_optAlleStationen]]></Name>
+					<X>-500</X><Y>1150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[][]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[][]{
+    v_optStart,             // Index 0
+    v_optBohrstation1,      // Index 1
+    v_optBohrstation2,      // Index 2
+    v_optAusBohrstation,    // Index 3
+    v_optDrehmaschine,      // Index 4
+    v_optKeineDrehmaschine, // Index 5
+    v_optAusDrehmaschine,   // Index 6
+    v_optLackierstation1,   // Index 7
+    v_optLackierstation2,   // Index 8
+    v_optLackierstation3    // Index 9
+}]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761514261121</Id>
+					<Name><![CDATA[v_hantelnAlleStationen]]></Name>
+					<X>-750</X><Y>700</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int[][]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new int[][]{
+    v_hantelnStart,             // Index 0
+    v_hantelnBohrstation1,      // Index 1
+    v_hantelnBohrstation2,      // Index 2
+    v_hantelnAusBohrstation,    // Index 3
+    v_hantelnDrehmaschine,      // Index 4
+    v_hantelnKeineDrehmaschine, // Index 5
+    v_hantelnAusDrehmaschine,   // Index 6
+    v_hantelnLackierstation1,   // Index 7
+    v_hantelnLackierstation2,   // Index 8
+    v_hantelnLackierstation3    // Index 9
+}]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761514342858</Id>
+					<Name><![CDATA[v_stationsNamen]]></Name>
+					<X>-300</X><Y>1150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String[]]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[new String[]{
+    "Start",             // Index 0
+    "Bohrstation1",      // Index 1
+    "Bohrstation2",      // Index 2
+    "AusBohrstation",    // Index 3
+    "Drehmaschine",      // Index 4
+    "KeineDrehmaschine", // Index 5
+    "AusDrehmaschine",   // Index 6
+    "Lackierstation1",   // Index 7
+    "Lackierstation2",   // Index 8
+    "Lackierstation3"    // Index 9
+}]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1760634315310</Id>
 					<Name><![CDATA[p_conveyorGap]]></Name>
@@ -537,7 +752,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
+							<Code><![CDATA[5]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1761392855526</Id>
@@ -562,7 +777,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
+							<Code><![CDATA[02]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1761398119549</Id>
@@ -587,7 +802,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
+							<Code><![CDATA[03]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1761398122176</Id>
@@ -612,7 +827,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
+							<Code><![CDATA[04]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1761398125655</Id>
@@ -1574,42 +1789,6 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
 							<Code><![CDATA[{ hold_type0, hold_type1, hold_type2, hold_type3 }]]></Code>
-						</CollectionInitializer>
-					</Properties>
-
-				</Variable>
-				<Variable Class="CollectionVariable">
-					<Id>1761421102285</Id>
-					<Name><![CDATA[col_hantelnAlleStationen]]></Name>
-					<X>-750</X><Y>700</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
-						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[int[]]]></ElementClass>
-						<ValueElementClass><![CDATA[String]]></ValueElementClass>
-						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ v_hantelnStart, v_hantelnBohrstation1, v_hantelnBohrstation2, v_hantelnAusBohrstation, v_hantelnDrehmaschine, v_hantelnKeineDrehmaschine, v_hantelnAusDrehmaschine, v_hantelnLackierstation1, v_hantelnLackierstation2, v_hantelnLackierstation3 }]]></Code>
-						</CollectionInitializer>
-					</Properties>
-
-				</Variable>
-				<Variable Class="CollectionVariable">
-					<Id>1761421501429</Id>
-					<Name><![CDATA[col_optAlleStationen]]></Name>
-					<X>-500</X><Y>1098.6666666666667</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
-						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[int[]]]></ElementClass>
-						<ValueElementClass><![CDATA[String]]></ValueElementClass>
-						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ v_optStart, v_optBohrstation1, v_optBohrstation2, v_optAusBohrstation, v_optDrehmaschine, v_optKeineDrehmaschine, v_optAusDrehmaschine, v_optLackierstation1, v_optLackierstation2, v_optLackierstation3 }]]></Code>
 						</CollectionInitializer>
 					</Properties>
 
@@ -3456,6 +3635,7 @@ f_auftragErzeugen();
 
 
 
+
 ]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
@@ -3905,25 +4085,29 @@ return verfuegbareTypen;]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1761420234353</Id>
 					<Name><![CDATA[f_calculatePriorityScore]]></Name>
-					<Description><![CDATA[Um verschiedene Types nacheinander auszugeben einfach: return 0;]]></Description>
-					<X>-750</X><Y>440</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Parameter>
-						<Name><![CDATA[type]]></Name>
-						<Type><![CDATA[int]]></Type>
-					</Parameter>
-					<Body><![CDATA[// Funktion berechnet einen Score für den übergebenen 'typ' (0-3)
-// Höherer Score = höhere Priorität für die Auswahl
+					<Description><![CDATA[for (int i = 0; i < col_hantelnAlleStationen.size(); i++) {
+	double bonus = col_hantelnAlleStationen.get(i)[type] * col_optAlleStationen.get(i)[type];
+    score += bonus;
+    traceln("Typ " + type + ", Station: " + col_stationsNamen.get(i) + ", Bonus: " + format(bonus));
+}
 
-// --- 1. Basis-Priorität ---
-// Startet mit dem Wert aus den Start-Parametern
-double score = v_optStartValues[type];
-traceln("Type " + type + " - Basis-Score: " + score);
+traceln("Score für Typ " + type + ": " + score);
 
-// --- 2. Berücksichtigung nachfolgender Bereiche (Engpass-Vermeidung/Stations-Priorität) ---
+
+
+
+// -- start --
+score += v_hantelnStart[type] * v_optStart[type];
+
+
+// -- Bohrstation1 --
+score += v_hantelnBohrstation1[type] * v_optBohrstation1[type];
+
+// -- Bohrstation2 --
+score += v_hantelnBohrstation2[type] * v_optBohrstation2[type];
+
+
+
 
 // -- Bohrstationen --
 boolean gehtZuBohr1;
@@ -4029,6 +4213,45 @@ int congestionLack3 = con_lackierstation3.size();
 // score += someFactor / (1 + totalOfTypeInSystem);
 
 traceln("Typ " + typ + " - Finaler Score: " + score);
+
+
+Um verschiedene Types nacheinander auszugeben einfach: return 0;]]></Description>
+					<X>-750</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[type]]></Name>
+						<Type><![CDATA[int]]></Type>
+					</Parameter>
+					<Body><![CDATA[// Funktion berechnet einen Score für den übergebenen 'typ' (0-3)
+// Höherer Score = höhere Priorität für die Auswahl
+
+// --- 1. Basis-Priorität ---
+// Startet mit dem Wert aus den Start-Parametern
+double score = 1; //v_optStartValues[type];
+traceln("Type " + type + " - Basis-Score: " + score);
+
+
+// --- 2. Berücksichtigung nachfolgender Bereiche (Engpass-Vermeidung/Stations-Priorität) ---
+
+// Gehe durch alle Stationen (Indizes 0 bis 9)
+// v_stationsNamen.length gibt die Anzahl der Stationen an (sollte 10 sein)
+for (int i = 0; i < v_stationsNamen.length; i++) {
+
+    // Berechne den Bonus für die aktuelle Station 'i' und den aktuellen Hanteltyp 'type'
+    // Greife auf die 2D-Arrays über [stationsIndex][typIndex] zu
+    double bonus = v_hantelnAlleStationen[i][type] * v_optAlleStationen[i][type];
+
+    // Addiere den Bonus zum Gesamtscore
+    score += bonus;
+
+    // Gib Informationen zum berechneten Bonus aus
+    traceln("Typ " + type + ", Station: " + v_stationsNamen[i] + ", Bonus: " + format(bonus));
+}
+
+
 return score;]]></Body>
 				</Function>
 			</Functions>
@@ -9739,7 +9962,7 @@ enter_bearbeiten.take(agent);]]></Code>
 				<Camera3D>
 					<Id>1760398349719</Id>
 					<Name><![CDATA[camera]]></Name>
-					<X>688.5</X><Y>1091.48</Y><Z>555.19</Z>
+					<X>687.19</X><Y>1181.08</Y><Z>755.26</Z>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<ShowLabel>false</ShowLabel>
 					<RotationX>45.0</RotationX>
@@ -21962,9 +22185,9 @@ q_aktuellerAuftrag.size() > 0 ?
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor>-16777216</TextColor>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[double priorityScore = 500;
+						<ActionCode><![CDATA[double priorityScore;
 
-priorityScore = col_hantelnAlleStationen.get(0)[2];
+priorityScore = v_optAlleStationen[0][1];
 
 
 
