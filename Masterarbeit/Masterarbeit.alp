@@ -41,7 +41,10 @@ import com.querydsl.core.types.dsl.NumberPath;
 import java.util.Arrays;
 import java.util.Comparator;
 import com.anylogic.engine.presentation.Shape;
-import com.anylogic.engine.presentation.ShapeEmbeddedObjectPresentation; // Neu!]]></Import>
+import com.anylogic.engine.presentation.ShapeEmbeddedObjectPresentation;
+import com.querydsl.core.Tuple;
+import java.util.List;
+]]></Import>
 			<StartupCode><![CDATA[navigate( view2D);
 
 f_auftragErzeugen();
@@ -138,28 +141,6 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 			</ScaleRuler>
 			<CurrentLevel>1759583674836</CurrentLevel>
 			<ConnectionsId>1759583674831</ConnectionsId>
-			<Outputs>
-				<Output>
-					<Id>1761585846132</Id>
-					<Name><![CDATA[output]]></Name>
-					<X>660</X><Y>-50</Y>
-					<Label><X>15</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Type><![CDATA[int]]></Type>
-					<UnitType><![CDATA[NONE]]></UnitType>
-					<Value Class="CodeValue">
-						<Code><![CDATA[f_maximize()]]></Code>
-					</Value>
-					<ComputationMoment>ON_SIMULATION_END</ComputationMoment>
-					<ComputationTimeCode Class="CodeUnitValue">
-						<Code><![CDATA[]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-					</ComputationTimeCode>
-					<ComputationDate>1761638400000</ComputationDate>
-				</Output>
-			</Outputs>
 			<Variables>
 				<Variable Class="PlainVariable">
 					<Id>1761085886832</Id>
@@ -195,7 +176,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 					<Id>1761392752294</Id>
 					<Name><![CDATA[v_hantelnBereich1]]></Name>
 					<Description><![CDATA[Hanteln in Bereich sortiert nach Type]]></Description>
-					<X>-750</X><Y>470</Y>
+					<X>-1200</X><Y>2200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -211,7 +192,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 					<Id>1761392752296</Id>
 					<Name><![CDATA[v_hantelnBereich2]]></Name>
 					<Description><![CDATA[Hanteln in Bereich sortiert nach Type]]></Description>
-					<X>-750</X><Y>490</Y>
+					<X>-1000</X><Y>2200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -227,7 +208,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 					<Id>1761392752299</Id>
 					<Name><![CDATA[v_hantelnBereich3]]></Name>
 					<Description><![CDATA[Hanteln in Bereich sortiert nach Type]]></Description>
-					<X>-750</X><Y>510</Y>
+					<X>-800</X><Y>2200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -321,7 +302,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Variable Class="PlainVariable">
 					<Id>1761514261121</Id>
 					<Name><![CDATA[v_hantelnAlleBereiche]]></Name>
-					<X>-750</X><Y>550</Y>
+					<X>-1400</X><Y>2200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -466,7 +447,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Variable Class="PlainVariable">
 					<Id>1761587252513</Id>
 					<Name><![CDATA[v_hantelnGesamt]]></Name>
-					<X>-750</X><Y>600</Y>
+					<X>-1400</X><Y>2250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1493,6 +1474,24 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
 							<Code><![CDATA[{ hold_type0, hold_type1, hold_type2, hold_type3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761657480137</Id>
+					<Name><![CDATA[col_alleStationen]]></Name>
+					<X>-1000</X><Y>2350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[com.anylogic.engine.markup.ConveyorSimpleStation]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ Bohrstation1, Bohrstation2, Drehmaschine, Lackierstation1, Lackierstation2, Lackierstation3 }]]></Code>
 						</CollectionInitializer>
 					</Properties>
 
@@ -3550,7 +3549,7 @@ v_zuletztErzeugterAuftragNr ++;
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[//Erzeugt Aufträge und erzeugt daraus agenten in den Source Blöcken
 // Erzeugt Verteilung
-double[] verteilung = f_generiereZufaelligeVerteilung();
+double[] verteilung = f_getNextAuftrag();
 
 // Holt Länge des Verteilungs-Arrays
 int verteilungLength = verteilung.length;
@@ -3584,7 +3583,7 @@ traceln("Auftrag Nr." + v_zuletztErzeugterAuftragNr + " erzeugt:" + Arrays.toStr
 					<ReturnType><![CDATA[double[]]]></ReturnType>
 					<Id>1761083926887</Id>
 					<Name><![CDATA[f_generiereZufaelligeVerteilung]]></Name>
-					<X>-500</X><Y>210</Y>
+					<X>-500</X><Y>760</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3783,15 +3782,15 @@ groupMainMenu.setPos( viewArea.getX(), viewArea.getY() );]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
-					<ReturnType><![CDATA[int]]></ReturnType>
+					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1761397667820</Id>
-					<Name><![CDATA[f_maximize]]></Name>
-					<X>660</X><Y>-70</Y>
+					<Name><![CDATA[f_optObjective]]></Name>
+					<X>-1400</X><Y>2350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[return sink.count();]]></Body>
+					<Body><![CDATA[return f_auslastungAlleStationen();]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -3951,7 +3950,7 @@ traceln("Typ " + typ + " - Finaler Score: " + score);
 
 
 Um verschiedene Types nacheinander auszugeben einfach: return 0;]]></Description>
-					<X>-750</X><Y>440</Y>
+					<X>-1400</X><Y>2300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3983,7 +3982,7 @@ for (int i = 0; i < v_optAlleBereiche.length; i++) {
 
 }
 
-if (false){
+if (true){
 // --- 3. Berücksichtigung der agenten im gesamten system  ---
 // jeder einzelne typ bekommt eine eigene Gewichtung für jeden möglichen nächsten typ (4x4 Parameter)
 
@@ -4006,7 +4005,87 @@ for (int i = 0; i < v_optGesamtAlleTypes.length; i++) {
 // Addiere den Bonus zum Gesamtscore
 score += col_queuesAllTypes.get(type).size() * v_optQueAlleTypes[type];
 
-return score;]]></Body>
+return score;
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1761657383124</Id>
+					<Name><![CDATA[f_auslastungAlleStationen]]></Name>
+					<X>-1200</X><Y>2350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[double summe = 0;
+for (int i = 0; i < col_alleStationen.size(); i++) {
+	double auslastungDerStation = col_alleStationen.get(i).getUtilization();
+    summe += auslastungDerStation;
+}
+double durchschnitt = summe / col_alleStationen.size();
+return durchschnitt;]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[double[]]]></ReturnType>
+					<Id>1761660998570</Id>
+					<Name><![CDATA[f_getNextAuftrag]]></Name>
+					<Description><![CDATA[// 1. Zähle, wie viele Aufträge (Zeilen) in der Tabelle sind
+long anzahlAuftraege = selectFrom(auftraege).fetchCount();
+
+if (anzahlAuftraege == 0) {
+    traceln("FEHLER in f_getNextAuftrag: Die Tabelle 'auftraege' ist leer. Verwende Fallback-Verteilung.");
+    return new double[]{0.25, 0.25, 0.25, 0.25}; // Fallback-Verteilung
+}
+
+// 2. Wähle einen zufälligen Index (von 0 bis anzahl-1)
+int zufallsIndex = uniform_discr(0, (int)anzahlAuftraege - 1);
+traceln("Wähle zufälligen Auftrag aus DB, Index: " + zufallsIndex);
+
+// 3. Hole die eine Zeile an diesem zufälligen Index (Offset)
+Tuple row = selectFrom(auftraege)
+    .select(auftraege.anteil_typ0, auftraege.anteil_typ1, auftraege.anteil_typ2, auftraege.anteil_typ3)
+    .offset(zufallsIndex) // Überspringe die ersten 'zufallsIndex' Zeilen
+    .limit(1)             // Nimm nur die nächste (also die eine)
+    .fetchOne();
+
+if (row == null) {
+     traceln("FEHLER in f_getNextAuftrag: Konnte Zeile mit Index " + zufallsIndex + " nicht holen. Verwende Fallback.");
+     return new double[]{0.25, 0.25, 0.25, 0.25}; // Fallback
+}
+
+// 4. Extrahiere die int-Werte (z.B. 25, 25, 25, 25)
+//    Stelle sicher, dass die Spaltennamen (anteil_typ0 etc.) exakt stimmen!
+int anteil0 = row.get(auftraege.anteil_typ0);
+int anteil1 = row.get(auftraege.anteil_typ1);
+int anteil2 = row.get(auftraege.anteil_typ2);
+int anteil3 = row.get(auftraege.anteil_typ3);
+
+double summeAnteile = anteil0 + anteil1 + anteil2 + anteil3;
+
+// 5. Konvertiere in double-Anteile (z.B. 0.25, 0.25...)
+//    (Wir normalisieren, falls die Summe in der DB nicht 100 ist)
+if (summeAnteile == 0) {
+     traceln("WARNUNG in f_getNextAuftrag: Summe der Anteile ist 0. Verwende Fallback.");
+     return new double[]{0.25, 0.25, 0.25, 0.25};
+}
+
+double[] ergebnisDouble = new double[4];
+ergebnisDouble[0] = (double)anteil0 / summeAnteile;
+ergebnisDouble[1] = (double)anteil1 / summeAnteile;
+ergebnisDouble[2] = (double)anteil2 / summeAnteile;
+ergebnisDouble[3] = (double)anteil3 / summeAnteile;
+
+traceln("  -> Gelesene Verteilung (Anteile): " + Arrays.toString(ergebnisDouble));
+return ergebnisDouble;]]></Description>
+					<X>-500</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[double[] ergebnisDouble = new double[4];
+return ergebnisDouble;]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -4050,6 +4129,9 @@ return score;]]></Body>
 							<ClassName><![CDATA[Sink]]></ClassName>
 							<ItemName><![CDATA[1412336242929]]></ItemName>
 						</GenericParameterSubstituteReference>
+						<GenericParameterSubstituteValue Class="CodeValue">
+							<Code><![CDATA[Hantel]]></Code>
+						</GenericParameterSubstituteValue>
 					</GenericParameterSubstitute>
 					<Parameters>
 						<Parameter>
@@ -5350,6 +5432,9 @@ v_hantelnGesamt[agent.p_type] ++;]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[send("systemVerlassen", agent);]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onRemove]]></Name>
@@ -6045,6 +6130,9 @@ enter_bearbeiten.take(agent);]]></Code>
 							<ClassName><![CDATA[Enter]]></ClassName>
 							<ItemName><![CDATA[1412336242933]]></ItemName>
 						</GenericParameterSubstituteReference>
+						<GenericParameterSubstituteValue Class="CodeValue">
+							<Code><![CDATA[Hantel]]></Code>
+						</GenericParameterSubstituteValue>
 					</GenericParameterSubstitute>
 					<Parameters>
 						<Parameter>
@@ -9793,6 +9881,9 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[send("ausschuss", agent);]]></Code>
+							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -19825,6 +19916,171 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
 					</Points>
 
+			<Presentation>
+				<ConveyorSimpleStation>
+					<Id>1761651607957</Id>
+					<Name><![CDATA[Prüfstation]]></Name>
+					<X>580</X><Y>300</Y>
+					<Label><X>-50</X><Y>-36</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<EmbeddedObject>
+						<Id>1761651607961</Id>
+						<ActiveObjectClass>
+							<PackageName><![CDATA[com.anylogic.libraries.material_handling]]></PackageName>
+							<ClassName><![CDATA[ConveyorSimpleStationDescriptor]]></ClassName>
+						</ActiveObjectClass>
+						<GenericParameterSubstitute>
+							<GenericParameterSubstituteReference>
+								<PackageName><![CDATA[com.anylogic.libraries.material_handling]]></PackageName>
+								<ClassName><![CDATA[ConveyorSimpleStationDescriptor]]></ClassName>
+								<ItemName><![CDATA[1513941038050]]></ItemName>
+							</GenericParameterSubstituteReference>
+						</GenericParameterSubstitute>
+						<Parameters>
+							<Parameter>
+								<Name><![CDATA[delayType]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[processTime]]></Name>
+								<Value Class="CodeUnitValue">
+									<Code><![CDATA[f_getProcessTime(agent, bearbeitungszeiten.pruefstation)]]></Code>
+									<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+								</Value>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[capacity]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[processingMode]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[loadingMode]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[useResources]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[seizeFromOnePool]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[resourceSets]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[resourcePool]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[resourceQuantity]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[sendResources]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[resourceDestinationType]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[resourceDestinationNode]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[resourceDestinationAttractor]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[resourceDestinationX]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[resourceDestinationY]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[resourceDestinationZ]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[movingGoHome]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[customizeResourceChoice]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[resourceChoiceCondition]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[priority]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[taskMayPreemptOtherTasks]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[taskPreemptionPolicy]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onProcessStarted]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onProcessFinished]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onLeadingEdgeEnter]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onTrailingEdgeEnter]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onLeadingEdgeExit]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onTrailingEdgeExit]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onTaskSuspended]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onTaskResumed]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onTaskTerminated]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[downtimes]]></Name>
+							</Parameter>
+						</Parameters>
+						<ReplicationFlag>false</ReplicationFlag>
+						<Replication Class="CodeValue">
+							<Code><![CDATA[100]]></Code>
+						</Replication>
+						<CollectionType>ARRAY_LIST_BASED</CollectionType>
+						<InitialLocationType>XYZ</InitialLocationType>
+						<ColumnCode Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</ColumnCode>
+						<RowCode Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</RowCode>
+						<LocationNameCode Class="CodeValue">
+							<Code><![CDATA[""]]></Code>
+						</LocationNameCode>
+						<InitializationType>SPECIFIED_NUMBER</InitializationType>
+						<InitializationDatabaseTableQuery>
+							<Id>1761651607960</Id>
+							<TableReference>
+							</TableReference>
+						</InitializationDatabaseTableQuery>
+						<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+						<QuantityColumn>
+						</QuantityColumn>
+					</EmbeddedObject>
+					<Offset>50.0</Offset>
+					<Length Class="UnitValue">
+						<Value Class="Double">0.16</Value>
+						<Unit Class="LengthUnits"><![CDATA[METER]]></Unit>
+					</Length>
+					<LineColor>-16777216</LineColor>
+					<FillColor>-7278960</FillColor>
+					<LineMaterial>null</LineMaterial>
+					<FillMaterial>null</FillMaterial>
+				</ConveyorSimpleStation>
+			</Presentation>
 
 				</Conveyor>
 				<Conveyor SourceId="1760484619810" TargetId="1760484659794">
@@ -22086,20 +22342,22 @@ q_aktuellerAuftrag.size() > 0 ?
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1761157989319</Id>
 					<Name><![CDATA[button]]></Name>
-					<X>-530</X><Y>660</Y>
+					<X>-480</X><Y>600</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<BasicProperties Width="130" Height="50">
+					<BasicProperties Width="250" Height="80">
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor>-16777216</TextColor>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[double priorityScore;
-
-
-traceln(0);]]></ActionCode>
+						<ActionCode><![CDATA[Tuple testRow = selectFrom(auftraege).fetchFirst();
+if (testRow == null) {
+    traceln("Test: Tabelle ist leer oder fetchFirst geht nicht.");
+} else {
+    traceln("Test: fetchFirst hat eine Zeile geholt.");
+}]]></ActionCode>
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="24" Style="0"/>
@@ -24827,6 +25085,18 @@ Color.yellow}]]></Code>
 						<FillColor/>
 					</Properties>
 				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1761650145091</Id>
+					<Name><![CDATA[hat_System_Verlassen]]></Name>
+					<X>420</X><Y>500</Y>
+					<Label><X>5</X><Y>25</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="150" Height="50">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 					<Id>1760912307031</Id>
 					<Name><![CDATA[statechart]]></Name>
@@ -25019,6 +25289,36 @@ Color.yellow}]]></Code>
 						<DefaultTransition>true</DefaultTransition>
 						<FilterType><![CDATA[equalsTo]]></FilterType>
 						<EqualsExpression><![CDATA["ausschuss"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1761650163780</Id>
+					<Name><![CDATA[transition6]]></Name>
+					<X>650</X><Y>450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-150</X><Y>50</Y></Point>
+					</Points>
+					<IconOffset>80.0</IconOffset>
+					<Properties Source="1760912904654" Target="1761650145091" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["systemVerlassen"]]></EqualsExpression>
 						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
 					</Properties>	
 				</StatechartElement>
@@ -31600,7 +31900,7 @@ copyToClipboard( s );]]></ActionCode>
 					<Code><![CDATA[2]]></Code>
 				</Step>
 			</Parameter>
-			<ObjectiveFunctionCode><![CDATA[root.f_maximize()]]></ObjectiveFunctionCode>
+			<ObjectiveFunctionCode><![CDATA[root.f_optObjective()]]></ObjectiveFunctionCode>
 			<Objective>MAXIMIZE</Objective>  
 			<OptimizationEngine>NATIVE</OptimizationEngine>
 			<AfterIterationCode><![CDATA[if (isBestSolutionFeasible()) {
