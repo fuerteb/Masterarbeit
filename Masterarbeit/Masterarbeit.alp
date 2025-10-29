@@ -474,6 +474,51 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761759851133</Id>
+					<Name><![CDATA[v_isDigitalTwin]]></Name>
+					<X>-1300</X><Y>400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[p_modus.equals("Digital Twin")]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761763808086</Id>
+					<Name><![CDATA[v_chooseNextAgent]]></Name>
+					<X>-1300</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[p_chooseNextAgent]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761769228359</Id>
+					<Name><![CDATA[v_alternatingIndexCounter]]></Name>
+					<X>-750</X><Y>450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1760634315310</Id>
 					<Name><![CDATA[p_conveyorGap]]></Name>
@@ -513,7 +558,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[50]]></Code>
+							<Code><![CDATA[20]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1761082536192</Id>
@@ -1424,6 +1469,55 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761758992806</Id>
+					<Name><![CDATA[p_modus]]></Name>
+					<X>-1300</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA["Simulation"]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761758992804</Id>
+							<Label><![CDATA[p_Modus]]></Label>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761761879203</Id>
+					<Name><![CDATA[p_chooseNextAgent]]></Name>
+					<X>-1300</X><Y>450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA["Optimiert"]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761761879201</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1761143103799</Id>
 					<Name><![CDATA[col_sourceBlöcke]]></Name>
@@ -1445,7 +1539,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Variable Class="CollectionVariable">
 					<Id>1761165408829</Id>
 					<Name><![CDATA[col_queuesAllTypes]]></Name>
-					<X>-500</X><Y>460</Y>
+					<X>-500</X><Y>400</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1463,7 +1557,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Variable Class="CollectionVariable">
 					<Id>1761167749759</Id>
 					<Name><![CDATA[col_holdAllTypes]]></Name>
-					<X>-500</X><Y>510</Y>
+					<X>-500</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1492,6 +1586,24 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
 							<Code><![CDATA[{ Bohrstation1, Bohrstation2, Drehmaschine, Lackierstation1, Lackierstation2, Lackierstation3 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1761740164562</Id>
+					<Name><![CDATA[col_dbAuftraegeIntern]]></Name>
+					<X>-500</X><Y>700</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[TableFunction]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ db_auftraegeInternTyp0, db_auftraegeInternTyp1, db_auftraegeInternTyp2, db_auftraegeInternTyp3 }]]></Code>
 						</CollectionInitializer>
 					</Properties>
 
@@ -3317,7 +3429,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 				<Event>
 					<Id>1761397443454</Id>
 					<Name><![CDATA[ev_auftragErzeugen]]></Name>
-					<X>-500</X><Y>550</Y>
+					<X>-500</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3344,7 +3456,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						</RecurrenceCode>
 						<Condition><![CDATA[false]]></Condition>
 					</Properties>
-					<Action><![CDATA[f_auftragErzeugen();]]></Action>
+					<Action><![CDATA[//f_auftragErzeugen();]]></Action>
 				</Event>
 			</Events>
 			<Functions>
@@ -3360,6 +3472,9 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[//create one model and add to population
 A_TestJavaClass testJavaClass = add_pop_testJavaClass();
+
+//get Databases
+getEngine().getModelDatabase();
 
 
 //Auftragsliste erstellen
@@ -3583,7 +3698,7 @@ traceln("Auftrag Nr." + v_zuletztErzeugterAuftragNr + " erzeugt:" + Arrays.toStr
 					<ReturnType><![CDATA[double[]]]></ReturnType>
 					<Id>1761083926887</Id>
 					<Name><![CDATA[f_generiereZufaelligeVerteilung]]></Name>
-					<X>-500</X><Y>760</Y>
+					<X>-499</X><Y>781</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3649,35 +3764,9 @@ return ergebnisDouble;]]></Body>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 					<ReturnType><![CDATA[int]]></ReturnType>
-					<Id>1761157424400</Id>
-					<Name><![CDATA[f_getAuftragInQAktuellerAuftrag]]></Name>
-					<X>-500</X><Y>360</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[Hantel ersterAgent = null; // Variable initialisieren
-
-// Prüfen, ob die Queue nicht leer ist
-if (q_aktuellerAuftrag.size()>0) {
-    ersterAgent = q_aktuellerAuftrag.get(0);
-    int auftragsNr = (int) ersterAgent.p_auftragsNr;
-    traceln("AuftragsNr von q_aktuellerAuftrag =" + auftragsNr);
-    
-    return auftragsNr;
-	
-    
-} else {
-    traceln("Queue q_aktuellerAuftrag ist leer.");
-    return -1;
-}]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
-					<ReturnType><![CDATA[int]]></ReturnType>
 					<Id>1761165129824</Id>
 					<Name><![CDATA[f_sizeQueuesAlleTypes]]></Name>
-					<X>-500</X><Y>410</Y>
+					<X>-500</X><Y>350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3734,33 +3823,75 @@ if (!verfuegbareTypen.isEmpty()) {
 						<Name><![CDATA[verfuegbareTypen]]></Name>
 						<Type><![CDATA[ArrayList<Integer>]]></Type>
 					</Parameter>
-					<Body><![CDATA[// Diese Funktion erwartet jetzt KEINE Argumente mehr.
-// Sie gibt den Index des Typs mit dem höchsten Güte-Wert zurück (-1 wenn alle leer).
+					<Body><![CDATA[
+//Optimierte Auswahl
+if (p_chooseNextAgent.equals("Optimiert")  ) {
+	
+	// Gibt den Index des Typs mit dem höchsten Güte-Wert zurück (-1 wenn alle leer).
+	// Finde den Typ mit dem höchsten Güte-Wert
+	int besterTyp = -1;
+	double hoechsterScore = Double.NEGATIVE_INFINITY; // Start mit minimal möglichem Wert
+	for (int aktuellerTyp : verfuegbareTypen) {
+	    // Berechne den Güte-Wert für diesen verfügbaren Typ
+	    double aktuellerScore = f_calculatePriorityScore(aktuellerTyp);
+	    traceln("  -> Prüfe Typ " + aktuellerTyp + ", Score: " + aktuellerScore);
+	
+	    // Wenn der Score besser ist als der bisher beste
+	    if (aktuellerScore > hoechsterScore) {
+	        hoechsterScore = aktuellerScore;
+	        besterTyp = aktuellerTyp;
+	    }
+	}
+	traceln("Auswahl für nächsten Agenten: Typ " + besterTyp + " mit Score " + hoechsterScore + " (Queues verfügbar: " + verfuegbareTypen + ")");
+	return besterTyp;
 
-// Liste der verfügbaren (nicht-leeren) Typ-Indizes holen
 
-// Finde den Typ mit dem höchsten Güte-Wert
-int besterTyp = -1;
-double hoechsterScore = Double.NEGATIVE_INFINITY; // Start mit minimal möglichem Wert
 
-for (int aktuellerTyp : verfuegbareTypen) {
-    // Berechne den Güte-Wert für diesen verfügbaren Typ
-    double aktuellerScore = f_calculatePriorityScore(aktuellerTyp);
-    traceln("  -> Prüfe Typ " + aktuellerTyp + ", Score: " + aktuellerScore);
+// Zufällige Auswahl
+} else if (p_chooseNextAgent.equals("Zufällig")) {
+   // Einen zufälligen Index auswählen (von 0 bis zur Listengröße - 1)
+    int zufallsIndex = uniform_discr(0, verfuegbareTypen.size() - 1);
+    
+    // Den Wert an diesem zufälligen Index aus der Liste holen
+    int zufaelligAusgewaehlterTyp = verfuegbareTypen.get(zufallsIndex);
+    
+    traceln("Zufällig ausgewählter Typ: " + zufaelligAusgewaehlterTyp);
+    return zufaelligAusgewaehlterTyp;
 
-    // Wenn der Score besser ist als der bisher beste
-    if (aktuellerScore > hoechsterScore) {
-        hoechsterScore = aktuellerScore;
-        besterTyp = aktuellerTyp;
-    }
-    // Optional: Gleichstandsregelung (z.B. Zufallsauswahl bei gleichem Score)
-    // else if (aktuellerScore == hoechsterScore && randomTrue(0.5)) {
-    //     besterTyp = aktuellerTyp;
-    // }
+
+// Abwechselnde Auswahl
+} else if (p_chooseNextAgent.equals("Abwechselnd")) {
+	// 1. Anzahl der verfügbaren Typen holen
+    int anzahlVerfuegbar = verfuegbareTypen.size();
+    
+    // 2. Den nächsten Index in der *verfügbaren* Liste bestimmen
+    //    Der Modulo-Operator (%) sorgt für den automatischen Überlauf (z.B. 5 % 3 = 2)
+    int indexInListe = v_alternatingIndexCounter % anzahlVerfuegbar;
+    
+    // 3. Den Typ an dieser Listenposition holen
+    int ausgewaehlterTyp = verfuegbareTypen.get(indexInListe);
+    
+    // 4. Den globalen Zähler für das *nächste Mal* erhöhen
+    v_alternatingIndexCounter++;
+    
+    traceln("Abwechselnd ausgewählt: Typ " + ausgewaehlterTyp + " (Index " + indexInListe + " aus " + verfuegbareTypen + ")");
+    return ausgewaehlterTyp;
+	
+// Auswahl der Reihe nach (alle Hanteln eines Typs nacheinander)
+} else if (p_chooseNextAgent.equals("Der Reihe nach")) {
+	traceln("Typ wurde der Reihe nach ausgewählt");
+	return 0;
+
+// Fehler
+} else {
+	traceln("FEHLER: Auswahlmethode konnte nicht gefunden werden");
+   	return 0;
+
 }
 
-traceln("Auswahl für nächsten Agenten: Typ " + besterTyp + " mit Score " + hoechsterScore + " (Queues verfügbar: " + verfuegbareTypen + ")");
-return besterTyp;]]></Body>
+
+
+]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -4031,43 +4162,34 @@ return durchschnitt;]]></Body>
 					<ReturnType><![CDATA[double[]]]></ReturnType>
 					<Id>1761660998570</Id>
 					<Name><![CDATA[f_getNextAuftrag]]></Name>
-					<Description><![CDATA[// 1. Zähle, wie viele Aufträge (Zeilen) in der Tabelle sind
-long anzahlAuftraege = selectFrom(auftraege).fetchCount();
+					<X>-500</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[// 1. Prüfe, ob die interne Tabelle leer ist
+int anzahlAuftraege = db_auftraegeInternTyp0.getLength(); // Holt die Zeilenanzahl
 
 if (anzahlAuftraege == 0) {
-    traceln("FEHLER in f_getNextAuftrag: Die Tabelle 'auftraege' ist leer. Verwende Fallback-Verteilung.");
+    traceln("WARNUNG in f_getNextAuftrag: Die interne Tabelle 'auftraege_intern' ist leer. Verwende Fallback-Verteilung.");
     return new double[]{0.25, 0.25, 0.25, 0.25}; // Fallback-Verteilung
 }
 
-// 2. Wähle einen zufälligen Index (von 0 bis anzahl-1)
-int zufallsIndex = uniform_discr(0, (int)anzahlAuftraege - 1);
-traceln("Wähle zufälligen Auftrag aus DB, Index: " + zufallsIndex);
+// 2. Wähle einen zufälligen Zeilen-Index (von 0 bis anzahl-1)
+int zufallsIndex = uniform_discr(1, anzahlAuftraege);
+traceln("Wähle zufälligen Auftrag aus interner Tabelle, Index: " + zufallsIndex);
 
-// 3. Hole die eine Zeile an diesem zufälligen Index (Offset)
-Tuple row = selectFrom(auftraege)
-    .select(auftraege.anteil_typ0, auftraege.anteil_typ1, auftraege.anteil_typ2, auftraege.anteil_typ3)
-    .offset(zufallsIndex) // Überspringe die ersten 'zufallsIndex' Zeilen
-    .limit(1)             // Nimm nur die nächste (also die eine)
-    .fetchOne();
+// 3. Hole die Werte direkt aus der Zeile der internen Tabelle
+double anteil0 = col_dbAuftraegeIntern.get(0).get(zufallsIndex); // Spalte 0, Zeile zufallsIndex
+double anteil1 = col_dbAuftraegeIntern.get(1).get(zufallsIndex); // Spalte 1, Zeile zufallsIndex
+double anteil2 = col_dbAuftraegeIntern.get(2).get(zufallsIndex); // Spalte 2, Zeile zufallsIndex
+double anteil3 = col_dbAuftraegeIntern.get(3).get(zufallsIndex); // Spalte 3, Zeile zufallsIndex
 
-if (row == null) {
-     traceln("FEHLER in f_getNextAuftrag: Konnte Zeile mit Index " + zufallsIndex + " nicht holen. Verwende Fallback.");
-     return new double[]{0.25, 0.25, 0.25, 0.25}; // Fallback
-}
-
-// 4. Extrahiere die int-Werte (z.B. 25, 25, 25, 25)
-//    Stelle sicher, dass die Spaltennamen (anteil_typ0 etc.) exakt stimmen!
-int anteil0 = row.get(auftraege.anteil_typ0);
-int anteil1 = row.get(auftraege.anteil_typ1);
-int anteil2 = row.get(auftraege.anteil_typ2);
-int anteil3 = row.get(auftraege.anteil_typ3);
-
+// 4. Konvertiere in double-Anteile (wie dein bisheriger Code)
 double summeAnteile = anteil0 + anteil1 + anteil2 + anteil3;
 
-// 5. Konvertiere in double-Anteile (z.B. 0.25, 0.25...)
-//    (Wir normalisieren, falls die Summe in der DB nicht 100 ist)
 if (summeAnteile == 0) {
-     traceln("WARNUNG in f_getNextAuftrag: Summe der Anteile ist 0. Verwende Fallback.");
+     traceln("WARNUNG in f_getNextAuftrag: Summe der Anteile aus interner Tabelle ist 0. Verwende Fallback.");
      return new double[]{0.25, 0.25, 0.25, 0.25};
 }
 
@@ -4077,17 +4199,148 @@ ergebnisDouble[1] = (double)anteil1 / summeAnteile;
 ergebnisDouble[2] = (double)anteil2 / summeAnteile;
 ergebnisDouble[3] = (double)anteil3 / summeAnteile;
 
-traceln("  -> Gelesene Verteilung (Anteile): " + Arrays.toString(ergebnisDouble));
-return ergebnisDouble;]]></Description>
-					<X>-500</X><Y>200</Y>
+traceln("  -> Gelesene Verteilung aus interner Tabelle (Anteile): " + Arrays.toString(ergebnisDouble));
+return ergebnisDouble;]]></Body>
+				</Function>
+			</Functions>
+			<TableFunctions>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1761757455813</Id>
+					<Name><![CDATA[db_auftraegeInternTyp0]]></Name>
+					<X>-500</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[double[] ergebnisDouble = new double[4];
-return ergebnisDouble;]]></Body>
-				</Function>
-			</Functions>
+					<InterpolationMethod>NONE</InterpolationMethod>
+					<OutOfRangeBehaviour>NEAREST</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[true]]></LoadFromDatabase>
+					<ValuesQuery>
+						<Id>1761757455811</Id>
+						<TableReference>
+							<PackageName><![CDATA[masterarbeit]]></PackageName>
+							<ClassName><![CDATA[auftraege]]></ClassName>
+						</TableReference>
+							<ArgumentColumnReference>
+								<PackageName><![CDATA[masterarbeit]]></PackageName>
+								<ClassName><![CDATA[auftraege]]></ClassName>
+								<ItemName><![CDATA[auftragsnr]]></ItemName>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+								<PackageName><![CDATA[masterarbeit]]></PackageName>
+								<ClassName><![CDATA[auftraege]]></ClassName>
+								<ItemName><![CDATA[anteil_typ0]]></ItemName>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[0.0]]></Argument>
+					<Value><![CDATA[0.0]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1761757578934</Id>
+					<Name><![CDATA[db_auftraegeInternTyp1]]></Name>
+					<X>-500</X><Y>580</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>NONE</InterpolationMethod>
+					<OutOfRangeBehaviour>NEAREST</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[true]]></LoadFromDatabase>
+					<ValuesQuery>
+						<Id>1761757578932</Id>
+						<TableReference>
+							<PackageName><![CDATA[masterarbeit]]></PackageName>
+							<ClassName><![CDATA[auftraege]]></ClassName>
+						</TableReference>
+							<ArgumentColumnReference>
+								<PackageName><![CDATA[masterarbeit]]></PackageName>
+								<ClassName><![CDATA[auftraege]]></ClassName>
+								<ItemName><![CDATA[auftragsnr]]></ItemName>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+								<PackageName><![CDATA[masterarbeit]]></PackageName>
+								<ClassName><![CDATA[auftraege]]></ClassName>
+								<ItemName><![CDATA[anteil_typ1]]></ItemName>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[0.0]]></Argument>
+					<Value><![CDATA[0.0]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1761757601606</Id>
+					<Name><![CDATA[db_auftraegeInternTyp2]]></Name>
+					<X>-500</X><Y>620</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>NONE</InterpolationMethod>
+					<OutOfRangeBehaviour>NEAREST</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[true]]></LoadFromDatabase>
+					<ValuesQuery>
+						<Id>1761757601604</Id>
+						<TableReference>
+							<PackageName><![CDATA[masterarbeit]]></PackageName>
+							<ClassName><![CDATA[auftraege]]></ClassName>
+						</TableReference>
+							<ArgumentColumnReference>
+								<PackageName><![CDATA[masterarbeit]]></PackageName>
+								<ClassName><![CDATA[auftraege]]></ClassName>
+								<ItemName><![CDATA[auftragsnr]]></ItemName>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+								<PackageName><![CDATA[masterarbeit]]></PackageName>
+								<ClassName><![CDATA[auftraege]]></ClassName>
+								<ItemName><![CDATA[anteil_typ2]]></ItemName>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[0.0]]></Argument>
+					<Value><![CDATA[0.0]]></Value>
+				</TableFunction>
+				<TableFunction AccessType="public" StaticFunction="false">
+					<Id>1761757610920</Id>
+					<Name><![CDATA[db_auftraegeInternTyp3]]></Name>
+					<X>-500</X><Y>660</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<InterpolationMethod>NONE</InterpolationMethod>
+					<OutOfRangeBehaviour>NEAREST</OutOfRangeBehaviour>
+					<OutOfRangeCustomValue><![CDATA[0.0]]></OutOfRangeCustomValue>
+					<ApproximationOrder><![CDATA[1]]></ApproximationOrder>
+					<LoadFromDatabase><![CDATA[true]]></LoadFromDatabase>
+					<ValuesQuery>
+						<Id>1761757610918</Id>
+						<TableReference>
+							<PackageName><![CDATA[masterarbeit]]></PackageName>
+							<ClassName><![CDATA[auftraege]]></ClassName>
+						</TableReference>
+							<ArgumentColumnReference>
+								<PackageName><![CDATA[masterarbeit]]></PackageName>
+								<ClassName><![CDATA[auftraege]]></ClassName>
+								<ItemName><![CDATA[auftragsnr]]></ItemName>
+							</ArgumentColumnReference>
+							<ValueColumnReference>
+								<PackageName><![CDATA[masterarbeit]]></PackageName>
+								<ClassName><![CDATA[auftraege]]></ClassName>
+								<ItemName><![CDATA[anteil_typ3]]></ItemName>
+							</ValueColumnReference>
+					</ValuesQuery>
+// arguments and values
+					<Argument><![CDATA[0.0]]></Argument>
+					<Value><![CDATA[0.0]]></Value>
+				</TableFunction>
+			</TableFunctions>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1759583674831</Id>
@@ -5493,6 +5746,7 @@ v_hantelnGesamt[agent.p_type] ++;]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[// Startet den nächsten Auftrag wenn aktueller Auftrag abgeschloossen ist
 if (f_sizeQueuesAlleTypes()==0){
+		f_auftragErzeugen();
 	    hold_aktuellerAuftrag.unblock();
 }
 
@@ -22342,7 +22596,13 @@ q_aktuellerAuftrag.size() > 0 ?
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1761157989319</Id>
 					<Name><![CDATA[button]]></Name>
-					<X>-480</X><Y>600</Y>
+					<Description><![CDATA[Tuple testRow = selectFrom(auftraege).fetchFirst();
+if (testRow == null) {
+    traceln("Test: Tabelle ist leer oder fetchFirst geht nicht.");
+} else {
+    traceln("Test: fetchFirst hat eine Zeile geholt.");
+}]]></Description>
+					<X>-1000</X><Y>720</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22352,12 +22612,7 @@ q_aktuellerAuftrag.size() > 0 ?
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor>-16777216</TextColor>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[Tuple testRow = selectFrom(auftraege).fetchFirst();
-if (testRow == null) {
-    traceln("Test: Tabelle ist leer oder fetchFirst geht nicht.");
-} else {
-    traceln("Test: fetchFirst hat eine Zeile geholt.");
-}]]></ActionCode>
+						<ActionCode><![CDATA[f_auftragErzeugen();]]></ActionCode>
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="24" Style="0"/>
@@ -22403,7 +22658,7 @@ if (testRow == null) {
 				<Rectangle>
 					<Id>1761244395169</Id>
 					<Name><![CDATA[rectangle117]]></Name>
-					<X>810</X><Y>0</Y>
+					<X>950</X><Y>0</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22416,7 +22671,7 @@ if (testRow == null) {
 					<LineColor/>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
-					<Width>590</Width>
+					<Width>450</Width>
 					<Height>50</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-8272897</FillColor>
@@ -22554,7 +22809,7 @@ if (testRow == null) {
 					<LineColor/>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
-					<Width>210</Width>
+					<Width>120</Width>
 					<Height>50</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-8272897</FillColor>
@@ -22566,7 +22821,7 @@ if (testRow == null) {
 				<Text>
 					<Id>1761244395183</Id>
 					<Name><![CDATA[text115]]></Name>
-					<X>425</X><Y>12</Y>
+					<X>445</X><Y>12</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22576,7 +22831,7 @@ if (testRow == null) {
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-1</Color>
-					<Text><![CDATA[Logic and Statistics]]></Text>
+					<Text><![CDATA[Logik]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>22</Size>
@@ -22587,7 +22842,7 @@ if (testRow == null) {
 				<Rectangle>
 					<Id>1761244395185</Id>
 					<Name><![CDATA[rectangle118]]></Name>
-					<X>620</X><Y>0</Y>
+					<X>530</X><Y>0</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22601,7 +22856,7 @@ if (testRow == null) {
 					<LineColor/>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
-					<Width>190</Width>
+					<Width>250</Width>
 					<Height>50</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-8272897</FillColor>
@@ -22613,7 +22868,7 @@ if (testRow == null) {
 				<Text>
 					<Id>1761244395187</Id>
 					<Name><![CDATA[text116]]></Name>
-					<X>640</X><Y>12</Y>
+					<X>550</X><Y>10</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22623,7 +22878,54 @@ if (testRow == null) {
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-1</Color>
-					<Text><![CDATA[Einstellungen]]></Text>
+					<Text><![CDATA[Funktionen & Variablen]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>22</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1761758421674</Id>
+					<Name><![CDATA[rectangle119]]></Name>
+					<X>780</X><Y>0</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<OnClickCode><![CDATA[navigate( viewOptimierung );]]></OnClickCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>170</Width>
+					<Height>50</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-8272897</FillColor>
+					<FillColorCode><![CDATA[selectedViewArea == viewEinstellungen ? 
+	dodgerBlue :
+	new Color(129, 195, 255)]]></FillColorCode>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1761758427880</Id>
+					<Name><![CDATA[Optimierung]]></Name>
+					<X>800</X><Y>12</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-1</Color>
+					<Text><![CDATA[Optimierung]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>22</Size>
@@ -22700,6 +23002,18 @@ if (testRow == null) {
 					<Title><![CDATA[]]></Title>
 					<Width>1400</Width>
 					<Height>800</Height>
+				</Area>
+				<Area>
+					<Id>1761758001565</Id>
+					<Name><![CDATA[viewOptimierung]]></Name>
+					<X>-1500</X><Y>900</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Title><![CDATA[]]></Title>
+					<Width>1500</Width>
+					<Height>1500</Height>
 				</Area>
 			</Areas>
 
@@ -27406,6 +27720,37 @@ else {return false;}]]></Body>
 		<AutoExport>false</AutoExport>
 		<ShutdownCompact>false</ShutdownCompact>
 		<ImportSettings>
+			<ExternalConnection>
+				<Id>1761742461562</Id>
+				<Name><![CDATA[database]]></Name>
+				<X>0</X><Y>0</Y>
+				<Label><X>10</X><Y>0</Y></Label>
+				<PublicFlag>false</PublicFlag>
+				<PresentationFlag>true</PresentationFlag>
+				<ShowLabel>true</ShowLabel>
+				<DatabaseType>EXCEL_ACCESS</DatabaseType>
+				<ConnectionURL><![CDATA[]]></ConnectionURL>
+				<ConnectOnStartup>true</ConnectOnStartup>
+				<DatabaseName><![CDATA[]]></DatabaseName>
+				<ResourceReference>
+					<PackageName><![CDATA[masterarbeit]]></PackageName>
+					<ClassName><![CDATA[auftraege.xlsx]]></ClassName>
+				</ResourceReference>
+				<Host><![CDATA[localhost]]></Host>
+				<JdbcDriverClassName><![CDATA[com.sqlsheet.XlsDriver]]></JdbcDriverClassName>
+				<Login><![CDATA[]]></Login>
+				<Password><![CDATA[]]></Password>
+			</ExternalConnection>
+			<TableImportSettings>
+				<Id>1761742483716</Id>
+				<TableReference>
+					<PackageName><![CDATA[masterarbeit]]></PackageName>
+					<ClassName><![CDATA[auftraege]]></ClassName>
+				</TableReference>
+				<ConnectionIndex>0</ConnectionIndex>
+				<ExternalTableName><![CDATA["Tabelle1"]]></ExternalTableName>
+				<AutoImport>true</AutoImport>
+			</TableImportSettings>
 		</ImportSettings>
 		<ExportSettings>
 		</ExportSettings>
@@ -27448,6 +27793,38 @@ else {return false;}]]></Body>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
 			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1761759110018</Id>
+					<Name><![CDATA[v_modus]]></Name>
+					<X>150</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA["Simulation"]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761761686982</Id>
+					<Name><![CDATA[v_chooseNextAgent]]></Name>
+					<X>150</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA["Optimiert"]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+			</Variables>
 
 			<Presentation>
 				<Text>
@@ -27471,6 +27848,79 @@ else {return false;}]]></Body>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
+				<Control Type="ComboBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1761759204173</Id>
+					<Name><![CDATA[dropdown_modus]]></Name>
+					<X>350</X><Y>150</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="350" Height="90">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<FillColor>-1</FillColor>
+						<TextColor>-16777216</TextColor>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="36" Style="0"/>
+						<Editable>false</Editable>
+						<Button><![CDATA[Simulation]]></Button>
+						<Button><![CDATA[Digital Twin]]></Button>
+						<LinkTo>true</LinkTo>
+						<Link>v_modus</Link>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="ComboBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1761761806185</Id>
+					<Name><![CDATA[dropdown_modus1]]></Name>
+					<X>350</X><Y>350</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="350" Height="90">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<FillColor>-1</FillColor>
+						<TextColor>-16777216</TextColor>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="36" Style="0"/>
+						<Editable>false</Editable>
+						<Button><![CDATA[Optimiert]]></Button>
+						<Button><![CDATA[Zufällig]]></Button>
+						<Button><![CDATA[Abwechselnd]]></Button>
+						<Button><![CDATA[Der Reihe nach]]></Button>
+						<LinkTo>true</LinkTo>
+						<Link>v_chooseNextAgent</Link>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Button">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1761770177889</Id>
+					<Name><![CDATA[button]]></Name>
+					<X>350</X><Y>600</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="350" Height="90">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor>-16777216</TextColor>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[run();]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="36" Style="1"/>
+						<LabelText><![CDATA[Run Model]]></LabelText>
+					</ExtendedProperties>
+				</Control>
 			</Presentation>
 
 			<Parameters>
@@ -27683,6 +28133,18 @@ else {return false;}]]></Body>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnQueTyp3]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_modus]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[v_modus]]></Code>
+					</ParameterValue>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_chooseNextAgent]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[v_chooseNextAgent]]></Code>
+					</ParameterValue>
 				</Parameter>
 			</Parameters>
 			<PresentationProperties>
@@ -31900,6 +32362,14 @@ copyToClipboard( s );]]></ActionCode>
 					<Code><![CDATA[2]]></Code>
 				</Step>
 			</Parameter>
+			<Parameter>	
+				<Id>1761758992806</Id>
+				<Type>FIXED</Type>
+			</Parameter>
+			<Parameter>	
+				<Id>1761761879203</Id>
+				<Type>FIXED</Type>
+			</Parameter>
 			<ObjectiveFunctionCode><![CDATA[root.f_optObjective()]]></ObjectiveFunctionCode>
 			<Objective>MAXIMIZE</Objective>  
 			<OptimizationEngine>NATIVE</OptimizationEngine>
@@ -32123,6 +32593,12 @@ public class My_Mqtt_Client {
 		<Resource>
 			<Id>1760485526799</Id>
 			<Path><![CDATA[3d/boxcar.jpg]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+			<Location>FILE_SYSTEM</Location>
+		</Resource>
+		<Resource>
+			<Id>1761741674393</Id>
+			<Path><![CDATA[auftraege.xlsx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 			<Location>FILE_SYSTEM</Location>
 		</Resource>
