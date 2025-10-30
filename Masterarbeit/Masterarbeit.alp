@@ -126,7 +126,7 @@ f_auftragErzeugen();
 				<Name><![CDATA[scale]]></Name>
 				<Description><![CDATA[langes fließband: 50cm x 2.5 = 125px
 kurzes fließband: 20cm x 2.5 = 50px]]></Description>
-				<X>-200</X><Y>-750</Y>
+				<X>-200</X><Y>-700</Y>
 				<PublicFlag>false</PublicFlag>
 				<PresentationFlag>true</PresentationFlag>
 				<ShowLabel>false</ShowLabel>
@@ -141,28 +141,6 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 			</ScaleRuler>
 			<CurrentLevel>1759583674836</CurrentLevel>
 			<ConnectionsId>1759583674831</ConnectionsId>
-			<Outputs>
-				<Output>
-					<Id>1761839810316</Id>
-					<Name><![CDATA[out_durchsatz]]></Name>
-					<X>-900</X><Y>-640</Y>
-					<Label><X>15</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Type><![CDATA[int]]></Type>
-					<UnitType><![CDATA[NONE]]></UnitType>
-					<Value Class="CodeValue">
-						<Code><![CDATA[sink.count()]]></Code>
-					</Value>
-					<ComputationMoment>AT_MODEL_TIME</ComputationMoment>
-					<ComputationTimeCode Class="CodeUnitValue">
-						<Code><![CDATA[30]]></Code>
-						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-					</ComputationTimeCode>
-					<ComputationDate>1761897600000</ComputationDate>
-				</Output>
-			</Outputs>
 			<Variables>
 				<Variable Class="PlainVariable">
 					<Id>1761085886832</Id>
@@ -556,55 +534,20 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						</InitialValue>
 					</Properties>
 				</Variable>
-				<Variable Class="Parameter">
-					<Id>1760634315310</Id>
-					<Name><![CDATA[p_conveyorGap]]></Name>
-					<Description><![CDATA[gap in Metern]]></Description>
-					<X>-150</X><Y>210</Y>
+				<Variable Class="PlainVariable">
+					<Id>1761862069571</Id>
+					<Name><![CDATA[v_maschinenausfälleEin]]></Name>
+					<X>-1300</X><Y>550</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[double]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<UnitOfValue Class="LengthUnits"><![CDATA[CENTIMETER]]></UnitOfValue>
-						<SdArray>false</SdArray>
-						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0.1]]></Code>
-						</DefaultValue>
-						<ParameterEditor>
-							<Id>1760634315308</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1761082536194</Id>
-					<Name><![CDATA[p_hantelnProAuftrag]]></Name>
-					<X>-500</X><Y>110</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[50]]></Code>
-						</DefaultValue>
-						<ParameterEditor>
-							<Id>1761082536192</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[p_maschinenausfälle.equals("Maschinenausfälle Ein")]]></Code>
+						</InitialValue>
+					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
 					<Id>1761392855528</Id>
@@ -627,7 +570,8 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
+							<DelimeterType>SEPARATE_SECTION</DelimeterType>
+							<StartSection><![CDATA[OptParameter]]></StartSection>
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
@@ -727,7 +671,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
+							<DelimeterType>SEPARATOR</DelimeterType>
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
@@ -1027,7 +971,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
+							<DelimeterType>SEPARATOR</DelimeterType>
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
@@ -1427,7 +1371,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[-100]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
+							<DelimeterType>SEPARATOR</DelimeterType>
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
@@ -1507,6 +1451,102 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 					</Properties>                 
 				</Variable>
 				<Variable Class="Parameter">
+					<Id>1761859711462</Id>
+					<Name><![CDATA[p_faktorStart]]></Name>
+					<X>-1550</X><Y>1000</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761859711460</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>SEPARATOR</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761859741764</Id>
+					<Name><![CDATA[p_faktorBereiche]]></Name>
+					<X>-1551</X><Y>1302</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761859741762</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761859759509</Id>
+					<Name><![CDATA[p_faktorGesamt]]></Name>
+					<X>-1548</X><Y>1601</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761859759507</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761859782177</Id>
+					<Name><![CDATA[p_faktorQueues]]></Name>
+					<X>-1548</X><Y>1899</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761859782175</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
 					<Id>1761758992806</Id>
 					<Name><![CDATA[p_modus]]></Name>
 					<X>-1300</X><Y>350</Y>
@@ -1527,7 +1567,8 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
+							<DelimeterType>SEPARATE_SECTION</DelimeterType>
+							<StartSection><![CDATA[Experimenteinstellungen]]></StartSection>
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
@@ -1556,6 +1597,56 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 					</Properties>                 
 				</Variable>
 				<Variable Class="Parameter">
+					<Id>1761082536194</Id>
+					<Name><![CDATA[p_hantelnProAuftrag]]></Name>
+					<X>-500</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[50]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761082536192</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1760634315310</Id>
+					<Name><![CDATA[p_conveyorGap]]></Name>
+					<Description><![CDATA[gap in Metern]]></Description>
+					<X>-150</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<UnitOfValue Class="LengthUnits"><![CDATA[CENTIMETER]]></UnitOfValue>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.1]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1760634315308</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
 					<Id>1761831182888</Id>
 					<Name><![CDATA[p_nichts]]></Name>
 					<X>-1300</X><Y>750</Y>
@@ -1572,6 +1663,30 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1761831182886</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1761862029154</Id>
+					<Name><![CDATA[p_maschinenausfälle]]></Name>
+					<X>-1300</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA["Maschinenausfälle Aus"]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1761862029152</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -1646,7 +1761,7 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 						<ElementClass><![CDATA[com.anylogic.engine.markup.ConveyorSimpleStation]]></ElementClass>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ Bohrstation1, Bohrstation2, Drehmaschine, Lackierstation1, Lackierstation2, Lackierstation3 }]]></Code>
+							<Code><![CDATA[{ Bohrstation1, Bohrstation2, Drehmaschine, Lackierstation1, Lackierstation2, Lackierstation3, Prüfstation }]]></Code>
 						</CollectionInitializer>
 					</Properties>
 
@@ -3388,38 +3503,6 @@ kurzes fließband: 20cm x 2.5 = 50px]]></Description>
 					</Properties>
 					<Action><![CDATA[f_startModel();]]></Action>
 				</Event>
-				<Event>
-					<Id>1761397443454</Id>
-					<Name><![CDATA[ev_auftragErzeugen]]></Name>
-					<X>-500</X><Y>490</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties TriggerType="timeout" Mode="cyclic">
-						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-						</Timeout>
-						<Rate Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
-						</Rate>
-						<Id>1761397443452</Id>
-						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1761465600000</OccurrenceDate>
-						<OccurrenceTime Class="CodeUnitValue">
-							<Code><![CDATA[200]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-						</OccurrenceTime>
-						<RecurrenceCode Class="CodeUnitValue">
-							<Code><![CDATA[200]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-						</RecurrenceCode>
-						<Condition><![CDATA[false]]></Condition>
-					</Properties>
-					<Action><![CDATA[//f_auftragErzeugen();]]></Action>
-				</Event>
 			</Events>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
@@ -3454,7 +3537,6 @@ if(v_isDigitalTwin){
 else{
 	// Nächste Hantel wählen und senden
 	f_sendNextAgent();
-	
 }
 
 
@@ -4288,49 +4370,61 @@ Um verschiedene Types nacheinander auszugeben einfach: return 0;]]></Description
 					</Parameter>
 					<Body><![CDATA[// Funktion berechnet einen Score für den übergebenen 'typ' (0-3)
 // Höherer Score = höhere Priorität für die Auswahl
+double score = 0;
+
+
 
 // --- 1. Basis-Priorität ---
 // Startet mit dem Wert aus den Start-Parametern
-double score = v_optStartWerte[type];
+double scoreStart = v_optStartWerte[type];
+
+// gewichtete Startwerte zum Gesamtscore addieren
+score += scoreStart * p_faktorStart;
+
 //traceln("Type " + type + " - Basis-Score: " + score);
 
 
-// --- 2. Berücksichtigung nachfolgender Bereiche  ---
 
+// --- 2. Berücksichtigung nachfolgender Bereiche  ---
 // Gehe durch alle Bereiche
+double scoreBereiche = 0;
 for (int i = 0; i < v_optAlleBereiche.length; i++) {
 
     // Berechne den Bonus für den aktuellen Bereich 'i' und den aktuellen Hanteltyp 'type'
     // 2D-Array [bereichsIndex][typIndex]
-    double bonus = v_hantelnAlleBereiche[i][type] * v_optAlleBereiche[i][type];
-
-    // Addiere den Bonus zum Gesamtscore
-    score += bonus;
-
+    scoreBereiche += v_hantelnAlleBereiche[i][type] * v_optAlleBereiche[i][type];
 }
 
-if (true){
+// gewichtete Werte zum Gesamtscore addieren
+    score += scoreBereiche * p_faktorBereiche;
+
+
+
 // --- 3. Berücksichtigung der agenten im gesamten system  ---
 // jeder einzelne typ bekommt eine eigene Gewichtung für jeden möglichen nächsten typ (4x4 Parameter)
-
+double scoreSystem = 0;
 // Berechne den Bonus für den aktuellen Hanteltyp 'type' (potentieller nächster agent)
 for (int i = 0; i < v_optGesamtAlleTypes.length; i++) {
 
     // Berechne den Bonus für den aktuellen Type 'i' bei konstantem Hanteltyp 'type'
     // (Anzahl hanteln im System von type i) * (Gewichtung für den entsprechenden type und type)
     
-    double bonus = v_hantelnGesamt[i] * v_optGesamtAlleTypes[i][type];
+     scoreSystem =+ v_hantelnGesamt[i] * v_optGesamtAlleTypes[i][type];
+}
+// gewichtete Werte zum Gesamtscore addieren
+    score += scoreSystem * p_faktorGesamt;
 
-    // Addiere den Bonus zum Gesamtscore
-    score += bonus;
-}
-}
+
 
 // --- 4. Berücksichtigung der agenten in der Warteschlange vom aktuellen Auftrag  ---
-
 // berechne Bonus: (agenten des eigenen typs in Warteschlange) *  (dessen Gewichtung)
-// Addiere den Bonus zum Gesamtscore
-score += col_queuesAllTypes.get(type).size() * v_optQueAlleTypes[type];
+double scoreQueues = 0;
+scoreQueues += col_queuesAllTypes.get(type).size() * v_optQueAlleTypes[type];
+
+// gewichtete Werte zum Gesamtscore addieren
+score += scoreQueues * p_faktorQueues;
+
+
 
 return score;
 ]]></Body>
@@ -4639,7 +4733,7 @@ return ergebnisInt;]]></Body>
 				<AgentLink>
 					<Id>1759583674831</Id>
 					<Name><![CDATA[connections]]></Name>
-					<X>-290</X><Y>-760</Y>
+					<X>-290</X><Y>-710</Y>
 					<Label><X>-20</X><Y>20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12162,6 +12256,209 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 					<QuantityColumn>
 					</QuantityColumn>
 				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1761862602124</Id>
+					<Name><![CDATA[d_maschinenausfall]]></Name>
+					<X>1080</X><Y>360</Y>
+					<Label><X>-30</X><Y>-30</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+						<ClassName><![CDATA[Downtime]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.processmodeling]]></PackageName>
+							<ClassName><![CDATA[Downtime]]></ClassName>
+							<ItemName><![CDATA[1412336243196]]></ItemName>
+						</GenericParameterSubstituteReference>
+						<GenericParameterSubstituteValue Class="CodeValue">
+							<Code><![CDATA[ConveyorSimpleStation]]></Code>
+						</GenericParameterSubstituteValue>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[activityType]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[self.ACTIVITY_FAILURE]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[resetAllFailures]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[resetFailures]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[triggerType]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[schedule]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[totalTimeToOccurrence]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[(v_maschinenausfälleEin) ? exponential(1.0 / (60.0 * 7)) : Double.POSITIVE_INFINITY]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[timeStartsAfterTaskEnd]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[workingTimeToOccurrence]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[cyclesToOccurrence]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[customFirstOccurrence]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[totalTimeToFirstOccurrence]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[workingTimeToFirstOccurrence]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[cyclesToFirstOccurrence]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[distanceToFirstOccurrence]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[distanceToOccurrence]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[taskType]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[taskDuration]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[exponential(1.0 / 10.0)]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[taskStartBlock]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[seizeFromOnePool]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[resourceSets]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[resourcePool]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[resourceQuantity]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[sendResources]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[destinationType]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[destinationNode]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[destinationAttractor]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[moveToHomeLocation]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[moveBeforeDowntime]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[downtimeDestinationType]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[downtimeDestinationNode]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[downtimeDestinationEntity]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[downtimeDestinationAttractor]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[downtimeDestinationX]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[downtimeDestinationY]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[downtimeDestinationZ]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[usageState]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[priority]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[mayPreempt]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[preemptionPolicy]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onDowntimeTriggered]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onStart]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[traceln(unit.getName() + " ist ausgefallen. Zeit: " + time());
+unit.setFillColor(darkSalmon);]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onFinish]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[traceln(unit.getName() + " wurde repariert. Zeit: " + time());
+unit.setFillColor(lightGreen);]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onTerminateCallback]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[taskDelayResource]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[taskTravelTo]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>XYZ</InitialLocationType>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<Id>1761862602122</Id>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
 			</EmbeddedObjects>
 
 			<Presentation>
@@ -12211,11 +12508,12 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 					<FollowCamera>false</FollowCamera>
 					<NavigationType>full</NavigationType>
 					<FarClippingDistance>2000</FarClippingDistance>
+					<Camera>camera</Camera>
 				</Control>
 				<Camera3D>
 					<Id>1760398349719</Id>
 					<Name><![CDATA[camera]]></Name>
-					<X>687.19</X><Y>1181.08</Y><Z>755.26</Z>
+					<X>638.85</X><Y>1135.3</Y><Z>584.41</Z>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<ShowLabel>false</ShowLabel>
 					<RotationX>45.0</RotationX>
@@ -12654,6 +12952,9 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[downtimes]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[{ d_maschinenausfall }]]></Code>
+								</Value>
 							</Parameter>
 						</Parameters>
 						<ReplicationFlag>false</ReplicationFlag>
@@ -14573,9 +14874,6 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[useResources]]></Name>
-								<Value Class="CodeValue">
-									<Code><![CDATA[true]]></Code>
-								</Value>
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[seizeFromOnePool]]></Name>
@@ -14665,6 +14963,9 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[downtimes]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[{ d_maschinenausfall }]]></Code>
+								</Value>
 							</Parameter>
 						</Parameters>
 						<ReplicationFlag>false</ReplicationFlag>
@@ -17309,6 +17610,9 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[downtimes]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[{ d_maschinenausfall }]]></Code>
+								</Value>
 							</Parameter>
 						</Parameters>
 						<ReplicationFlag>false</ReplicationFlag>
@@ -18183,6 +18487,9 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[downtimes]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[{ d_maschinenausfall }]]></Code>
+								</Value>
 							</Parameter>
 						</Parameters>
 						<ReplicationFlag>false</ReplicationFlag>
@@ -18788,6 +19095,9 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[downtimes]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[{ d_maschinenausfall }]]></Code>
+								</Value>
 							</Parameter>
 						</Parameters>
 						<ReplicationFlag>false</ReplicationFlag>
@@ -19393,6 +19703,9 @@ v_hantelnBereich3[agent.p_type] ++;]]></Code>
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[downtimes]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[{ d_maschinenausfall }]]></Code>
+								</Value>
 							</Parameter>
 						</Parameters>
 						<ReplicationFlag>false</ReplicationFlag>
@@ -22361,6 +22674,9 @@ if (!v_isDigitalTwin){
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[downtimes]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[{ d_maschinenausfall }]]></Code>
+								</Value>
 							</Parameter>
 						</Parameters>
 						<ReplicationFlag>false</ReplicationFlag>
@@ -24670,7 +24986,7 @@ q_aktuellerAuftrag.size() > 0 ?
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor>-16777216</TextColor>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[getEngine().stop();
+						<ActionCode><![CDATA[traceln(exponential(1.0 / 10.0));
 ]]></ActionCode>
 					</BasicProperties>
 					<ExtendedProperties>
@@ -24966,7 +25282,7 @@ q_aktuellerAuftrag.size() > 0 ?
 					<Height>50</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-8272897</FillColor>
-					<FillColorCode><![CDATA[selectedViewArea == viewEinstellungen ? 
+					<FillColorCode><![CDATA[selectedViewArea == viewOptimierung ? 
 	dodgerBlue :
 	new Color(129, 195, 255)]]></FillColorCode>
 					<FillMaterial>null</FillMaterial>
@@ -25130,6 +25446,201 @@ Prüfstation.stopProcess();]]></ActionCode>
 						<LabelText><![CDATA[Prüfungsergebnis: Kein Ausschuss]]></LabelText>
 					</ExtendedProperties>
 				</Control>
+				<Text>
+					<Id>1761857406358</Id>
+					<Name><![CDATA[text1]]></Name>
+					<X>-900</X><Y>-660</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Gesamtdurchsatz]]></Text>
+					<TextCode><![CDATA["Gesamtdurchsatz: " + sink.count()]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>20</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761857544482</Id>
+					<Name><![CDATA[text2]]></Name>
+					<X>-900</X><Y>-601</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Durchsatz/min]]></Text>
+					<TextCode><![CDATA["Durchsatz/min: " + (time() > 0 ? format(sink.count() / (time() / 60.0)) : "0.00")]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>20</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+    			<PieChart>
+					<Id>1761857944469</Id>
+					<Name><![CDATA[auslastungDurchschnittSeitStart]]></Name>
+					<X>-1251</X><Y>-269</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1761857944467</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1696492800000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>250</Width>
+					<Height>90</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>10</XOffset>
+						<YOffset>10</YOffset>
+						<Width>70</Width>
+						<Height>70</Height>
+						<BorderColor/>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>EAST</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>140</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>1761857944465</Id>
+					<Expression><![CDATA[f_auslastungAlleStationen()]]></Expression>
+					<Color>-12799119</Color>
+						<Title><![CDATA[Arbeitend]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1761857944466</Id>
+					<Expression><![CDATA[1- f_auslastungAlleStationen()]]></Expression>
+					<Color>-7876870</Color>
+						<Title><![CDATA[Frei]]></Title>
+					</DataItem>
+    			</PieChart>
+				<Text>
+					<Id>1761858007117</Id>
+					<Name><![CDATA[text3]]></Name>
+					<X>-1243</X><Y>-291</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Auslastung aller Stationen (Durchschnitt)]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>11</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+    			<TimePlot>
+					<Id>1761858148781</Id>
+					<Name><![CDATA[plot_durchsatzProMin]]></Name>
+					<X>-940</X><Y>-570</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<RecurrenceProperties>
+						<Id>1761858148779</Id>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1761897600000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[10]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+						</RecurrenceCode>
+					</RecurrenceProperties>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>180</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_DATA</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[time()]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Durchsatz / min]]></Title>
+					<Id>1761858155910</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-16777216</Color>
+					<Expression2><![CDATA[(time() > 0 ? sink.count() / (time() / 60.0) : 0.00) ]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>2.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>5000</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[200]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
 			</Presentation>
 
 				</Level>
@@ -30029,7 +30540,7 @@ p_auftragsNr = auftragsNr;
 				<Variable Class="PlainVariable">
 					<Id>1761759110018</Id>
 					<Name><![CDATA[v_modus]]></Name>
-					<X>150</X><Y>150</Y>
+					<X>100</X><Y>150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -30044,7 +30555,7 @@ p_auftragsNr = auftragsNr;
 				<Variable Class="PlainVariable">
 					<Id>1761761686982</Id>
 					<Name><![CDATA[v_chooseNextAgent]]></Name>
-					<X>150</X><Y>350</Y>
+					<X>100</X><Y>350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -30053,6 +30564,21 @@ p_auftragsNr = auftragsNr;
 						<Type><![CDATA[String]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA["Optimiert"]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1761861733618</Id>
+					<Name><![CDATA[v_maschinenausfälle]]></Name>
+					<X>750</X><Y>153</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA["Maschinenausfälle Aus"]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -30084,7 +30610,7 @@ p_auftragsNr = auftragsNr;
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1761759204173</Id>
 					<Name><![CDATA[dropdown_modus]]></Name>
-					<X>350</X><Y>150</Y>
+					<X>300</X><Y>150</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -30109,7 +30635,7 @@ p_auftragsNr = auftragsNr;
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1761761806185</Id>
 					<Name><![CDATA[dropdown_modus1]]></Name>
-					<X>350</X><Y>350</Y>
+					<X>300</X><Y>350</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -30136,7 +30662,7 @@ p_auftragsNr = auftragsNr;
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1761770177889</Id>
 					<Name><![CDATA[button]]></Name>
-					<X>350</X><Y>600</Y>
+					<X>300</X><Y>600</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -30153,15 +30679,34 @@ p_auftragsNr = auftragsNr;
 						<LabelText><![CDATA[Run Model]]></LabelText>
 					</ExtendedProperties>
 				</Control>
+				<Control Type="ComboBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1761861733612</Id>
+					<Name><![CDATA[dropdown_modus2]]></Name>
+					<X>950</X><Y>153</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="400" Height="90">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<FillColor>-1</FillColor>
+						<TextColor>-16777216</TextColor>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="36" Style="0"/>
+						<Editable>false</Editable>
+						<Button><![CDATA[Maschinenausfälle Ein]]></Button>
+						<Button><![CDATA[Maschinenausfälle Aus]]></Button>
+						<LinkTo>true</LinkTo>
+						<Link>v_maschinenausfälle</Link>
+					</ExtendedProperties>
+				</Control>
 			</Presentation>
 
 			<Parameters>
-				<Parameter>
-					<ParameterName><![CDATA[p_conveyorGap]]></ParameterName>
-				</Parameter>
-				<Parameter>
-					<ParameterName><![CDATA[p_hantelnProAuftrag]]></ParameterName>
-				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optStartWertType0]]></ParameterName>
 					<ParameterValue Class="CodeValue">
@@ -30367,6 +30912,18 @@ p_auftragsNr = auftragsNr;
 					<ParameterName><![CDATA[p_optHantelnQueTyp3]]></ParameterName>
 				</Parameter>
 				<Parameter>
+					<ParameterName><![CDATA[p_faktorStart]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_faktorBereiche]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_faktorGesamt]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_faktorQueues]]></ParameterName>
+				</Parameter>
+				<Parameter>
 					<ParameterName><![CDATA[p_modus]]></ParameterName>
 					<ParameterValue Class="CodeValue">
 						<Code><![CDATA[v_modus]]></Code>
@@ -30379,7 +30936,19 @@ p_auftragsNr = auftragsNr;
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
+					<ParameterName><![CDATA[p_hantelnProAuftrag]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_conveyorGap]]></ParameterName>
+				</Parameter>
+				<Parameter>
 					<ParameterName><![CDATA[p_nichts]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[p_maschinenausfälle]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[v_maschinenausfälle]]></Code>
+					</ParameterValue>
 				</Parameter>
 			</Parameters>
 			<PresentationProperties>
@@ -30417,7 +30986,7 @@ datasetBestFeasibleObjective.reset();
 			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
 			<Variables>
 				<Variable Class="PlainVariable">
-					<Id>1761783916530</Id>
+					<Id>1761861885519</Id>
 					<Name><![CDATA[bestInfeasibleObjective]]></Name>
 					<X>-350</X><Y>120</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30434,7 +31003,7 @@ datasetBestFeasibleObjective.reset();
 			</Variables>
 			<AnalysisData>
     			<DataSet>
-					<Id>1761783916527</Id>
+					<Id>1761861885516</Id>
 					<Name><![CDATA[datasetCurrentObjective]]></Name>
 					<X>-350</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30443,9 +31012,9 @@ datasetBestFeasibleObjective.reset();
 					<ShowLabel>true</ShowLabel>
 					<AutoUpdate>true</AutoUpdate>
 					<RecurrenceProperties>
-						<Id>1761783916526</Id>
+						<Id>1761861885515</Id>
 						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1761811200000</OccurrenceDate>
+						<OccurrenceDate>1761897600000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
 							<Code><![CDATA[0]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -30460,7 +31029,7 @@ datasetBestFeasibleObjective.reset();
 					<SamplesToKeep>200</SamplesToKeep>
 				</DataSet>
     			<DataSet>
-					<Id>1761783916529</Id>
+					<Id>1761861885518</Id>
 					<Name><![CDATA[datasetBestInfeasibleObjective]]></Name>
 					<X>-350</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30469,9 +31038,9 @@ datasetBestFeasibleObjective.reset();
 					<ShowLabel>true</ShowLabel>
 					<AutoUpdate>false</AutoUpdate>
 					<RecurrenceProperties>
-						<Id>1761783916528</Id>
+						<Id>1761861885517</Id>
 						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1761811200000</OccurrenceDate>
+						<OccurrenceDate>1761897600000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
 							<Code><![CDATA[0]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -30486,7 +31055,7 @@ datasetBestFeasibleObjective.reset();
 					<SamplesToKeep>200</SamplesToKeep>
 				</DataSet>
     			<DataSet>
-					<Id>1761783916533</Id>
+					<Id>1761861885522</Id>
 					<Name><![CDATA[datasetBestFeasibleObjective]]></Name>
 					<X>-350</X><Y>150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30495,9 +31064,9 @@ datasetBestFeasibleObjective.reset();
 					<ShowLabel>true</ShowLabel>
 					<AutoUpdate>false</AutoUpdate>
 					<RecurrenceProperties>
-						<Id>1761783916532</Id>
+						<Id>1761861885521</Id>
 						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1761811200000</OccurrenceDate>
+						<OccurrenceDate>1761897600000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
 							<Code><![CDATA[0]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -30515,7 +31084,7 @@ datasetBestFeasibleObjective.reset();
 
 			<Presentation>
 				<Text>
-					<Id>1761783916364</Id>
+					<Id>1761861885336</Id>
 					<Name><![CDATA[text]]></Name>
 					<X>40</X><Y>30</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30536,7 +31105,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916365</Id>
+					<Id>1761861885337</Id>
 					<Name><![CDATA[text1]]></Name>
 					<X>240</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30557,7 +31126,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916366</Id>
+					<Id>1761861885338</Id>
 					<Name><![CDATA[text2]]></Name>
 					<X>330</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30578,7 +31147,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Line>
-					<Id>1761783916367</Id>
+					<Id>1761861885339</Id>
 					<Name><![CDATA[line]]></Name>
 					<X>40</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30602,7 +31171,7 @@ datasetBestFeasibleObjective.reset();
 					<Dz>0</Dz>
 				</Line>
 				<Text>
-					<Id>1761783916368</Id>
+					<Id>1761861885340</Id>
 					<Name><![CDATA[text3]]></Name>
 					<X>50</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30623,7 +31192,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916369</Id>
+					<Id>1761861885341</Id>
 					<Name><![CDATA[text4]]></Name>
 					<X>240</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30646,7 +31215,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916370</Id>
+					<Id>1761861885342</Id>
 					<Name><![CDATA[text5]]></Name>
 					<X>240</X><Y>119</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30668,7 +31237,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916371</Id>
+					<Id>1761861885343</Id>
 					<Name><![CDATA[text6]]></Name>
 					<X>330</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30691,7 +31260,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916372</Id>
+					<Id>1761861885344</Id>
 					<Name><![CDATA[text7]]></Name>
 					<X>330</X><Y>119</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30713,7 +31282,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916373</Id>
+					<Id>1761861885345</Id>
 					<Name><![CDATA[rectangle]]></Name>
 					<X>40</X><Y>130</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30735,7 +31304,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916374</Id>
+					<Id>1761861885346</Id>
 					<Name><![CDATA[text8]]></Name>
 					<X>50</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30756,7 +31325,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916375</Id>
+					<Id>1761861885347</Id>
 					<Name><![CDATA[text9]]></Name>
 					<X>240</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30779,7 +31348,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916376</Id>
+					<Id>1761861885348</Id>
 					<Name><![CDATA[text10]]></Name>
 					<X>330</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30802,7 +31371,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916377</Id>
+					<Id>1761861885349</Id>
 					<Name><![CDATA[text11]]></Name>
 					<X>50</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30823,7 +31392,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916378</Id>
+					<Id>1761861885350</Id>
 					<Name><![CDATA[text12]]></Name>
 					<X>240</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30846,7 +31415,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916379</Id>
+					<Id>1761861885351</Id>
 					<Name><![CDATA[text13]]></Name>
 					<X>330</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30869,7 +31438,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Line>
-					<Id>1761783916380</Id>
+					<Id>1761861885352</Id>
 					<Name><![CDATA[line1]]></Name>
 					<X>115</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30893,7 +31462,7 @@ datasetBestFeasibleObjective.reset();
 					<Dz>0</Dz>
 				</Line>
 				<Polyline>
-					<Id>1761783916381</Id>
+					<Id>1761861885353</Id>
 					<Name><![CDATA[polyline]]></Name>
 					<X>110</X><Y>175</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30922,7 +31491,7 @@ datasetBestFeasibleObjective.reset();
 					<Closed>false</Closed>
 				</Polyline>
 				<Text>
-					<Id>1761783916382</Id>
+					<Id>1761861885354</Id>
 					<Name><![CDATA[text14]]></Name>
 					<X>50</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30943,7 +31512,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Line>
-					<Id>1761783916384</Id>
+					<Id>1761861885356</Id>
 					<Name><![CDATA[line2]]></Name>
 					<X>40</X><Y>230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30967,7 +31536,7 @@ datasetBestFeasibleObjective.reset();
 					<Dz>0</Dz>
 				</Line>
 				<Text>
-					<Id>1761783916385</Id>
+					<Id>1761861885357</Id>
 					<Name><![CDATA[text15]]></Name>
 					<X>50</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -30979,7 +31548,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_conveyorGap]]></Text>
+					<Text><![CDATA[p_optStartWertType0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -30988,7 +31557,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916386</Id>
+					<Id>1761861885358</Id>
 					<Name><![CDATA[text16]]></Name>
 					<X>240</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31002,7 +31571,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_conveyorGap )]]></TextCode>
+					<TextCode><![CDATA[format( p_optStartWertType0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31011,7 +31580,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916387</Id>
+					<Id>1761861885359</Id>
 					<Name><![CDATA[text17]]></Name>
 					<X>330</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31025,7 +31594,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_conveyorGap )]]></TextCode>
+					<TextCode><![CDATA[format( p_optStartWertType0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31034,7 +31603,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916388</Id>
+					<Id>1761861885360</Id>
 					<Name><![CDATA[rectangle1]]></Name>
 					<X>40</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31056,7 +31625,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916389</Id>
+					<Id>1761861885361</Id>
 					<Name><![CDATA[text18]]></Name>
 					<X>50</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31068,7 +31637,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_hantelnProAuftrag]]></Text>
+					<Text><![CDATA[p_optStartWertType1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31077,7 +31646,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916390</Id>
+					<Id>1761861885362</Id>
 					<Name><![CDATA[text19]]></Name>
 					<X>240</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31091,7 +31660,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_hantelnProAuftrag )]]></TextCode>
+					<TextCode><![CDATA[format( p_optStartWertType1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31100,7 +31669,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916391</Id>
+					<Id>1761861885363</Id>
 					<Name><![CDATA[text20]]></Name>
 					<X>330</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31114,7 +31683,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_hantelnProAuftrag )]]></TextCode>
+					<TextCode><![CDATA[format( p_optStartWertType1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31123,7 +31692,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916392</Id>
+					<Id>1761861885364</Id>
 					<Name><![CDATA[text21]]></Name>
 					<X>50</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31134,17 +31703,17 @@ datasetBestFeasibleObjective.reset();
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
-					<Text><![CDATA[p_optStartWertType0]]></Text>
+					<Color>-12171190</Color>
+					<Text><![CDATA[p_optStartWertType2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916393</Id>
+					<Id>1761861885365</Id>
 					<Name><![CDATA[text22]]></Name>
 					<X>240</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31158,16 +31727,16 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optStartWertType0 ) )]]></TextCode>
+					<TextCode><![CDATA[format( p_optStartWertType2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916394</Id>
+					<Id>1761861885366</Id>
 					<Name><![CDATA[text23]]></Name>
 					<X>330</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31179,18 +31748,18 @@ datasetBestFeasibleObjective.reset();
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
+					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optStartWertType0 ) )]]></TextCode>
+					<TextCode><![CDATA[format( p_optStartWertType2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916395</Id>
+					<Id>1761861885367</Id>
 					<Name><![CDATA[rectangle2]]></Name>
 					<X>40</X><Y>320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31212,7 +31781,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916396</Id>
+					<Id>1761861885368</Id>
 					<Name><![CDATA[text24]]></Name>
 					<X>50</X><Y>330</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31224,7 +31793,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optStartWertType1]]></Text>
+					<Text><![CDATA[p_optStartWertType3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31233,7 +31802,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916397</Id>
+					<Id>1761861885369</Id>
 					<Name><![CDATA[text25]]></Name>
 					<X>240</X><Y>330</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31247,7 +31816,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optStartWertType1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optStartWertType3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31256,7 +31825,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916398</Id>
+					<Id>1761861885370</Id>
 					<Name><![CDATA[text26]]></Name>
 					<X>330</X><Y>330</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31270,7 +31839,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optStartWertType1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optStartWertType3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31279,7 +31848,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916399</Id>
+					<Id>1761861885371</Id>
 					<Name><![CDATA[text27]]></Name>
 					<X>50</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31291,7 +31860,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optStartWertType2]]></Text>
+					<Text><![CDATA[p_optHantelnBereich1Type0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31300,7 +31869,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916400</Id>
+					<Id>1761861885372</Id>
 					<Name><![CDATA[text28]]></Name>
 					<X>240</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31314,7 +31883,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optStartWertType2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich1Type0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31323,7 +31892,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916401</Id>
+					<Id>1761861885373</Id>
 					<Name><![CDATA[text29]]></Name>
 					<X>330</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31337,7 +31906,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optStartWertType2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich1Type0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31346,7 +31915,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916402</Id>
+					<Id>1761861885374</Id>
 					<Name><![CDATA[rectangle3]]></Name>
 					<X>40</X><Y>380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31368,7 +31937,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916403</Id>
+					<Id>1761861885375</Id>
 					<Name><![CDATA[text30]]></Name>
 					<X>50</X><Y>390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31380,7 +31949,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optStartWertType3]]></Text>
+					<Text><![CDATA[p_optHantelnBereich1Type1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31389,7 +31958,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916404</Id>
+					<Id>1761861885376</Id>
 					<Name><![CDATA[text31]]></Name>
 					<X>240</X><Y>390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31403,7 +31972,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optStartWertType3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich1Type1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31412,7 +31981,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916405</Id>
+					<Id>1761861885377</Id>
 					<Name><![CDATA[text32]]></Name>
 					<X>330</X><Y>390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31426,7 +31995,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optStartWertType3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich1Type1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31435,7 +32004,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916406</Id>
+					<Id>1761861885378</Id>
 					<Name><![CDATA[text33]]></Name>
 					<X>50</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31447,7 +32016,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich1Type0]]></Text>
+					<Text><![CDATA[p_optHantelnBereich1Type2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31456,7 +32025,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916407</Id>
+					<Id>1761861885379</Id>
 					<Name><![CDATA[text34]]></Name>
 					<X>240</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31470,7 +32039,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich1Type2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31479,7 +32048,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916408</Id>
+					<Id>1761861885380</Id>
 					<Name><![CDATA[text35]]></Name>
 					<X>330</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31493,7 +32062,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich1Type2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31502,7 +32071,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916409</Id>
+					<Id>1761861885381</Id>
 					<Name><![CDATA[rectangle4]]></Name>
 					<X>40</X><Y>440</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31524,7 +32093,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916410</Id>
+					<Id>1761861885382</Id>
 					<Name><![CDATA[text36]]></Name>
 					<X>50</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31536,7 +32105,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich1Type1]]></Text>
+					<Text><![CDATA[p_optHantelnBereich1Type3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31545,7 +32114,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916411</Id>
+					<Id>1761861885383</Id>
 					<Name><![CDATA[text37]]></Name>
 					<X>240</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31559,7 +32128,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich1Type3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31568,7 +32137,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916412</Id>
+					<Id>1761861885384</Id>
 					<Name><![CDATA[text38]]></Name>
 					<X>330</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31582,7 +32151,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich1Type3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31591,7 +32160,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916413</Id>
+					<Id>1761861885385</Id>
 					<Name><![CDATA[text39]]></Name>
 					<X>50</X><Y>480</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31603,7 +32172,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich1Type2]]></Text>
+					<Text><![CDATA[p_optHantelnBereich2Type0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31612,7 +32181,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916414</Id>
+					<Id>1761861885386</Id>
 					<Name><![CDATA[text40]]></Name>
 					<X>240</X><Y>480</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31626,7 +32195,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich2Type0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31635,7 +32204,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916415</Id>
+					<Id>1761861885387</Id>
 					<Name><![CDATA[text41]]></Name>
 					<X>330</X><Y>480</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31649,7 +32218,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich2Type0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31658,7 +32227,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916416</Id>
+					<Id>1761861885388</Id>
 					<Name><![CDATA[rectangle5]]></Name>
 					<X>40</X><Y>500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31680,7 +32249,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916417</Id>
+					<Id>1761861885389</Id>
 					<Name><![CDATA[text42]]></Name>
 					<X>50</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31692,7 +32261,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich1Type3]]></Text>
+					<Text><![CDATA[p_optHantelnBereich2Type1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31701,7 +32270,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916418</Id>
+					<Id>1761861885390</Id>
 					<Name><![CDATA[text43]]></Name>
 					<X>240</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31715,7 +32284,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich2Type1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31724,7 +32293,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916419</Id>
+					<Id>1761861885391</Id>
 					<Name><![CDATA[text44]]></Name>
 					<X>330</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31738,7 +32307,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich2Type1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31747,7 +32316,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916420</Id>
+					<Id>1761861885392</Id>
 					<Name><![CDATA[text45]]></Name>
 					<X>50</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31759,7 +32328,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich2Type0]]></Text>
+					<Text><![CDATA[p_optHantelnBereich2Type2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31768,7 +32337,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916421</Id>
+					<Id>1761861885393</Id>
 					<Name><![CDATA[text46]]></Name>
 					<X>240</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31782,7 +32351,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich2Type2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31791,7 +32360,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916422</Id>
+					<Id>1761861885394</Id>
 					<Name><![CDATA[text47]]></Name>
 					<X>330</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31805,7 +32374,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich2Type2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31814,7 +32383,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916423</Id>
+					<Id>1761861885395</Id>
 					<Name><![CDATA[rectangle6]]></Name>
 					<X>40</X><Y>560</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31836,7 +32405,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916424</Id>
+					<Id>1761861885396</Id>
 					<Name><![CDATA[text48]]></Name>
 					<X>50</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31848,7 +32417,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich2Type1]]></Text>
+					<Text><![CDATA[p_optHantelnBereich2Type3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31857,7 +32426,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916425</Id>
+					<Id>1761861885397</Id>
 					<Name><![CDATA[text49]]></Name>
 					<X>240</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31871,7 +32440,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich2Type3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31880,7 +32449,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916426</Id>
+					<Id>1761861885398</Id>
 					<Name><![CDATA[text50]]></Name>
 					<X>330</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31894,7 +32463,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich2Type3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31903,7 +32472,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916427</Id>
+					<Id>1761861885399</Id>
 					<Name><![CDATA[text51]]></Name>
 					<X>50</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31915,7 +32484,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich2Type2]]></Text>
+					<Text><![CDATA[p_optHantelnBereich3Type0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31924,7 +32493,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916428</Id>
+					<Id>1761861885400</Id>
 					<Name><![CDATA[text52]]></Name>
 					<X>240</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31938,7 +32507,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich3Type0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31947,7 +32516,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916429</Id>
+					<Id>1761861885401</Id>
 					<Name><![CDATA[text53]]></Name>
 					<X>330</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31961,7 +32530,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich3Type0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -31970,7 +32539,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916430</Id>
+					<Id>1761861885402</Id>
 					<Name><![CDATA[rectangle7]]></Name>
 					<X>40</X><Y>620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31992,7 +32561,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916431</Id>
+					<Id>1761861885403</Id>
 					<Name><![CDATA[text54]]></Name>
 					<X>50</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32004,7 +32573,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich2Type3]]></Text>
+					<Text><![CDATA[p_optHantelnBereich3Type1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32013,7 +32582,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916432</Id>
+					<Id>1761861885404</Id>
 					<Name><![CDATA[text55]]></Name>
 					<X>240</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32027,7 +32596,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich3Type1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32036,7 +32605,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916433</Id>
+					<Id>1761861885405</Id>
 					<Name><![CDATA[text56]]></Name>
 					<X>330</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32050,7 +32619,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich3Type1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32059,7 +32628,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916434</Id>
+					<Id>1761861885406</Id>
 					<Name><![CDATA[text57]]></Name>
 					<X>50</X><Y>660</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32071,7 +32640,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich3Type0]]></Text>
+					<Text><![CDATA[p_optHantelnBereich3Type2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32080,7 +32649,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916435</Id>
+					<Id>1761861885407</Id>
 					<Name><![CDATA[text58]]></Name>
 					<X>240</X><Y>660</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32094,7 +32663,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich3Type2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32103,7 +32672,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916436</Id>
+					<Id>1761861885408</Id>
 					<Name><![CDATA[text59]]></Name>
 					<X>330</X><Y>660</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32117,7 +32686,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich3Type2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32126,7 +32695,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916437</Id>
+					<Id>1761861885409</Id>
 					<Name><![CDATA[rectangle8]]></Name>
 					<X>40</X><Y>680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32148,7 +32717,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916438</Id>
+					<Id>1761861885410</Id>
 					<Name><![CDATA[text60]]></Name>
 					<X>50</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32160,7 +32729,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich3Type1]]></Text>
+					<Text><![CDATA[p_optHantelnBereich3Type3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32169,7 +32738,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916439</Id>
+					<Id>1761861885411</Id>
 					<Name><![CDATA[text61]]></Name>
 					<X>240</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32183,7 +32752,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich3Type3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32192,7 +32761,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916440</Id>
+					<Id>1761861885412</Id>
 					<Name><![CDATA[text62]]></Name>
 					<X>330</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32206,7 +32775,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnBereich3Type3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32215,7 +32784,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916441</Id>
+					<Id>1761861885413</Id>
 					<Name><![CDATA[text63]]></Name>
 					<X>50</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32227,7 +32796,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich3Type2]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp0Typ0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32236,7 +32805,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916442</Id>
+					<Id>1761861885414</Id>
 					<Name><![CDATA[text64]]></Name>
 					<X>240</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32250,7 +32819,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32259,7 +32828,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916443</Id>
+					<Id>1761861885415</Id>
 					<Name><![CDATA[text65]]></Name>
 					<X>330</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32273,7 +32842,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32282,7 +32851,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916444</Id>
+					<Id>1761861885416</Id>
 					<Name><![CDATA[rectangle9]]></Name>
 					<X>40</X><Y>740</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32304,7 +32873,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916445</Id>
+					<Id>1761861885417</Id>
 					<Name><![CDATA[text66]]></Name>
 					<X>50</X><Y>750</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32316,7 +32885,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnBereich3Type3]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp0Typ1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32325,7 +32894,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916446</Id>
+					<Id>1761861885418</Id>
 					<Name><![CDATA[text67]]></Name>
 					<X>240</X><Y>750</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32339,7 +32908,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32348,7 +32917,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916447</Id>
+					<Id>1761861885419</Id>
 					<Name><![CDATA[text68]]></Name>
 					<X>330</X><Y>750</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32362,7 +32931,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32371,7 +32940,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916448</Id>
+					<Id>1761861885420</Id>
 					<Name><![CDATA[text69]]></Name>
 					<X>50</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32383,7 +32952,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp0Typ0]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp0Typ2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32392,7 +32961,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916449</Id>
+					<Id>1761861885421</Id>
 					<Name><![CDATA[text70]]></Name>
 					<X>240</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32406,7 +32975,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32415,7 +32984,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916450</Id>
+					<Id>1761861885422</Id>
 					<Name><![CDATA[text71]]></Name>
 					<X>330</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32429,7 +32998,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32438,7 +33007,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916451</Id>
+					<Id>1761861885423</Id>
 					<Name><![CDATA[rectangle10]]></Name>
 					<X>40</X><Y>800</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32460,7 +33029,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916452</Id>
+					<Id>1761861885424</Id>
 					<Name><![CDATA[text72]]></Name>
 					<X>50</X><Y>810</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32472,7 +33041,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp0Typ1]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp0Typ3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32481,7 +33050,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916453</Id>
+					<Id>1761861885425</Id>
 					<Name><![CDATA[text73]]></Name>
 					<X>240</X><Y>810</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32495,7 +33064,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32504,7 +33073,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916454</Id>
+					<Id>1761861885426</Id>
 					<Name><![CDATA[text74]]></Name>
 					<X>330</X><Y>810</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32518,7 +33087,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32527,7 +33096,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916455</Id>
+					<Id>1761861885427</Id>
 					<Name><![CDATA[text75]]></Name>
 					<X>50</X><Y>840</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32539,7 +33108,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp0Typ2]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp1Typ0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32548,7 +33117,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916456</Id>
+					<Id>1761861885428</Id>
 					<Name><![CDATA[text76]]></Name>
 					<X>240</X><Y>840</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32562,7 +33131,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32571,7 +33140,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916457</Id>
+					<Id>1761861885429</Id>
 					<Name><![CDATA[text77]]></Name>
 					<X>330</X><Y>840</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32585,7 +33154,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32594,7 +33163,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916458</Id>
+					<Id>1761861885430</Id>
 					<Name><![CDATA[rectangle11]]></Name>
 					<X>40</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32616,7 +33185,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916459</Id>
+					<Id>1761861885431</Id>
 					<Name><![CDATA[text78]]></Name>
 					<X>50</X><Y>870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32628,7 +33197,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp0Typ3]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp1Typ1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32637,7 +33206,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916460</Id>
+					<Id>1761861885432</Id>
 					<Name><![CDATA[text79]]></Name>
 					<X>240</X><Y>870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32651,7 +33220,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32660,7 +33229,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916461</Id>
+					<Id>1761861885433</Id>
 					<Name><![CDATA[text80]]></Name>
 					<X>330</X><Y>870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32674,7 +33243,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp0Typ3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32683,7 +33252,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916462</Id>
+					<Id>1761861885434</Id>
 					<Name><![CDATA[text81]]></Name>
 					<X>50</X><Y>900</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32695,7 +33264,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp1Typ0]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp1Typ2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32704,7 +33273,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916463</Id>
+					<Id>1761861885435</Id>
 					<Name><![CDATA[text82]]></Name>
 					<X>240</X><Y>900</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32718,7 +33287,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32727,7 +33296,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916464</Id>
+					<Id>1761861885436</Id>
 					<Name><![CDATA[text83]]></Name>
 					<X>330</X><Y>900</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32741,7 +33310,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32750,7 +33319,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916465</Id>
+					<Id>1761861885437</Id>
 					<Name><![CDATA[rectangle12]]></Name>
 					<X>40</X><Y>920</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32772,7 +33341,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916466</Id>
+					<Id>1761861885438</Id>
 					<Name><![CDATA[text84]]></Name>
 					<X>50</X><Y>930</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32784,7 +33353,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp1Typ1]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp1Typ3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32793,7 +33362,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916467</Id>
+					<Id>1761861885439</Id>
 					<Name><![CDATA[text85]]></Name>
 					<X>240</X><Y>930</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32807,7 +33376,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32816,7 +33385,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916468</Id>
+					<Id>1761861885440</Id>
 					<Name><![CDATA[text86]]></Name>
 					<X>330</X><Y>930</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32830,7 +33399,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32839,7 +33408,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916469</Id>
+					<Id>1761861885441</Id>
 					<Name><![CDATA[text87]]></Name>
 					<X>50</X><Y>960</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32851,7 +33420,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp1Typ2]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp2Typ0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32860,7 +33429,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916470</Id>
+					<Id>1761861885442</Id>
 					<Name><![CDATA[text88]]></Name>
 					<X>240</X><Y>960</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32874,7 +33443,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32883,7 +33452,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916471</Id>
+					<Id>1761861885443</Id>
 					<Name><![CDATA[text89]]></Name>
 					<X>330</X><Y>960</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32897,7 +33466,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32906,7 +33475,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916472</Id>
+					<Id>1761861885444</Id>
 					<Name><![CDATA[rectangle13]]></Name>
 					<X>40</X><Y>980</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32928,7 +33497,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916473</Id>
+					<Id>1761861885445</Id>
 					<Name><![CDATA[text90]]></Name>
 					<X>50</X><Y>990</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32940,7 +33509,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp1Typ3]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp2Typ1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32949,7 +33518,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916474</Id>
+					<Id>1761861885446</Id>
 					<Name><![CDATA[text91]]></Name>
 					<X>240</X><Y>990</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32963,7 +33532,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32972,7 +33541,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916475</Id>
+					<Id>1761861885447</Id>
 					<Name><![CDATA[text92]]></Name>
 					<X>330</X><Y>990</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32986,7 +33555,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp1Typ3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -32995,7 +33564,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916476</Id>
+					<Id>1761861885448</Id>
 					<Name><![CDATA[text93]]></Name>
 					<X>50</X><Y>1020</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33007,7 +33576,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp2Typ0]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp2Typ2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33016,7 +33585,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916477</Id>
+					<Id>1761861885449</Id>
 					<Name><![CDATA[text94]]></Name>
 					<X>240</X><Y>1020</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33030,7 +33599,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33039,7 +33608,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916478</Id>
+					<Id>1761861885450</Id>
 					<Name><![CDATA[text95]]></Name>
 					<X>330</X><Y>1020</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33053,7 +33622,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33062,7 +33631,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916479</Id>
+					<Id>1761861885451</Id>
 					<Name><![CDATA[rectangle14]]></Name>
 					<X>40</X><Y>1040</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33084,7 +33653,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916480</Id>
+					<Id>1761861885452</Id>
 					<Name><![CDATA[text96]]></Name>
 					<X>50</X><Y>1050</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33096,7 +33665,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp2Typ1]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp2Typ3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33105,7 +33674,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916481</Id>
+					<Id>1761861885453</Id>
 					<Name><![CDATA[text97]]></Name>
 					<X>240</X><Y>1050</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33119,7 +33688,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33128,7 +33697,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916482</Id>
+					<Id>1761861885454</Id>
 					<Name><![CDATA[text98]]></Name>
 					<X>330</X><Y>1050</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33142,7 +33711,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33151,7 +33720,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916483</Id>
+					<Id>1761861885455</Id>
 					<Name><![CDATA[text99]]></Name>
 					<X>50</X><Y>1080</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33163,7 +33732,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp2Typ2]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp3Typ0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33172,7 +33741,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916484</Id>
+					<Id>1761861885456</Id>
 					<Name><![CDATA[text100]]></Name>
 					<X>240</X><Y>1080</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33186,7 +33755,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33195,7 +33764,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916485</Id>
+					<Id>1761861885457</Id>
 					<Name><![CDATA[text101]]></Name>
 					<X>330</X><Y>1080</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33209,7 +33778,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33218,7 +33787,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916486</Id>
+					<Id>1761861885458</Id>
 					<Name><![CDATA[rectangle15]]></Name>
 					<X>40</X><Y>1100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33240,7 +33809,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916487</Id>
+					<Id>1761861885459</Id>
 					<Name><![CDATA[text102]]></Name>
 					<X>50</X><Y>1110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33252,7 +33821,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp2Typ3]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp3Typ1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33261,7 +33830,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916488</Id>
+					<Id>1761861885460</Id>
 					<Name><![CDATA[text103]]></Name>
 					<X>240</X><Y>1110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33275,7 +33844,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33284,7 +33853,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916489</Id>
+					<Id>1761861885461</Id>
 					<Name><![CDATA[text104]]></Name>
 					<X>330</X><Y>1110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33298,7 +33867,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp2Typ3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33307,7 +33876,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916490</Id>
+					<Id>1761861885462</Id>
 					<Name><![CDATA[text105]]></Name>
 					<X>50</X><Y>1140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33319,7 +33888,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp3Typ0]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp3Typ2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33328,7 +33897,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916491</Id>
+					<Id>1761861885463</Id>
 					<Name><![CDATA[text106]]></Name>
 					<X>240</X><Y>1140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33342,7 +33911,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33351,7 +33920,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916492</Id>
+					<Id>1761861885464</Id>
 					<Name><![CDATA[text107]]></Name>
 					<X>330</X><Y>1140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33365,7 +33934,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33374,7 +33943,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916493</Id>
+					<Id>1761861885465</Id>
 					<Name><![CDATA[rectangle16]]></Name>
 					<X>40</X><Y>1160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33396,7 +33965,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916494</Id>
+					<Id>1761861885466</Id>
 					<Name><![CDATA[text108]]></Name>
 					<X>50</X><Y>1170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33408,7 +33977,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp3Typ1]]></Text>
+					<Text><![CDATA[p_optHantelnGesamtTyp3Typ3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33417,7 +33986,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916495</Id>
+					<Id>1761861885467</Id>
 					<Name><![CDATA[text109]]></Name>
 					<X>240</X><Y>1170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33431,7 +34000,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33440,7 +34009,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916496</Id>
+					<Id>1761861885468</Id>
 					<Name><![CDATA[text110]]></Name>
 					<X>330</X><Y>1170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33454,7 +34023,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33463,7 +34032,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916497</Id>
+					<Id>1761861885469</Id>
 					<Name><![CDATA[text111]]></Name>
 					<X>50</X><Y>1200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33475,7 +34044,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp3Typ2]]></Text>
+					<Text><![CDATA[p_optHantelnQueTyp0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33484,7 +34053,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916498</Id>
+					<Id>1761861885470</Id>
 					<Name><![CDATA[text112]]></Name>
 					<X>240</X><Y>1200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33498,7 +34067,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnQueTyp0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33507,7 +34076,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916499</Id>
+					<Id>1761861885471</Id>
 					<Name><![CDATA[text113]]></Name>
 					<X>330</X><Y>1200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33521,7 +34090,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnQueTyp0 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33530,7 +34099,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916500</Id>
+					<Id>1761861885472</Id>
 					<Name><![CDATA[rectangle17]]></Name>
 					<X>40</X><Y>1220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33552,7 +34121,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916501</Id>
+					<Id>1761861885473</Id>
 					<Name><![CDATA[text114]]></Name>
 					<X>50</X><Y>1230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33564,7 +34133,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnGesamtTyp3Typ3]]></Text>
+					<Text><![CDATA[p_optHantelnQueTyp1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33573,7 +34142,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916502</Id>
+					<Id>1761861885474</Id>
 					<Name><![CDATA[text115]]></Name>
 					<X>240</X><Y>1230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33587,7 +34156,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnQueTyp1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33596,7 +34165,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916503</Id>
+					<Id>1761861885475</Id>
 					<Name><![CDATA[text116]]></Name>
 					<X>330</X><Y>1230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33610,7 +34179,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnGesamtTyp3Typ3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnQueTyp1 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33619,7 +34188,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916504</Id>
+					<Id>1761861885476</Id>
 					<Name><![CDATA[text117]]></Name>
 					<X>50</X><Y>1260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33631,7 +34200,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnQueTyp0]]></Text>
+					<Text><![CDATA[p_optHantelnQueTyp2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33640,7 +34209,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916505</Id>
+					<Id>1761861885477</Id>
 					<Name><![CDATA[text118]]></Name>
 					<X>240</X><Y>1260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33654,7 +34223,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnQueTyp0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnQueTyp2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33663,7 +34232,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916506</Id>
+					<Id>1761861885478</Id>
 					<Name><![CDATA[text119]]></Name>
 					<X>330</X><Y>1260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33677,7 +34246,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnQueTyp0 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnQueTyp2 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33686,7 +34255,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916507</Id>
+					<Id>1761861885479</Id>
 					<Name><![CDATA[rectangle18]]></Name>
 					<X>40</X><Y>1280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33708,7 +34277,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916508</Id>
+					<Id>1761861885480</Id>
 					<Name><![CDATA[text120]]></Name>
 					<X>50</X><Y>1290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33720,7 +34289,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnQueTyp1]]></Text>
+					<Text><![CDATA[p_optHantelnQueTyp3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33729,7 +34298,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916509</Id>
+					<Id>1761861885481</Id>
 					<Name><![CDATA[text121]]></Name>
 					<X>240</X><Y>1290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33743,7 +34312,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnQueTyp1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnQueTyp3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33752,7 +34321,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916510</Id>
+					<Id>1761861885482</Id>
 					<Name><![CDATA[text122]]></Name>
 					<X>330</X><Y>1290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33766,7 +34335,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnQueTyp1 )]]></TextCode>
+					<TextCode><![CDATA[format( p_optHantelnQueTyp3 )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33775,7 +34344,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916511</Id>
+					<Id>1761861885483</Id>
 					<Name><![CDATA[text123]]></Name>
 					<X>50</X><Y>1320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33787,7 +34356,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnQueTyp2]]></Text>
+					<Text><![CDATA[p_faktorStart]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33796,7 +34365,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916512</Id>
+					<Id>1761861885484</Id>
 					<Name><![CDATA[text124]]></Name>
 					<X>240</X><Y>1320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33810,7 +34379,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnQueTyp2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorStart )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33819,7 +34388,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916513</Id>
+					<Id>1761861885485</Id>
 					<Name><![CDATA[text125]]></Name>
 					<X>330</X><Y>1320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33833,7 +34402,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnQueTyp2 )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorStart )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33842,7 +34411,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916514</Id>
+					<Id>1761861885486</Id>
 					<Name><![CDATA[rectangle19]]></Name>
 					<X>40</X><Y>1340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33864,7 +34433,7 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916515</Id>
+					<Id>1761861885487</Id>
 					<Name><![CDATA[text126]]></Name>
 					<X>50</X><Y>1350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33876,7 +34445,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_optHantelnQueTyp3]]></Text>
+					<Text><![CDATA[p_faktorBereiche]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33885,7 +34454,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916516</Id>
+					<Id>1761861885488</Id>
 					<Name><![CDATA[text127]]></Name>
 					<X>240</X><Y>1350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33899,7 +34468,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnQueTyp3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorBereiche )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33908,7 +34477,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916517</Id>
+					<Id>1761861885489</Id>
 					<Name><![CDATA[text128]]></Name>
 					<X>330</X><Y>1350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33922,7 +34491,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnQueTyp3 )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorBereiche )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33931,7 +34500,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916518</Id>
+					<Id>1761861885490</Id>
 					<Name><![CDATA[text129]]></Name>
 					<X>50</X><Y>1380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33943,7 +34512,7 @@ datasetBestFeasibleObjective.reset();
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-12171190</Color>
-					<Text><![CDATA[p_Modus]]></Text>
+					<Text><![CDATA[p_faktorGesamt]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33952,7 +34521,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916519</Id>
+					<Id>1761861885491</Id>
 					<Name><![CDATA[text130]]></Name>
 					<X>240</X><Y>1380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33966,7 +34535,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[String.valueOf( p_modus )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorGesamt )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33975,7 +34544,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916520</Id>
+					<Id>1761861885492</Id>
 					<Name><![CDATA[text131]]></Name>
 					<X>330</X><Y>1380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33989,7 +34558,7 @@ datasetBestFeasibleObjective.reset();
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[String.valueOf( p_modus )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorGesamt )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -33998,7 +34567,7 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761783916521</Id>
+					<Id>1761861885493</Id>
 					<Name><![CDATA[rectangle20]]></Name>
 					<X>40</X><Y>1400</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34020,9 +34589,165 @@ datasetBestFeasibleObjective.reset();
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761783916522</Id>
+					<Id>1761861885494</Id>
 					<Name><![CDATA[text132]]></Name>
 					<X>50</X><Y>1410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12171190</Color>
+					<Text><![CDATA[p_faktorQueues]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885495</Id>
+					<Name><![CDATA[text133]]></Name>
+					<X>240</X><Y>1410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<VisibleCode><![CDATA[getCurrentIteration() > 0]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12042869</Color>
+					<Text><![CDATA[?]]></Text>
+					<TextCode><![CDATA[format( p_faktorQueues )]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885496</Id>
+					<Name><![CDATA[text134]]></Name>
+					<X>330</X><Y>1410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<VisibleCode><![CDATA[getBestIteration() > 0]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12042869</Color>
+					<Text><![CDATA[?]]></Text>
+					<TextCode><![CDATA[format( p_faktorQueues )]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885497</Id>
+					<Name><![CDATA[text135]]></Name>
+					<X>50</X><Y>1440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12171190</Color>
+					<Text><![CDATA[p_Modus]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885498</Id>
+					<Name><![CDATA[text136]]></Name>
+					<X>240</X><Y>1440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<VisibleCode><![CDATA[getCurrentIteration() > 0]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12042869</Color>
+					<Text><![CDATA[?]]></Text>
+					<TextCode><![CDATA[String.valueOf( p_modus )]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885499</Id>
+					<Name><![CDATA[text137]]></Name>
+					<X>330</X><Y>1440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<VisibleCode><![CDATA[getBestIteration() > 0]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12042869</Color>
+					<Text><![CDATA[?]]></Text>
+					<TextCode><![CDATA[String.valueOf( p_modus )]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1761861885500</Id>
+					<Name><![CDATA[rectangle21]]></Name>
+					<X>40</X><Y>1460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>310</Width>
+					<Height>30</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-657931</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1761861885501</Id>
+					<Name><![CDATA[text138]]></Name>
+					<X>50</X><Y>1470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -34041,9 +34766,9 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916523</Id>
-					<Name><![CDATA[text133]]></Name>
-					<X>240</X><Y>1410</Y>
+					<Id>1761861885502</Id>
+					<Name><![CDATA[text139]]></Name>
+					<X>240</X><Y>1470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -34064,9 +34789,9 @@ datasetBestFeasibleObjective.reset();
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761783916524</Id>
-					<Name><![CDATA[text134]]></Name>
-					<X>330</X><Y>1410</Y>
+					<Id>1761861885503</Id>
+					<Name><![CDATA[text140]]></Name>
+					<X>330</X><Y>1470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -34086,9 +34811,232 @@ datasetBestFeasibleObjective.reset();
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
+				<Text>
+					<Id>1761861885504</Id>
+					<Name><![CDATA[text141]]></Name>
+					<X>50</X><Y>1500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12171190</Color>
+					<Text><![CDATA[p_hantelnProAuftrag]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885505</Id>
+					<Name><![CDATA[text142]]></Name>
+					<X>240</X><Y>1500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<VisibleCode><![CDATA[getCurrentIteration() > 0]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12042869</Color>
+					<Text><![CDATA[?]]></Text>
+					<TextCode><![CDATA[format( p_hantelnProAuftrag )]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885506</Id>
+					<Name><![CDATA[text143]]></Name>
+					<X>330</X><Y>1500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<VisibleCode><![CDATA[getBestIteration() > 0]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12042869</Color>
+					<Text><![CDATA[?]]></Text>
+					<TextCode><![CDATA[format( p_hantelnProAuftrag )]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Rectangle>
+					<Id>1761861885507</Id>
+					<Name><![CDATA[rectangle22]]></Name>
+					<X>40</X><Y>1520</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>310</Width>
+					<Height>30</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-657931</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1761861885508</Id>
+					<Name><![CDATA[text144]]></Name>
+					<X>50</X><Y>1530</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12171190</Color>
+					<Text><![CDATA[p_conveyorGap]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885509</Id>
+					<Name><![CDATA[text145]]></Name>
+					<X>240</X><Y>1530</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<VisibleCode><![CDATA[getCurrentIteration() > 0]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12042869</Color>
+					<Text><![CDATA[?]]></Text>
+					<TextCode><![CDATA[format( p_conveyorGap )]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885510</Id>
+					<Name><![CDATA[text146]]></Name>
+					<X>330</X><Y>1530</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<VisibleCode><![CDATA[getBestIteration() > 0]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12042869</Color>
+					<Text><![CDATA[?]]></Text>
+					<TextCode><![CDATA[format( p_conveyorGap )]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885511</Id>
+					<Name><![CDATA[text147]]></Name>
+					<X>50</X><Y>1560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12171190</Color>
+					<Text><![CDATA[p_nichts]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885512</Id>
+					<Name><![CDATA[text148]]></Name>
+					<X>240</X><Y>1560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<VisibleCode><![CDATA[getCurrentIteration() > 0]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12042869</Color>
+					<Text><![CDATA[?]]></Text>
+					<TextCode><![CDATA[format( p_nichts )]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Text>
+					<Id>1761861885513</Id>
+					<Name><![CDATA[text149]]></Name>
+					<X>330</X><Y>1560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<VisibleCode><![CDATA[getBestIteration() > 0]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-12042869</Color>
+					<Text><![CDATA[?]]></Text>
+					<TextCode><![CDATA[format( p_nichts )]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
 				<Control Type="Button">
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
-					<Id>1761783916383</Id>
+					<Id>1761861885355</Id>
 					<Name><![CDATA[button]]></Name>
 					<X>255</X><Y>205</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34102,9 +35050,7 @@ datasetBestFeasibleObjective.reset();
 						<Enabled>true</Enabled>
 						<EnableExpression><![CDATA[getBestIteration() > 0]]></EnableExpression>
 						<ActionCode><![CDATA[String s = "";
-s += "p_conveyorGap\t" + format( p_conveyorGap ) + "\n";
-s += "p_hantelnProAuftrag\t" + format( p_hantelnProAuftrag ) + "\n";
-s += "p_optStartWertType0\t" + format( getBestParamValue( _oqvar_p_optStartWertType0 ) ) + "\n";
+s += "p_optStartWertType0\t" + format( p_optStartWertType0 ) + "\n";
 s += "p_optStartWertType1\t" + format( p_optStartWertType1 ) + "\n";
 s += "p_optStartWertType2\t" + format( p_optStartWertType2 ) + "\n";
 s += "p_optStartWertType3\t" + format( p_optStartWertType3 ) + "\n";
@@ -34140,8 +35086,15 @@ s += "p_optHantelnQueTyp0\t" + format( p_optHantelnQueTyp0 ) + "\n";
 s += "p_optHantelnQueTyp1\t" + format( p_optHantelnQueTyp1 ) + "\n";
 s += "p_optHantelnQueTyp2\t" + format( p_optHantelnQueTyp2 ) + "\n";
 s += "p_optHantelnQueTyp3\t" + format( p_optHantelnQueTyp3 ) + "\n";
+s += "p_faktorStart\t" + format( p_faktorStart ) + "\n";
+s += "p_faktorBereiche\t" + format( p_faktorBereiche ) + "\n";
+s += "p_faktorGesamt\t" + format( p_faktorGesamt ) + "\n";
+s += "p_faktorQueues\t" + format( p_faktorQueues ) + "\n";
 s += "p_Modus\t" + String.valueOf( p_modus ) + "\n";
 s += "p_chooseNextAgent\t" + String.valueOf( p_chooseNextAgent ) + "\n";
+s += "p_hantelnProAuftrag\t" + format( p_hantelnProAuftrag ) + "\n";
+s += "p_conveyorGap\t" + format( p_conveyorGap ) + "\n";
+s += "p_nichts\t" + format( p_nichts ) + "\n";
 
 copyToClipboard( s );]]></ActionCode>
 					</BasicProperties>
@@ -34151,7 +35104,7 @@ copyToClipboard( s );]]></ActionCode>
 					</ExtendedProperties>
 				</Control>
 				<Line>
-					<Id>1761783916525</Id>
+					<Id>1761861885514</Id>
 					<Name><![CDATA[line3]]></Name>
 					<X>250</X><Y>70</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34171,12 +35124,12 @@ copyToClipboard( s );]]></ActionCode>
 					<EndArrowSize>1</EndArrowSize>
 					<EndArrowStyle>0</EndArrowStyle>
 					<Dx>0</Dx>
-					<Dy>1360</Dy>
+					<Dy>1510</Dy>
 					<Dz>0</Dz>
 				</Line>
     			<Plot>
-					<Id>1761783916535</Id>
-					<Name><![CDATA[plot]]></Name>
+					<Id>1761861885524</Id>
+					<Name><![CDATA[plot1]]></Name>
 					<X>370</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -34185,9 +35138,9 @@ copyToClipboard( s );]]></ActionCode>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<AutoUpdate>false</AutoUpdate>
 					<RecurrenceProperties>
-						<Id>1761783916534</Id>
+						<Id>1761861885523</Id>
 						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1761811200000</OccurrenceDate>
+						<OccurrenceDate>1761897600000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
 							<Code><![CDATA[0]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -34229,7 +35182,7 @@ copyToClipboard( s );]]></ActionCode>
 					<Interpolation>LINEAR</Interpolation>
 					<DatasetExpression>  
 						<Title><![CDATA[Current]]></Title>
-					<Id>1761783916537</Id>
+					<Id>1761861885526</Id>
 					<Expression><![CDATA[datasetCurrentObjective]]></Expression>
 					<Color>-4144960</Color>
 					<Expression2Flag>false</Expression2Flag>
@@ -34239,7 +35192,7 @@ copyToClipboard( s );]]></ActionCode>
 					</DatasetExpression>
 					<DatasetExpression>  
 						<Title><![CDATA[Best infeasible]]></Title>
-					<Id>1761783916538</Id>
+					<Id>1761861885527</Id>
 					<Expression><![CDATA[datasetBestInfeasibleObjective]]></Expression>
 					<Color>-4194304</Color>
 					<Expression2Flag>false</Expression2Flag>
@@ -34249,7 +35202,7 @@ copyToClipboard( s );]]></ActionCode>
 					</DatasetExpression>
 					<DatasetExpression>  
 						<Title><![CDATA[Best feasible]]></Title>
-					<Id>1761783916539</Id>
+					<Id>1761861885528</Id>
 					<Expression><![CDATA[datasetBestFeasibleObjective]]></Expression>
 					<Color>-16777088</Color>
 					<Expression2Flag>false</Expression2Flag>
@@ -34274,7 +35227,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761392855528</Id>
-				<Type>DISCRETE</Type>
+				<Type>FIXED</Type>
 				<Min Class="CodeValue">
 					<Code><![CDATA[-10]]></Code>
 				</Min>
@@ -34764,6 +35717,26 @@ copyToClipboard( s );]]></ActionCode>
 				<Id>1761831182888</Id>
 				<Type>FIXED</Type>
 			</Parameter>
+			<Parameter>	
+				<Id>1761859711462</Id>
+				<Type>FIXED</Type>
+			</Parameter>
+			<Parameter>	
+				<Id>1761859741764</Id>
+				<Type>FIXED</Type>
+			</Parameter>
+			<Parameter>	
+				<Id>1761859759509</Id>
+				<Type>FIXED</Type>
+			</Parameter>
+			<Parameter>	
+				<Id>1761859782177</Id>
+				<Type>FIXED</Type>
+			</Parameter>
+			<Parameter>	
+				<Id>1761862029154</Id>
+				<Type>FIXED</Type>
+			</Parameter>
 			<ObjectiveFunctionCode><![CDATA[root.f_optObjective()]]></ObjectiveFunctionCode>
 			<Objective>MAXIMIZE</Objective>  
 			<OptimizationEngine>NATIVE</OptimizationEngine>
@@ -34807,17 +35780,21 @@ if (bestInfeasibleObjective != Double.NEGATIVE_INFINITY) {
 		<!--   =========  Parameter Variation Experiment   ========  -->
 		<ParamVariationExperiment ActiveObjectClassId="1759583674830">
 			<Id>1761841691209</Id>
-			<Name><![CDATA[ParametersVariation]]></Name>
+			<Name><![CDATA[FixedParameters]]></Name>
 			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
-			<InitialSetupCode><![CDATA[deleteFrom(simulationslauf_ergebnisse).execute();]]></InitialSetupCode>
+			<InitialSetupCode><![CDATA[// 1. Setze den manuellen Zähler auf 0 zurück
+//v_runCounter = 0;
+
+// 2. LÖSCHE ALLE ALTEN ERGEBNISSE aus der Datenbanktabelle!
+//    (Damit wir wieder bei 1 anfangen können zu zählen)
+deleteFrom(simulationslauf_ergebnisse).execute();]]></InitialSetupCode>
 			<MaximumMemory>512</MaximumMemory>
 			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
-			<BeforeEachExperimentRunCode><![CDATA[v_runCounter = 0;]]></BeforeEachExperimentRunCode>
 			<BeforeSimulationRunCode><![CDATA[v_runCounter++;]]></BeforeSimulationRunCode>
 			<AfterSimulationRunCode><![CDATA[// 'root' ist der Main-Agent des gerade beendeten Laufs
 
-// KORREKTUR: Wir verwenden unseren eigenen, manuellen Zähler
+// Hole die Nummer des aktuellen Laufs von unserem manuellen Zähler
 int simulationslauf_nr = v_runCounter; 
 
 // 1. Daten aus dem 'root'-Agenten holen
@@ -34830,7 +35807,7 @@ double auslastung_lackierstation1 = root.Lackierstation1.getUtilization();
 double auslastung_lackierstation2 = root.Lackierstation2.getUtilization();
 double auslastung_lackierstation3 = root.Lackierstation3.getUtilization();
 
-// 2. Daten in die Datenbanktabelle 'simulationslauf_ergebnisse' eintragen
+// 2. Daten in die (jetzt leere) Datenbanktabelle eintragen
 insertInto( simulationslauf_ergebnisse )
     .columns(
         simulationslauf_ergebnisse.simulationslauf_nr,
@@ -34870,7 +35847,7 @@ insertInto( simulationslauf_ergebnisse )
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[1]]></Code>
+							<Code><![CDATA[0]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -35003,6 +35980,21 @@ insertInto( simulationslauf_ergebnisse )
 			<FreeformParamValue>	
 				<Id>1761831182888</Id>
 			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1761859711462</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1761859741764</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1761859759509</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1761859782177</Id>
+			</FreeformParamValue>
+			<FreeformParamValue>	
+				<Id>1761862029154</Id>
+			</FreeformParamValue>
 			<RangeVariationParamValue>	
 				<Id>1760634315310</Id>
 				<Type>FIXED</Type>
@@ -35166,6 +36158,35 @@ insertInto( simulationslauf_ergebnisse )
 			<RangeVariationParamValue>	
 				<Id>1761831182888</Id>
 				<Type>FIXED</Type>
+				<From Class="CodeValue">
+					<Code><![CDATA[0]]></Code>
+				</From>
+				<To Class="CodeValue">
+					<Code><![CDATA[1]]></Code>
+				</To>
+				<Step Class="CodeValue">
+					<Code><![CDATA[1]]></Code>
+				</Step>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1761859711462</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1761859741764</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1761859759509</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1761859782177</Id>
+				<Type>FIXED</Type>
+			</RangeVariationParamValue>
+			<RangeVariationParamValue>	
+				<Id>1761862029154</Id>
+				<Type>FIXED</Type>
 			</RangeVariationParamValue>
 			<ModelTimeProperties>
 				<StopOption><![CDATA[Stop at specified time]]></StopOption>
@@ -35183,7 +36204,7 @@ insertInto( simulationslauf_ergebnisse )
 			<ReplicationsProperties>
 				<UseReplication>true</UseReplication>
 				<FixedReplicationsNumber>true</FixedReplicationsNumber>
-				<ReplicationPerIteration>10</ReplicationPerIteration>
+				<ReplicationPerIteration>20</ReplicationPerIteration>
 				<MinimumReplication>2</MinimumReplication>
 				<MaximumReplication>10</MaximumReplication>
 				<ConfidenceLevel>LEVEL_80</ConfidenceLevel>
