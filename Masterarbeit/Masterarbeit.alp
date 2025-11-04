@@ -12352,6 +12352,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>-30</Z>
@@ -12420,6 +12421,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -12443,6 +12445,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -12622,7 +12625,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -13414,7 +13417,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -13572,7 +13575,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -13730,7 +13733,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -14019,7 +14022,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -14273,7 +14276,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -14836,6 +14839,9 @@ unit.setFillColor(lightGreen);]]></Code>
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[useResources]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[true]]></Code>
+								</Value>
 							</Parameter>
 							<Parameter>
 								<Name><![CDATA[seizeFromOnePool]]></Name>
@@ -15098,7 +15104,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -15664,7 +15670,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -16093,7 +16099,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -16379,7 +16385,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -16665,7 +16671,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -17137,7 +17143,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -17280,7 +17286,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -17745,7 +17751,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -18157,7 +18163,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -18622,7 +18628,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -18765,7 +18771,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -19230,7 +19236,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -19373,7 +19379,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -19838,7 +19844,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -20519,7 +20525,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -21029,7 +21035,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -21315,7 +21321,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -21966,7 +21972,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -22336,7 +22342,7 @@ unit.setFillColor(lightGreen);]]></Code>
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -22809,7 +22815,7 @@ if (!v_isDigitalTwin){
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -23022,7 +23028,7 @@ if (!v_isDigitalTwin){
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -24513,7 +24519,7 @@ if (!v_isDigitalTwin){
 					<LineColor>-8355712</LineColor>
 					<LineMaterial>null</LineMaterial>
 					<DrawStands>true</DrawStands>
-					<StandsLevel>0.0</StandsLevel>
+					<StandsLevel>20.0</StandsLevel>
 					<IsObstacle>true</IsObstacle>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
@@ -25313,7 +25319,7 @@ if (!verfuegbareTypen.isEmpty()) {
 }]]></ActionCode>
 					</BasicProperties>
 					<ExtendedProperties>
-						<Font Name="Dialog" Size="14" Style="0"/>
+						<Font Name="Dialog" Size="11" Style="0"/>
 						<LabelText><![CDATA[Objekt erkannt]]></LabelText>
 					</ExtendedProperties>
 				</Control>
@@ -25623,6 +25629,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -25646,6 +25653,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -25669,6 +25677,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -25692,6 +25701,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -25715,6 +25725,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -25738,6 +25749,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -25887,6 +25899,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -25910,6 +25923,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -25933,6 +25947,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -25956,6 +25971,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -25979,6 +25995,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -26002,6 +26019,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -26193,6 +26211,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -26216,6 +26235,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
@@ -26239,6 +26259,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
+					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
