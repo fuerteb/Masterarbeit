@@ -126,7 +126,7 @@ f_auftragErzeugen();
 				<Name><![CDATA[scale]]></Name>
 				<Description><![CDATA[langes fließband: 50cm x 2.5 = 125px
 kurzes fließband: 20cm x 2.5 = 50px]]></Description>
-				<X>-400</X><Y>-200</Y>
+				<X>-300</X><Y>-1200</Y>
 				<PublicFlag>false</PublicFlag>
 				<PresentationFlag>true</PresentationFlag>
 				<ShowLabel>false</ShowLabel>
@@ -4453,7 +4453,7 @@ return ergebnisInt;]]></Body>
 				<AgentLink>
 					<Id>1759583674831</Id>
 					<Name><![CDATA[connections]]></Name>
-					<X>-500</X><Y>-200</Y>
+					<X>-400</X><Y>-1200</Y>
 					<Label><X>-20</X><Y>20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24909,7 +24909,7 @@ if (!v_isDigitalTwin){
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<TextColor>-16777216</TextColor>
 						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[traceln(exponential(1.0 / 10.0));
+						<ActionCode><![CDATA[traceln(exponential(1.0 / (60.0 * 7)));
 ]]></ActionCode>
 					</BasicProperties>
 					<ExtendedProperties>
@@ -31206,7 +31206,8 @@ p_auftragsNr = auftragsNr;
 					<Name><![CDATA[dropdown_modus1]]></Name>
 					<Description><![CDATA[Optimiert
 Zufällig
-Abwechselnd]]></Description>
+Abwechselnd
+Der Reihe nach]]></Description>
 					<X>300</X><Y>350</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -31603,7 +31604,15 @@ Abwechselnd]]></Description>
 		<OptimizationExperiment ActiveObjectClassId="1759583674830">
 			<Id>1761563707961</Id>
 			<Name><![CDATA[Optimization]]></Name>
-			<Description><![CDATA[// 1. Daten aus dem 'root'-Agenten holen
+			<Description><![CDATA[Initial experiment setup:
+
+deleteFrom(optimierung_ergebnisse).execute();
+
+
+
+After Siumulation run:
+
+// 1. Daten aus dem 'root'-Agenten holen
 
 int iteration = getCurrentIteration();
 int replication = getCurrentReplication();
@@ -31643,45 +31652,26 @@ insertInto( optimierung_ergebnisse )
 			<MaximumMemory>2048</MaximumMemory>
 			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
-			<BeforeEachExperimentRunCode><![CDATA[
-datasetCurrentObjective.reset();
+			<BeforeEachExperimentRunCode><![CDATA[datasetCurrentObjective.reset();
 datasetBestInfeasibleObjective.reset();
 datasetBestFeasibleObjective.reset();
 ]]></BeforeEachExperimentRunCode>
 			<AfterSimulationRunCode><![CDATA[// 1. Daten aus dem 'root'-Agenten holen
 
 int iteration = getCurrentIteration();
-int replication = getCurrentReplication();
 double objective = root.f_optObjective(); 
-double p_faktorStart_local = root.p_faktorStart;
-double p_faktorBereiche_local = root.p_faktorBereiche;
-double p_faktorGesamt_local = root.p_faktorGesamt;
-double p_faktorQueues_local = root.p_faktorQueues;
+
 
 
 // 2. Daten in die (jetzt leere) Datenbanktabelle eintragen
 insertInto( optimierung_ergebnisse )
     .columns(
         optimierung_ergebnisse.iteration,
-        optimierung_ergebnisse.replication,
-        optimierung_ergebnisse.objective_value, 
-        
-        optimierung_ergebnisse.p_faktor_start, 
-        optimierung_ergebnisse.p_faktor_bereiche, 
-        optimierung_ergebnisse.p_faktor_gesamt,
-        optimierung_ergebnisse.p_faktor_queues
-
+        optimierung_ergebnisse.objective_value
     )
     .values(
         iteration,
-        replication,
-        objective,
-        
-        p_faktorStart_local,
-        p_faktorBereiche_local,
-        p_faktorGesamt_local,
-        p_faktorQueues_local
-        
+        objective
     ).execute();]]></AfterSimulationRunCode>
 			<SeedValue>1</SeedValue>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
@@ -31689,7 +31679,7 @@ insertInto( optimierung_ergebnisse )
 			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
 			<Variables>
 				<Variable Class="PlainVariable">
-					<Id>1761937069443</Id>
+					<Id>1762277114984</Id>
 					<Name><![CDATA[bestInfeasibleObjective]]></Name>
 					<X>-350</X><Y>120</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31706,7 +31696,7 @@ insertInto( optimierung_ergebnisse )
 			</Variables>
 			<AnalysisData>
     			<DataSet>
-					<Id>1761937069440</Id>
+					<Id>1762277114981</Id>
 					<Name><![CDATA[datasetCurrentObjective]]></Name>
 					<X>-350</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31715,9 +31705,9 @@ insertInto( optimierung_ergebnisse )
 					<ShowLabel>true</ShowLabel>
 					<AutoUpdate>true</AutoUpdate>
 					<RecurrenceProperties>
-						<Id>1761937069439</Id>
+						<Id>1762277114980</Id>
 						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1761984000000</OccurrenceDate>
+						<OccurrenceDate>1762329600000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
 							<Code><![CDATA[0]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -31729,10 +31719,10 @@ insertInto( optimierung_ergebnisse )
 					</RecurrenceProperties>
 					<FreezeXAxis>true</FreezeXAxis>
 					<VerticalAxisExpression><![CDATA[getCurrentObjectiveValue()]]></VerticalAxisExpression>
-					<SamplesToKeep>1000</SamplesToKeep>
+					<SamplesToKeep>1500</SamplesToKeep>
 				</DataSet>
     			<DataSet>
-					<Id>1761937069442</Id>
+					<Id>1762277114983</Id>
 					<Name><![CDATA[datasetBestInfeasibleObjective]]></Name>
 					<X>-350</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31741,9 +31731,9 @@ insertInto( optimierung_ergebnisse )
 					<ShowLabel>true</ShowLabel>
 					<AutoUpdate>false</AutoUpdate>
 					<RecurrenceProperties>
-						<Id>1761937069441</Id>
+						<Id>1762277114982</Id>
 						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1761984000000</OccurrenceDate>
+						<OccurrenceDate>1762329600000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
 							<Code><![CDATA[0]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -31755,10 +31745,10 @@ insertInto( optimierung_ergebnisse )
 					</RecurrenceProperties>
 					<FreezeXAxis>true</FreezeXAxis>
 					<VerticalAxisExpression><![CDATA[bestInfeasibleObjective]]></VerticalAxisExpression>
-					<SamplesToKeep>1000</SamplesToKeep>
+					<SamplesToKeep>1500</SamplesToKeep>
 				</DataSet>
     			<DataSet>
-					<Id>1761937069446</Id>
+					<Id>1762277114987</Id>
 					<Name><![CDATA[datasetBestFeasibleObjective]]></Name>
 					<X>-350</X><Y>150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31767,9 +31757,9 @@ insertInto( optimierung_ergebnisse )
 					<ShowLabel>true</ShowLabel>
 					<AutoUpdate>false</AutoUpdate>
 					<RecurrenceProperties>
-						<Id>1761937069445</Id>
+						<Id>1762277114986</Id>
 						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1761984000000</OccurrenceDate>
+						<OccurrenceDate>1762329600000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
 							<Code><![CDATA[0]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -31781,13 +31771,13 @@ insertInto( optimierung_ergebnisse )
 					</RecurrenceProperties>
 					<FreezeXAxis>true</FreezeXAxis>
 					<VerticalAxisExpression><![CDATA[getBestObjectiveValue()]]></VerticalAxisExpression>
-					<SamplesToKeep>1000</SamplesToKeep>
+					<SamplesToKeep>1500</SamplesToKeep>
 				</DataSet>
 			</AnalysisData>
 
 			<Presentation>
 				<Text>
-					<Id>1761937069253</Id>
+					<Id>1762277114794</Id>
 					<Name><![CDATA[text]]></Name>
 					<X>40</X><Y>30</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31808,7 +31798,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069254</Id>
+					<Id>1762277114795</Id>
 					<Name><![CDATA[text1]]></Name>
 					<X>240</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31829,7 +31819,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069255</Id>
+					<Id>1762277114796</Id>
 					<Name><![CDATA[text2]]></Name>
 					<X>330</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31850,7 +31840,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Line>
-					<Id>1761937069256</Id>
+					<Id>1762277114797</Id>
 					<Name><![CDATA[line]]></Name>
 					<X>40</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31874,7 +31864,7 @@ insertInto( optimierung_ergebnisse )
 					<Dz>0</Dz>
 				</Line>
 				<Text>
-					<Id>1761937069257</Id>
+					<Id>1762277114798</Id>
 					<Name><![CDATA[text3]]></Name>
 					<X>50</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31895,7 +31885,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069258</Id>
+					<Id>1762277114799</Id>
 					<Name><![CDATA[text4]]></Name>
 					<X>240</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31918,7 +31908,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069259</Id>
+					<Id>1762277114800</Id>
 					<Name><![CDATA[text5]]></Name>
 					<X>240</X><Y>119</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31940,7 +31930,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069260</Id>
+					<Id>1762277114801</Id>
 					<Name><![CDATA[text6]]></Name>
 					<X>330</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31963,7 +31953,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069261</Id>
+					<Id>1762277114802</Id>
 					<Name><![CDATA[text7]]></Name>
 					<X>330</X><Y>119</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -31985,7 +31975,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069262</Id>
+					<Id>1762277114803</Id>
 					<Name><![CDATA[rectangle]]></Name>
 					<X>40</X><Y>130</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32007,7 +31997,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069263</Id>
+					<Id>1762277114804</Id>
 					<Name><![CDATA[text8]]></Name>
 					<X>50</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32028,7 +32018,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069264</Id>
+					<Id>1762277114805</Id>
 					<Name><![CDATA[text9]]></Name>
 					<X>240</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32051,7 +32041,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069265</Id>
+					<Id>1762277114806</Id>
 					<Name><![CDATA[text10]]></Name>
 					<X>330</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32074,7 +32064,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069266</Id>
+					<Id>1762277114807</Id>
 					<Name><![CDATA[text11]]></Name>
 					<X>50</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32095,7 +32085,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069267</Id>
+					<Id>1762277114808</Id>
 					<Name><![CDATA[text12]]></Name>
 					<X>240</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32118,7 +32108,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069268</Id>
+					<Id>1762277114809</Id>
 					<Name><![CDATA[text13]]></Name>
 					<X>330</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32141,7 +32131,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Line>
-					<Id>1761937069269</Id>
+					<Id>1762277114810</Id>
 					<Name><![CDATA[line1]]></Name>
 					<X>115</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32165,7 +32155,7 @@ insertInto( optimierung_ergebnisse )
 					<Dz>0</Dz>
 				</Line>
 				<Polyline>
-					<Id>1761937069270</Id>
+					<Id>1762277114811</Id>
 					<Name><![CDATA[polyline]]></Name>
 					<X>110</X><Y>175</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32194,7 +32184,7 @@ insertInto( optimierung_ergebnisse )
 					<Closed>false</Closed>
 				</Polyline>
 				<Text>
-					<Id>1761937069271</Id>
+					<Id>1762277114812</Id>
 					<Name><![CDATA[text14]]></Name>
 					<X>50</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32215,7 +32205,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Line>
-					<Id>1761937069273</Id>
+					<Id>1762277114814</Id>
 					<Name><![CDATA[line2]]></Name>
 					<X>40</X><Y>230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32239,7 +32229,7 @@ insertInto( optimierung_ergebnisse )
 					<Dz>0</Dz>
 				</Line>
 				<Text>
-					<Id>1761937069274</Id>
+					<Id>1762277114815</Id>
 					<Name><![CDATA[text15]]></Name>
 					<X>50</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32260,7 +32250,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069275</Id>
+					<Id>1762277114816</Id>
 					<Name><![CDATA[text16]]></Name>
 					<X>240</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32283,7 +32273,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069276</Id>
+					<Id>1762277114817</Id>
 					<Name><![CDATA[text17]]></Name>
 					<X>330</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32306,7 +32296,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069277</Id>
+					<Id>1762277114818</Id>
 					<Name><![CDATA[rectangle1]]></Name>
 					<X>40</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32328,7 +32318,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069278</Id>
+					<Id>1762277114819</Id>
 					<Name><![CDATA[text18]]></Name>
 					<X>50</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32349,7 +32339,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069279</Id>
+					<Id>1762277114820</Id>
 					<Name><![CDATA[text19]]></Name>
 					<X>240</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32372,7 +32362,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069280</Id>
+					<Id>1762277114821</Id>
 					<Name><![CDATA[text20]]></Name>
 					<X>330</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32395,7 +32385,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069281</Id>
+					<Id>1762277114822</Id>
 					<Name><![CDATA[text21]]></Name>
 					<X>50</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32416,7 +32406,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069282</Id>
+					<Id>1762277114823</Id>
 					<Name><![CDATA[text22]]></Name>
 					<X>240</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32439,7 +32429,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069283</Id>
+					<Id>1762277114824</Id>
 					<Name><![CDATA[text23]]></Name>
 					<X>330</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32462,7 +32452,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069284</Id>
+					<Id>1762277114825</Id>
 					<Name><![CDATA[rectangle2]]></Name>
 					<X>40</X><Y>320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32484,7 +32474,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069285</Id>
+					<Id>1762277114826</Id>
 					<Name><![CDATA[text24]]></Name>
 					<X>50</X><Y>330</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32505,7 +32495,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069286</Id>
+					<Id>1762277114827</Id>
 					<Name><![CDATA[text25]]></Name>
 					<X>240</X><Y>330</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32528,7 +32518,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069287</Id>
+					<Id>1762277114828</Id>
 					<Name><![CDATA[text26]]></Name>
 					<X>330</X><Y>330</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32551,7 +32541,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069288</Id>
+					<Id>1762277114829</Id>
 					<Name><![CDATA[text27]]></Name>
 					<X>50</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32562,17 +32552,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich1Type0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069289</Id>
+					<Id>1762277114830</Id>
 					<Name><![CDATA[text28]]></Name>
 					<X>240</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32586,16 +32576,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich1Type0 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069290</Id>
+					<Id>1762277114831</Id>
 					<Name><![CDATA[text29]]></Name>
 					<X>330</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32607,18 +32597,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich1Type0 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069291</Id>
+					<Id>1762277114832</Id>
 					<Name><![CDATA[rectangle3]]></Name>
 					<X>40</X><Y>380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32640,7 +32630,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069292</Id>
+					<Id>1762277114833</Id>
 					<Name><![CDATA[text30]]></Name>
 					<X>50</X><Y>390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32651,17 +32641,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich1Type1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069293</Id>
+					<Id>1762277114834</Id>
 					<Name><![CDATA[text31]]></Name>
 					<X>240</X><Y>390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32675,16 +32665,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich1Type1 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069294</Id>
+					<Id>1762277114835</Id>
 					<Name><![CDATA[text32]]></Name>
 					<X>330</X><Y>390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32696,18 +32686,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich1Type1 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069295</Id>
+					<Id>1762277114836</Id>
 					<Name><![CDATA[text33]]></Name>
 					<X>50</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32718,17 +32708,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich1Type2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069296</Id>
+					<Id>1762277114837</Id>
 					<Name><![CDATA[text34]]></Name>
 					<X>240</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32742,16 +32732,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich1Type2 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069297</Id>
+					<Id>1762277114838</Id>
 					<Name><![CDATA[text35]]></Name>
 					<X>330</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32763,18 +32753,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich1Type2 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069298</Id>
+					<Id>1762277114839</Id>
 					<Name><![CDATA[rectangle4]]></Name>
 					<X>40</X><Y>440</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32796,7 +32786,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069299</Id>
+					<Id>1762277114840</Id>
 					<Name><![CDATA[text36]]></Name>
 					<X>50</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32807,17 +32797,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich1Type3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069300</Id>
+					<Id>1762277114841</Id>
 					<Name><![CDATA[text37]]></Name>
 					<X>240</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32831,16 +32821,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich1Type3 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069301</Id>
+					<Id>1762277114842</Id>
 					<Name><![CDATA[text38]]></Name>
 					<X>330</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32852,18 +32842,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich1Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich1Type3 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069302</Id>
+					<Id>1762277114843</Id>
 					<Name><![CDATA[text39]]></Name>
 					<X>50</X><Y>480</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32874,17 +32864,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich2Type0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069303</Id>
+					<Id>1762277114844</Id>
 					<Name><![CDATA[text40]]></Name>
 					<X>240</X><Y>480</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32898,16 +32888,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich2Type0 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069304</Id>
+					<Id>1762277114845</Id>
 					<Name><![CDATA[text41]]></Name>
 					<X>330</X><Y>480</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32919,18 +32909,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich2Type0 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069305</Id>
+					<Id>1762277114846</Id>
 					<Name><![CDATA[rectangle5]]></Name>
 					<X>40</X><Y>500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32952,7 +32942,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069306</Id>
+					<Id>1762277114847</Id>
 					<Name><![CDATA[text42]]></Name>
 					<X>50</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32963,17 +32953,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich2Type1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069307</Id>
+					<Id>1762277114848</Id>
 					<Name><![CDATA[text43]]></Name>
 					<X>240</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -32987,16 +32977,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich2Type1 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069308</Id>
+					<Id>1762277114849</Id>
 					<Name><![CDATA[text44]]></Name>
 					<X>330</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33008,18 +32998,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich2Type1 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069309</Id>
+					<Id>1762277114850</Id>
 					<Name><![CDATA[text45]]></Name>
 					<X>50</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33030,17 +33020,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich2Type2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069310</Id>
+					<Id>1762277114851</Id>
 					<Name><![CDATA[text46]]></Name>
 					<X>240</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33054,16 +33044,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich2Type2 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069311</Id>
+					<Id>1762277114852</Id>
 					<Name><![CDATA[text47]]></Name>
 					<X>330</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33075,18 +33065,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich2Type2 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069312</Id>
+					<Id>1762277114853</Id>
 					<Name><![CDATA[rectangle6]]></Name>
 					<X>40</X><Y>560</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33108,7 +33098,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069313</Id>
+					<Id>1762277114854</Id>
 					<Name><![CDATA[text48]]></Name>
 					<X>50</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33119,17 +33109,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich2Type3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069314</Id>
+					<Id>1762277114855</Id>
 					<Name><![CDATA[text49]]></Name>
 					<X>240</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33143,16 +33133,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich2Type3 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069315</Id>
+					<Id>1762277114856</Id>
 					<Name><![CDATA[text50]]></Name>
 					<X>330</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33164,18 +33154,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich2Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich2Type3 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069316</Id>
+					<Id>1762277114857</Id>
 					<Name><![CDATA[text51]]></Name>
 					<X>50</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33186,17 +33176,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich3Type0]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069317</Id>
+					<Id>1762277114858</Id>
 					<Name><![CDATA[text52]]></Name>
 					<X>240</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33210,16 +33200,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich3Type0 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069318</Id>
+					<Id>1762277114859</Id>
 					<Name><![CDATA[text53]]></Name>
 					<X>330</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33231,18 +33221,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type0 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich3Type0 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069319</Id>
+					<Id>1762277114860</Id>
 					<Name><![CDATA[rectangle7]]></Name>
 					<X>40</X><Y>620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33264,7 +33254,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069320</Id>
+					<Id>1762277114861</Id>
 					<Name><![CDATA[text54]]></Name>
 					<X>50</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33275,17 +33265,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich3Type1]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069321</Id>
+					<Id>1762277114862</Id>
 					<Name><![CDATA[text55]]></Name>
 					<X>240</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33299,16 +33289,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich3Type1 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069322</Id>
+					<Id>1762277114863</Id>
 					<Name><![CDATA[text56]]></Name>
 					<X>330</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33320,18 +33310,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type1 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich3Type1 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069323</Id>
+					<Id>1762277114864</Id>
 					<Name><![CDATA[text57]]></Name>
 					<X>50</X><Y>660</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33342,17 +33332,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich3Type2]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069324</Id>
+					<Id>1762277114865</Id>
 					<Name><![CDATA[text58]]></Name>
 					<X>240</X><Y>660</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33366,16 +33356,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich3Type2 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069325</Id>
+					<Id>1762277114866</Id>
 					<Name><![CDATA[text59]]></Name>
 					<X>330</X><Y>660</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33387,18 +33377,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type2 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich3Type2 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069326</Id>
+					<Id>1762277114867</Id>
 					<Name><![CDATA[rectangle8]]></Name>
 					<X>40</X><Y>680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33420,7 +33410,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069327</Id>
+					<Id>1762277114868</Id>
 					<Name><![CDATA[text60]]></Name>
 					<X>50</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33431,17 +33421,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12171190</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[p_optHantelnBereich3Type3]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069328</Id>
+					<Id>1762277114869</Id>
 					<Name><![CDATA[text61]]></Name>
 					<X>240</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33455,16 +33445,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_optHantelnBereich3Type3 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069329</Id>
+					<Id>1762277114870</Id>
 					<Name><![CDATA[text62]]></Name>
 					<X>330</X><Y>690</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33476,18 +33466,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12042869</Color>
+					<Color>-12490271</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( p_optHantelnBereich3Type3 )]]></TextCode>
+					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_optHantelnBereich3Type3 ) )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>0</Style>
+						<Style>1</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069330</Id>
+					<Id>1762277114871</Id>
 					<Name><![CDATA[text63]]></Name>
 					<X>50</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33508,7 +33498,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069331</Id>
+					<Id>1762277114872</Id>
 					<Name><![CDATA[text64]]></Name>
 					<X>240</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33531,7 +33521,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069332</Id>
+					<Id>1762277114873</Id>
 					<Name><![CDATA[text65]]></Name>
 					<X>330</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33554,7 +33544,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069333</Id>
+					<Id>1762277114874</Id>
 					<Name><![CDATA[rectangle9]]></Name>
 					<X>40</X><Y>740</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33576,7 +33566,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069334</Id>
+					<Id>1762277114875</Id>
 					<Name><![CDATA[text66]]></Name>
 					<X>50</X><Y>750</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33597,7 +33587,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069335</Id>
+					<Id>1762277114876</Id>
 					<Name><![CDATA[text67]]></Name>
 					<X>240</X><Y>750</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33620,7 +33610,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069336</Id>
+					<Id>1762277114877</Id>
 					<Name><![CDATA[text68]]></Name>
 					<X>330</X><Y>750</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33643,7 +33633,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069337</Id>
+					<Id>1762277114878</Id>
 					<Name><![CDATA[text69]]></Name>
 					<X>50</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33664,7 +33654,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069338</Id>
+					<Id>1762277114879</Id>
 					<Name><![CDATA[text70]]></Name>
 					<X>240</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33687,7 +33677,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069339</Id>
+					<Id>1762277114880</Id>
 					<Name><![CDATA[text71]]></Name>
 					<X>330</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33710,7 +33700,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069340</Id>
+					<Id>1762277114881</Id>
 					<Name><![CDATA[rectangle10]]></Name>
 					<X>40</X><Y>800</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33732,7 +33722,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069341</Id>
+					<Id>1762277114882</Id>
 					<Name><![CDATA[text72]]></Name>
 					<X>50</X><Y>810</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33753,7 +33743,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069342</Id>
+					<Id>1762277114883</Id>
 					<Name><![CDATA[text73]]></Name>
 					<X>240</X><Y>810</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33776,7 +33766,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069343</Id>
+					<Id>1762277114884</Id>
 					<Name><![CDATA[text74]]></Name>
 					<X>330</X><Y>810</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33799,7 +33789,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069344</Id>
+					<Id>1762277114885</Id>
 					<Name><![CDATA[text75]]></Name>
 					<X>50</X><Y>840</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33820,7 +33810,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069345</Id>
+					<Id>1762277114886</Id>
 					<Name><![CDATA[text76]]></Name>
 					<X>240</X><Y>840</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33843,7 +33833,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069346</Id>
+					<Id>1762277114887</Id>
 					<Name><![CDATA[text77]]></Name>
 					<X>330</X><Y>840</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33866,7 +33856,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069347</Id>
+					<Id>1762277114888</Id>
 					<Name><![CDATA[rectangle11]]></Name>
 					<X>40</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33888,7 +33878,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069348</Id>
+					<Id>1762277114889</Id>
 					<Name><![CDATA[text78]]></Name>
 					<X>50</X><Y>870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33909,7 +33899,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069349</Id>
+					<Id>1762277114890</Id>
 					<Name><![CDATA[text79]]></Name>
 					<X>240</X><Y>870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33932,7 +33922,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069350</Id>
+					<Id>1762277114891</Id>
 					<Name><![CDATA[text80]]></Name>
 					<X>330</X><Y>870</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33955,7 +33945,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069351</Id>
+					<Id>1762277114892</Id>
 					<Name><![CDATA[text81]]></Name>
 					<X>50</X><Y>900</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33976,7 +33966,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069352</Id>
+					<Id>1762277114893</Id>
 					<Name><![CDATA[text82]]></Name>
 					<X>240</X><Y>900</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -33999,7 +33989,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069353</Id>
+					<Id>1762277114894</Id>
 					<Name><![CDATA[text83]]></Name>
 					<X>330</X><Y>900</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34022,7 +34012,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069354</Id>
+					<Id>1762277114895</Id>
 					<Name><![CDATA[rectangle12]]></Name>
 					<X>40</X><Y>920</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34044,7 +34034,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069355</Id>
+					<Id>1762277114896</Id>
 					<Name><![CDATA[text84]]></Name>
 					<X>50</X><Y>930</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34065,7 +34055,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069356</Id>
+					<Id>1762277114897</Id>
 					<Name><![CDATA[text85]]></Name>
 					<X>240</X><Y>930</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34088,7 +34078,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069357</Id>
+					<Id>1762277114898</Id>
 					<Name><![CDATA[text86]]></Name>
 					<X>330</X><Y>930</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34111,7 +34101,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069358</Id>
+					<Id>1762277114899</Id>
 					<Name><![CDATA[text87]]></Name>
 					<X>50</X><Y>960</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34132,7 +34122,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069359</Id>
+					<Id>1762277114900</Id>
 					<Name><![CDATA[text88]]></Name>
 					<X>240</X><Y>960</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34155,7 +34145,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069360</Id>
+					<Id>1762277114901</Id>
 					<Name><![CDATA[text89]]></Name>
 					<X>330</X><Y>960</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34178,7 +34168,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069361</Id>
+					<Id>1762277114902</Id>
 					<Name><![CDATA[rectangle13]]></Name>
 					<X>40</X><Y>980</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34200,7 +34190,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069362</Id>
+					<Id>1762277114903</Id>
 					<Name><![CDATA[text90]]></Name>
 					<X>50</X><Y>990</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34221,7 +34211,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069363</Id>
+					<Id>1762277114904</Id>
 					<Name><![CDATA[text91]]></Name>
 					<X>240</X><Y>990</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34244,7 +34234,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069364</Id>
+					<Id>1762277114905</Id>
 					<Name><![CDATA[text92]]></Name>
 					<X>330</X><Y>990</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34267,7 +34257,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069365</Id>
+					<Id>1762277114906</Id>
 					<Name><![CDATA[text93]]></Name>
 					<X>50</X><Y>1020</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34288,7 +34278,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069366</Id>
+					<Id>1762277114907</Id>
 					<Name><![CDATA[text94]]></Name>
 					<X>240</X><Y>1020</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34311,7 +34301,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069367</Id>
+					<Id>1762277114908</Id>
 					<Name><![CDATA[text95]]></Name>
 					<X>330</X><Y>1020</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34334,7 +34324,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069368</Id>
+					<Id>1762277114909</Id>
 					<Name><![CDATA[rectangle14]]></Name>
 					<X>40</X><Y>1040</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34356,7 +34346,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069369</Id>
+					<Id>1762277114910</Id>
 					<Name><![CDATA[text96]]></Name>
 					<X>50</X><Y>1050</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34377,7 +34367,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069370</Id>
+					<Id>1762277114911</Id>
 					<Name><![CDATA[text97]]></Name>
 					<X>240</X><Y>1050</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34400,7 +34390,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069371</Id>
+					<Id>1762277114912</Id>
 					<Name><![CDATA[text98]]></Name>
 					<X>330</X><Y>1050</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34423,7 +34413,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069372</Id>
+					<Id>1762277114913</Id>
 					<Name><![CDATA[text99]]></Name>
 					<X>50</X><Y>1080</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34444,7 +34434,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069373</Id>
+					<Id>1762277114914</Id>
 					<Name><![CDATA[text100]]></Name>
 					<X>240</X><Y>1080</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34467,7 +34457,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069374</Id>
+					<Id>1762277114915</Id>
 					<Name><![CDATA[text101]]></Name>
 					<X>330</X><Y>1080</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34490,7 +34480,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069375</Id>
+					<Id>1762277114916</Id>
 					<Name><![CDATA[rectangle15]]></Name>
 					<X>40</X><Y>1100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34512,7 +34502,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069376</Id>
+					<Id>1762277114917</Id>
 					<Name><![CDATA[text102]]></Name>
 					<X>50</X><Y>1110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34533,7 +34523,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069377</Id>
+					<Id>1762277114918</Id>
 					<Name><![CDATA[text103]]></Name>
 					<X>240</X><Y>1110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34556,7 +34546,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069378</Id>
+					<Id>1762277114919</Id>
 					<Name><![CDATA[text104]]></Name>
 					<X>330</X><Y>1110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34579,7 +34569,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069379</Id>
+					<Id>1762277114920</Id>
 					<Name><![CDATA[text105]]></Name>
 					<X>50</X><Y>1140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34600,7 +34590,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069380</Id>
+					<Id>1762277114921</Id>
 					<Name><![CDATA[text106]]></Name>
 					<X>240</X><Y>1140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34623,7 +34613,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069381</Id>
+					<Id>1762277114922</Id>
 					<Name><![CDATA[text107]]></Name>
 					<X>330</X><Y>1140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34646,7 +34636,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069382</Id>
+					<Id>1762277114923</Id>
 					<Name><![CDATA[rectangle16]]></Name>
 					<X>40</X><Y>1160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34668,7 +34658,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069383</Id>
+					<Id>1762277114924</Id>
 					<Name><![CDATA[text108]]></Name>
 					<X>50</X><Y>1170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34689,7 +34679,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069384</Id>
+					<Id>1762277114925</Id>
 					<Name><![CDATA[text109]]></Name>
 					<X>240</X><Y>1170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34712,7 +34702,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069385</Id>
+					<Id>1762277114926</Id>
 					<Name><![CDATA[text110]]></Name>
 					<X>330</X><Y>1170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34735,7 +34725,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069386</Id>
+					<Id>1762277114927</Id>
 					<Name><![CDATA[text111]]></Name>
 					<X>50</X><Y>1200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34756,7 +34746,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069387</Id>
+					<Id>1762277114928</Id>
 					<Name><![CDATA[text112]]></Name>
 					<X>240</X><Y>1200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34779,7 +34769,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069388</Id>
+					<Id>1762277114929</Id>
 					<Name><![CDATA[text113]]></Name>
 					<X>330</X><Y>1200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34802,7 +34792,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069389</Id>
+					<Id>1762277114930</Id>
 					<Name><![CDATA[rectangle17]]></Name>
 					<X>40</X><Y>1220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34824,7 +34814,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069390</Id>
+					<Id>1762277114931</Id>
 					<Name><![CDATA[text114]]></Name>
 					<X>50</X><Y>1230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34845,7 +34835,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069391</Id>
+					<Id>1762277114932</Id>
 					<Name><![CDATA[text115]]></Name>
 					<X>240</X><Y>1230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34868,7 +34858,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069392</Id>
+					<Id>1762277114933</Id>
 					<Name><![CDATA[text116]]></Name>
 					<X>330</X><Y>1230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34891,7 +34881,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069393</Id>
+					<Id>1762277114934</Id>
 					<Name><![CDATA[text117]]></Name>
 					<X>50</X><Y>1260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34912,7 +34902,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069394</Id>
+					<Id>1762277114935</Id>
 					<Name><![CDATA[text118]]></Name>
 					<X>240</X><Y>1260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34935,7 +34925,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069395</Id>
+					<Id>1762277114936</Id>
 					<Name><![CDATA[text119]]></Name>
 					<X>330</X><Y>1260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34958,7 +34948,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069396</Id>
+					<Id>1762277114937</Id>
 					<Name><![CDATA[rectangle18]]></Name>
 					<X>40</X><Y>1280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -34980,7 +34970,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069397</Id>
+					<Id>1762277114938</Id>
 					<Name><![CDATA[text120]]></Name>
 					<X>50</X><Y>1290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35001,7 +34991,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069398</Id>
+					<Id>1762277114939</Id>
 					<Name><![CDATA[text121]]></Name>
 					<X>240</X><Y>1290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35024,7 +35014,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069399</Id>
+					<Id>1762277114940</Id>
 					<Name><![CDATA[text122]]></Name>
 					<X>330</X><Y>1290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35047,7 +35037,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069400</Id>
+					<Id>1762277114941</Id>
 					<Name><![CDATA[text123]]></Name>
 					<X>50</X><Y>1320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35058,17 +35048,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
+					<Color>-12171190</Color>
 					<Text><![CDATA[p_faktorStart]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069401</Id>
+					<Id>1762277114942</Id>
 					<Name><![CDATA[text124]]></Name>
 					<X>240</X><Y>1320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35082,16 +35072,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_faktorStart ) )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorStart )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069402</Id>
+					<Id>1762277114943</Id>
 					<Name><![CDATA[text125]]></Name>
 					<X>330</X><Y>1320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35103,18 +35093,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
+					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_faktorStart ) )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorStart )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069403</Id>
+					<Id>1762277114944</Id>
 					<Name><![CDATA[rectangle19]]></Name>
 					<X>40</X><Y>1340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35136,7 +35126,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069404</Id>
+					<Id>1762277114945</Id>
 					<Name><![CDATA[text126]]></Name>
 					<X>50</X><Y>1350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35147,17 +35137,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
+					<Color>-12171190</Color>
 					<Text><![CDATA[p_faktorBereiche]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069405</Id>
+					<Id>1762277114946</Id>
 					<Name><![CDATA[text127]]></Name>
 					<X>240</X><Y>1350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35171,16 +35161,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_faktorBereiche ) )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorBereiche )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069406</Id>
+					<Id>1762277114947</Id>
 					<Name><![CDATA[text128]]></Name>
 					<X>330</X><Y>1350</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35192,18 +35182,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
+					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_faktorBereiche ) )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorBereiche )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069407</Id>
+					<Id>1762277114948</Id>
 					<Name><![CDATA[text129]]></Name>
 					<X>50</X><Y>1380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35214,17 +35204,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
+					<Color>-12171190</Color>
 					<Text><![CDATA[p_faktorGesamt]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069408</Id>
+					<Id>1762277114949</Id>
 					<Name><![CDATA[text130]]></Name>
 					<X>240</X><Y>1380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35238,16 +35228,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_faktorGesamt ) )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorGesamt )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069409</Id>
+					<Id>1762277114950</Id>
 					<Name><![CDATA[text131]]></Name>
 					<X>330</X><Y>1380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35259,18 +35249,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
+					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_faktorGesamt ) )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorGesamt )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069410</Id>
+					<Id>1762277114951</Id>
 					<Name><![CDATA[rectangle20]]></Name>
 					<X>40</X><Y>1400</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35292,7 +35282,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069411</Id>
+					<Id>1762277114952</Id>
 					<Name><![CDATA[text132]]></Name>
 					<X>50</X><Y>1410</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35303,17 +35293,17 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
+					<Color>-12171190</Color>
 					<Text><![CDATA[p_faktorQueues]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069412</Id>
+					<Id>1762277114953</Id>
 					<Name><![CDATA[text133]]></Name>
 					<X>240</X><Y>1410</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35327,16 +35317,16 @@ insertInto( optimierung_ergebnisse )
 					<Rotation>0.0</Rotation>
 					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( getCurrentParamValue( _oqvar_p_faktorQueues ) )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorQueues )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069413</Id>
+					<Id>1762277114954</Id>
 					<Name><![CDATA[text134]]></Name>
 					<X>330</X><Y>1410</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35348,18 +35338,18 @@ insertInto( optimierung_ergebnisse )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<Color>-12490271</Color>
+					<Color>-12042869</Color>
 					<Text><![CDATA[?]]></Text>
-					<TextCode><![CDATA[format( getBestParamValue( _oqvar_p_faktorQueues ) )]]></TextCode>
+					<TextCode><![CDATA[format( p_faktorQueues )]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
-						<Style>1</Style>
+						<Style>0</Style>
 					</Font>
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069414</Id>
+					<Id>1762277114955</Id>
 					<Name><![CDATA[text135]]></Name>
 					<X>50</X><Y>1440</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35380,7 +35370,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069415</Id>
+					<Id>1762277114956</Id>
 					<Name><![CDATA[text136]]></Name>
 					<X>240</X><Y>1440</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35403,7 +35393,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069416</Id>
+					<Id>1762277114957</Id>
 					<Name><![CDATA[text137]]></Name>
 					<X>330</X><Y>1440</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35426,7 +35416,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069417</Id>
+					<Id>1762277114958</Id>
 					<Name><![CDATA[rectangle21]]></Name>
 					<X>40</X><Y>1460</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35448,7 +35438,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069418</Id>
+					<Id>1762277114959</Id>
 					<Name><![CDATA[text138]]></Name>
 					<X>50</X><Y>1470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35469,7 +35459,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069419</Id>
+					<Id>1762277114960</Id>
 					<Name><![CDATA[text139]]></Name>
 					<X>240</X><Y>1470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35492,7 +35482,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069420</Id>
+					<Id>1762277114961</Id>
 					<Name><![CDATA[text140]]></Name>
 					<X>330</X><Y>1470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35515,7 +35505,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069421</Id>
+					<Id>1762277114962</Id>
 					<Name><![CDATA[text141]]></Name>
 					<X>50</X><Y>1500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35536,7 +35526,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069422</Id>
+					<Id>1762277114963</Id>
 					<Name><![CDATA[text142]]></Name>
 					<X>240</X><Y>1500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35559,7 +35549,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069423</Id>
+					<Id>1762277114964</Id>
 					<Name><![CDATA[text143]]></Name>
 					<X>330</X><Y>1500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35582,7 +35572,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069424</Id>
+					<Id>1762277114965</Id>
 					<Name><![CDATA[rectangle22]]></Name>
 					<X>40</X><Y>1520</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35604,7 +35594,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069425</Id>
+					<Id>1762277114966</Id>
 					<Name><![CDATA[text144]]></Name>
 					<X>50</X><Y>1530</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35625,7 +35615,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069426</Id>
+					<Id>1762277114967</Id>
 					<Name><![CDATA[text145]]></Name>
 					<X>240</X><Y>1530</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35648,7 +35638,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069427</Id>
+					<Id>1762277114968</Id>
 					<Name><![CDATA[text146]]></Name>
 					<X>330</X><Y>1530</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35671,7 +35661,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069428</Id>
+					<Id>1762277114969</Id>
 					<Name><![CDATA[text147]]></Name>
 					<X>50</X><Y>1560</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35692,7 +35682,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069429</Id>
+					<Id>1762277114970</Id>
 					<Name><![CDATA[text148]]></Name>
 					<X>240</X><Y>1560</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35715,7 +35705,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069430</Id>
+					<Id>1762277114971</Id>
 					<Name><![CDATA[text149]]></Name>
 					<X>330</X><Y>1560</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35738,7 +35728,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Rectangle>
-					<Id>1761937069431</Id>
+					<Id>1762277114972</Id>
 					<Name><![CDATA[rectangle23]]></Name>
 					<X>40</X><Y>1580</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35760,7 +35750,7 @@ insertInto( optimierung_ergebnisse )
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
 				<Text>
-					<Id>1761937069432</Id>
+					<Id>1762277114973</Id>
 					<Name><![CDATA[text150]]></Name>
 					<X>50</X><Y>1590</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35781,7 +35771,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069433</Id>
+					<Id>1762277114974</Id>
 					<Name><![CDATA[text151]]></Name>
 					<X>240</X><Y>1590</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35804,7 +35794,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069434</Id>
+					<Id>1762277114975</Id>
 					<Name><![CDATA[text152]]></Name>
 					<X>330</X><Y>1590</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35827,7 +35817,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069435</Id>
+					<Id>1762277114976</Id>
 					<Name><![CDATA[text153]]></Name>
 					<X>50</X><Y>1620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35848,7 +35838,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>LEFT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069436</Id>
+					<Id>1762277114977</Id>
 					<Name><![CDATA[text154]]></Name>
 					<X>240</X><Y>1620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35871,7 +35861,7 @@ insertInto( optimierung_ergebnisse )
 					<Alignment>RIGHT</Alignment>
 				</Text>
 				<Text>
-					<Id>1761937069437</Id>
+					<Id>1762277114978</Id>
 					<Name><![CDATA[text155]]></Name>
 					<X>330</X><Y>1620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35895,7 +35885,7 @@ insertInto( optimierung_ergebnisse )
 				</Text>
 				<Control Type="Button">
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
-					<Id>1761937069272</Id>
+					<Id>1762277114813</Id>
 					<Name><![CDATA[button]]></Name>
 					<X>255</X><Y>205</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35913,18 +35903,18 @@ s += "p_optStartWertType0\t" + format( p_optStartWertType0 ) + "\n";
 s += "p_optStartWertType1\t" + format( p_optStartWertType1 ) + "\n";
 s += "p_optStartWertType2\t" + format( p_optStartWertType2 ) + "\n";
 s += "p_optStartWertType3\t" + format( p_optStartWertType3 ) + "\n";
-s += "p_optHantelnBereich1Type0\t" + format( p_optHantelnBereich1Type0 ) + "\n";
-s += "p_optHantelnBereich1Type1\t" + format( p_optHantelnBereich1Type1 ) + "\n";
-s += "p_optHantelnBereich1Type2\t" + format( p_optHantelnBereich1Type2 ) + "\n";
-s += "p_optHantelnBereich1Type3\t" + format( p_optHantelnBereich1Type3 ) + "\n";
-s += "p_optHantelnBereich2Type0\t" + format( p_optHantelnBereich2Type0 ) + "\n";
-s += "p_optHantelnBereich2Type1\t" + format( p_optHantelnBereich2Type1 ) + "\n";
-s += "p_optHantelnBereich2Type2\t" + format( p_optHantelnBereich2Type2 ) + "\n";
-s += "p_optHantelnBereich2Type3\t" + format( p_optHantelnBereich2Type3 ) + "\n";
-s += "p_optHantelnBereich3Type0\t" + format( p_optHantelnBereich3Type0 ) + "\n";
-s += "p_optHantelnBereich3Type1\t" + format( p_optHantelnBereich3Type1 ) + "\n";
-s += "p_optHantelnBereich3Type2\t" + format( p_optHantelnBereich3Type2 ) + "\n";
-s += "p_optHantelnBereich3Type3\t" + format( p_optHantelnBereich3Type3 ) + "\n";
+s += "p_optHantelnBereich1Type0\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich1Type0 ) ) + "\n";
+s += "p_optHantelnBereich1Type1\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich1Type1 ) ) + "\n";
+s += "p_optHantelnBereich1Type2\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich1Type2 ) ) + "\n";
+s += "p_optHantelnBereich1Type3\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich1Type3 ) ) + "\n";
+s += "p_optHantelnBereich2Type0\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich2Type0 ) ) + "\n";
+s += "p_optHantelnBereich2Type1\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich2Type1 ) ) + "\n";
+s += "p_optHantelnBereich2Type2\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich2Type2 ) ) + "\n";
+s += "p_optHantelnBereich2Type3\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich2Type3 ) ) + "\n";
+s += "p_optHantelnBereich3Type0\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich3Type0 ) ) + "\n";
+s += "p_optHantelnBereich3Type1\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich3Type1 ) ) + "\n";
+s += "p_optHantelnBereich3Type2\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich3Type2 ) ) + "\n";
+s += "p_optHantelnBereich3Type3\t" + format( getBestParamValue( _oqvar_p_optHantelnBereich3Type3 ) ) + "\n";
 s += "p_optHantelnGesamtTyp0Typ0\t" + format( p_optHantelnGesamtTyp0Typ0 ) + "\n";
 s += "p_optHantelnGesamtTyp0Typ1\t" + format( p_optHantelnGesamtTyp0Typ1 ) + "\n";
 s += "p_optHantelnGesamtTyp0Typ2\t" + format( p_optHantelnGesamtTyp0Typ2 ) + "\n";
@@ -35945,10 +35935,10 @@ s += "p_optHantelnQueTyp0\t" + format( p_optHantelnQueTyp0 ) + "\n";
 s += "p_optHantelnQueTyp1\t" + format( p_optHantelnQueTyp1 ) + "\n";
 s += "p_optHantelnQueTyp2\t" + format( p_optHantelnQueTyp2 ) + "\n";
 s += "p_optHantelnQueTyp3\t" + format( p_optHantelnQueTyp3 ) + "\n";
-s += "p_faktorStart\t" + format( getBestParamValue( _oqvar_p_faktorStart ) ) + "\n";
-s += "p_faktorBereiche\t" + format( getBestParamValue( _oqvar_p_faktorBereiche ) ) + "\n";
-s += "p_faktorGesamt\t" + format( getBestParamValue( _oqvar_p_faktorGesamt ) ) + "\n";
-s += "p_faktorQueues\t" + format( getBestParamValue( _oqvar_p_faktorQueues ) ) + "\n";
+s += "p_faktorStart\t" + format( p_faktorStart ) + "\n";
+s += "p_faktorBereiche\t" + format( p_faktorBereiche ) + "\n";
+s += "p_faktorGesamt\t" + format( p_faktorGesamt ) + "\n";
+s += "p_faktorQueues\t" + format( p_faktorQueues ) + "\n";
 s += "p_Modus\t" + String.valueOf( p_modus ) + "\n";
 s += "p_chooseNextAgent\t" + String.valueOf( p_chooseNextAgent ) + "\n";
 s += "p_maschinenausfälle\t" + String.valueOf( p_maschinenausfälle ) + "\n";
@@ -35965,7 +35955,7 @@ copyToClipboard( s );]]></ActionCode>
 					</ExtendedProperties>
 				</Control>
 				<Line>
-					<Id>1761937069438</Id>
+					<Id>1762277114979</Id>
 					<Name><![CDATA[line3]]></Name>
 					<X>250</X><Y>70</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -35989,8 +35979,8 @@ copyToClipboard( s );]]></ActionCode>
 					<Dz>0</Dz>
 				</Line>
     			<Plot>
-					<Id>1761937069448</Id>
-					<Name><![CDATA[plot1]]></Name>
+					<Id>1762277114989</Id>
+					<Name><![CDATA[plot]]></Name>
 					<X>370</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -35999,9 +35989,9 @@ copyToClipboard( s );]]></ActionCode>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<AutoUpdate>false</AutoUpdate>
 					<RecurrenceProperties>
-						<Id>1761937069447</Id>
+						<Id>1762277114988</Id>
 						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1761984000000</OccurrenceDate>
+						<OccurrenceDate>1762329600000</OccurrenceDate>
 						<OccurrenceTime Class="CodeUnitValue">
 							<Code><![CDATA[0]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
@@ -36043,7 +36033,7 @@ copyToClipboard( s );]]></ActionCode>
 					<Interpolation>LINEAR</Interpolation>
 					<DatasetExpression>  
 						<Title><![CDATA[Current]]></Title>
-					<Id>1761937069450</Id>
+					<Id>1762277114991</Id>
 					<Expression><![CDATA[datasetCurrentObjective]]></Expression>
 					<Color>-4144960</Color>
 					<Expression2Flag>false</Expression2Flag>
@@ -36053,7 +36043,7 @@ copyToClipboard( s );]]></ActionCode>
 					</DatasetExpression>
 					<DatasetExpression>  
 						<Title><![CDATA[Best infeasible]]></Title>
-					<Id>1761937069451</Id>
+					<Id>1762277114992</Id>
 					<Expression><![CDATA[datasetBestInfeasibleObjective]]></Expression>
 					<Color>-4194304</Color>
 					<Expression2Flag>false</Expression2Flag>
@@ -36063,7 +36053,7 @@ copyToClipboard( s );]]></ActionCode>
 					</DatasetExpression>
 					<DatasetExpression>  
 						<Title><![CDATA[Best feasible]]></Title>
-					<Id>1761937069452</Id>
+					<Id>1762277114993</Id>
 					<Expression><![CDATA[datasetBestFeasibleObjective]]></Expression>
 					<Color>-16777088</Color>
 					<Expression2Flag>false</Expression2Flag>
@@ -36152,7 +36142,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402229868</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[-9]]></Code>
 				</Value>
@@ -36168,7 +36158,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402258214</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[-10]]></Code>
 				</Value>
@@ -36184,7 +36174,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402269554</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[-10]]></Code>
 				</Value>
@@ -36200,7 +36190,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402272524</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[-8]]></Code>
 				</Value>
@@ -36216,7 +36206,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402281357</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[-9]]></Code>
 				</Value>
@@ -36232,7 +36222,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402301667</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[-6]]></Code>
 				</Value>
@@ -36248,7 +36238,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402303910</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[-4]]></Code>
 				</Value>
@@ -36264,7 +36254,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402307075</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[8]]></Code>
 				</Value>
@@ -36280,7 +36270,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402348406</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[-7]]></Code>
 				</Value>
@@ -36296,7 +36286,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402410671</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[4]]></Code>
 				</Value>
@@ -36312,7 +36302,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402412812</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[4]]></Code>
 				</Value>
@@ -36328,7 +36318,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761402415202</Id>
-				<Type>FIXED</Type>
+				<Type>DISCRETE</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[4]]></Code>
 				</Value>
@@ -36670,7 +36660,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761859711462</Id>
-				<Type>DISCRETE</Type>
+				<Type>FIXED</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[0]]></Code>
 				</Value>
@@ -36686,10 +36676,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761859741764</Id>
-				<Type>DISCRETE</Type>
-				<Value Class="CodeValue">
-					<Code><![CDATA[0]]></Code>
-				</Value>
+				<Type>FIXED</Type>
 				<Min Class="CodeValue">
 					<Code><![CDATA[0]]></Code>
 				</Min>
@@ -36702,7 +36689,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761859759509</Id>
-				<Type>DISCRETE</Type>
+				<Type>FIXED</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[0]]></Code>
 				</Value>
@@ -36718,7 +36705,7 @@ copyToClipboard( s );]]></ActionCode>
 			</Parameter>
 			<Parameter>	
 				<Id>1761859782177</Id>
-				<Type>DISCRETE</Type>
+				<Type>FIXED</Type>
 				<Value Class="CodeValue">
 					<Code><![CDATA[0]]></Code>
 				</Value>
@@ -36757,7 +36744,7 @@ if (bestInfeasibleObjective != Double.NEGATIVE_INFINITY) {
 			<ReplicationsProperties>
 				<UseReplication>true</UseReplication>
 				<FixedReplicationsNumber>true</FixedReplicationsNumber>
-				<ReplicationPerIteration>3</ReplicationPerIteration>
+				<ReplicationPerIteration>10</ReplicationPerIteration>
 				<MinimumReplication>2</MinimumReplication>
 				<MaximumReplication>10</MaximumReplication>
 				<ConfidenceLevel>LEVEL_80</ConfidenceLevel>
@@ -36776,7 +36763,7 @@ if (bestInfeasibleObjective != Double.NEGATIVE_INFINITY) {
 				<FinalDate><![CDATA[1761541199000]]></FinalDate>	
 				<FinalTime><![CDATA[17999.0]]></FinalTime>	
 				<StopAfterIterationCount>true</StopAfterIterationCount>
-				<IterationCount>20</IterationCount>
+				<IterationCount>2</IterationCount>
 				<AutomaticStop>false</AutomaticStop>
 			</ModelTimeProperties>
 		</OptimizationExperiment>
@@ -36784,7 +36771,13 @@ if (bestInfeasibleObjective != Double.NEGATIVE_INFINITY) {
 		<ParamVariationExperiment ActiveObjectClassId="1759583674830">
 			<Id>1761841691209</Id>
 			<Name><![CDATA[FixedParameters]]></Name>
-			<Description><![CDATA[// 1. Setze den manuellen Zähler auf 0 zurück
+			<Description><![CDATA[Optimiert
+Zufällig
+Abwechselnd
+Der Reihe nach
+
+
+// 1. Setze den manuellen Zähler auf 0 zurück
 //v_runCounter = 0;
 
 // 2. LÖSCHE ALLE ALTEN ERGEBNISSE aus der Datenbanktabelle!
@@ -36865,6 +36858,9 @@ double auslastung_drehmaschine = root.Drehmaschine.getUtilization();
 double auslastung_lackierstation1 = root.Lackierstation1.getUtilization();
 double auslastung_lackierstation2 = root.Lackierstation2.getUtilization();
 double auslastung_lackierstation3 = root.Lackierstation3.getUtilization();
+double auslastung_pruefstation = root.Prüfstation.getUtilization();
+
+
 
 // 2. Daten in die (jetzt leere) Datenbanktabelle eintragen
 insertInto( simulationslauf_ergebnisse )
@@ -36877,7 +36873,10 @@ insertInto( simulationslauf_ergebnisse )
         simulationslauf_ergebnisse.auslastung_drehmaschine,
         simulationslauf_ergebnisse.auslastung_lackierstation1,
         simulationslauf_ergebnisse.auslastung_lackierstation2,
-        simulationslauf_ergebnisse.auslastung_lackierstation3
+        simulationslauf_ergebnisse.auslastung_lackierstation3,
+        simulationslauf_ergebnisse.auslastung_pruefstation
+
+        
     )
     .values(
         simulationslauf_nr,
@@ -36888,7 +36887,8 @@ insertInto( simulationslauf_ergebnisse )
         auslastung_drehmaschine,
         auslastung_lackierstation1,
         auslastung_lackierstation2,
-        auslastung_lackierstation3
+        auslastung_lackierstation3,
+        auslastung_pruefstation
     ).execute();]]></AfterSimulationRunCode>
 			<SeedValue>1</SeedValue>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
@@ -37097,14 +37097,14 @@ insertInto( simulationslauf_ergebnisse )
 				<Id>1761402229868</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[-9]]></Code>
+					<Code><![CDATA[-6]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
 				<Id>1761402258214</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[-10]]></Code>
+					<Code><![CDATA[-8]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
@@ -37118,63 +37118,63 @@ insertInto( simulationslauf_ergebnisse )
 				<Id>1761402272524</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[-8]]></Code>
+					<Code><![CDATA[-10]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
 				<Id>1761402281357</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[-9]]></Code>
+					<Code><![CDATA[0]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
 				<Id>1761402301667</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[-6]]></Code>
+					<Code><![CDATA[-7]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
 				<Id>1761402303910</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[-4]]></Code>
+					<Code><![CDATA[-7]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
 				<Id>1761402307075</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[8]]></Code>
+					<Code><![CDATA[1]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
 				<Id>1761402348406</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[-7]]></Code>
+					<Code><![CDATA[-3]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
 				<Id>1761402410671</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[4]]></Code>
+					<Code><![CDATA[1]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
 				<Id>1761402412812</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[4]]></Code>
+					<Code><![CDATA[7]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
 				<Id>1761402415202</Id>
 				<Type>FIXED</Type>
 				<Expression Class="CodeValue">
-					<Code><![CDATA[4]]></Code>
+					<Code><![CDATA[3]]></Code>
 				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
@@ -37264,9 +37264,6 @@ insertInto( simulationslauf_ergebnisse )
 			<RangeVariationParamValue>	
 				<Id>1761761879203</Id>
 				<Type>FIXED</Type>
-				<Expression Class="CodeValue">
-					<Code><![CDATA["Der Reihe nach"]]></Code>
-				</Expression>
 			</RangeVariationParamValue>
 			<RangeVariationParamValue>	
 				<Id>1761831182888</Id>
@@ -37330,7 +37327,7 @@ insertInto( simulationslauf_ergebnisse )
 			<ReplicationsProperties>
 				<UseReplication>true</UseReplication>
 				<FixedReplicationsNumber>true</FixedReplicationsNumber>
-				<ReplicationPerIteration>100</ReplicationPerIteration>
+				<ReplicationPerIteration>2</ReplicationPerIteration>
 				<MinimumReplication>2</MinimumReplication>
 				<MaximumReplication>10</MaximumReplication>
 				<ConfidenceLevel>LEVEL_80</ConfidenceLevel>
