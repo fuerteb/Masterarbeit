@@ -49,8 +49,9 @@ import java.util.List;
 
 f_auftragErzeugen();
 
-Prüfstation.setDelayType(ConveyorSimpleStationDelayType.CONVEYOR_SIMPLE_STATION_DELAY_TYPE_MANUAL);
-
+if (v_isDigitalTwin){
+	Prüfstation.setDelayType(ConveyorSimpleStationDelayType.CONVEYOR_SIMPLE_STATION_DELAY_TYPE_MANUAL);
+}
 ]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
@@ -1586,7 +1587,7 @@ Digital Twin]]></Description>
 Optimiert
 Zufällig
 Abwechselnd
-Der Reihe nach]]></Description>
+Sequenziell]]></Description>
 					<X>-1450</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -3784,22 +3785,20 @@ if (agent.p_type == 0) {
 						<Name><![CDATA[station]]></Name>
 						<Type><![CDATA[NumberPath<Double>]]></Type>
 					</Parameter>
-					<Body><![CDATA[// 1. Basis-Bearbeitungszeit aus der Datenbank holen
+					<Body><![CDATA[// Basis-Bearbeitungszeit aus der Datenbank holen
 double basisZeit = selectFrom(bearbeitungszeiten)
     .where(bearbeitungszeiten.typ.eq(agent.p_type))
     .uniqueResult(station, double.class);
 
-// 2. Standardabweichung berechnen (10% vom Basiswert)
+// Standardabweichung berechnen (10% vom Basiswert)
 double stdAbw = basisZeit * 0.1;
 
-// 3. Normalverteilte Zeit generieren (Mittelwert = basisZeit, StdAbw = stdAbw)
-//    und sicherstellen, dass sie nicht negativ ist
+// Normalverteilte Zeit generieren
 double zufallsZeit = normal(stdAbw, basisZeit);
 
-// 4. Runden auf die nächste ganze Zahl (long)
+// Runden auf die nächste ganze Zahl (long)
 long gerundeteZufallsZeit = Math.round(zufallsZeit);
 
-// Sicherstellen, dass die Zeit nicht negativ ist
 //traceln("Station=" + station + ", type="+ agent.p_type + ", basisZeit=" + basisZeit + ", stdAbw=" + stdAbw + ", gerundeteZufallsZeit=" + gerundeteZufallsZeit);
 return max(0, gerundeteZufallsZeit);]]></Body>
 				</Function>
@@ -4009,11 +4008,11 @@ if (p_chooseNextAgent.equals("Optimiert")  ) {
     traceln("Abwechselnd ausgewählt: Typ " + ausgewaehlterTyp + " (Index " + indexInListe + " aus " + verfuegbareTypen + ")");
     return ausgewaehlterTyp;
 	
-// Auswahl der Reihe nach (alle Hanteln eines Typs nacheinander)
-} else if (p_chooseNextAgent.equals("Der Reihe nach")) {
+// Auswahl Sequenziell (alle Hanteln eines Typs nacheinander)
+} else if (p_chooseNextAgent.equals("Sequenziell")) {
 
 	int kleinsterVerfuegbarerTyp = verfuegbareTypen.get(0);
-	traceln("Typ wurde der Reihe nach ausgewählt: " + kleinsterVerfuegbarerTyp);
+	traceln("Typ wurde Sequenziell ausgewählt: " + kleinsterVerfuegbarerTyp);
 	return kleinsterVerfuegbarerTyp;
 
 // Fehler
@@ -10025,6 +10024,9 @@ v_hantelnGesamt[agent.p_type] --;]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[maximumCapacity]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[true]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[entityLocation]]></Name>
@@ -25290,7 +25292,7 @@ if (!v_isDigitalTwin){
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1761821532702</Id>
 					<Name><![CDATA[button1]]></Name>
-					<X>260</X><Y>740</Y>
+					<X>270</X><Y>830</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25332,7 +25334,7 @@ if (!verfuegbareTypen.isEmpty()) {
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1761821608072</Id>
 					<Name><![CDATA[button2]]></Name>
-					<X>500</X><Y>120</Y>
+					<X>500</X><Y>110</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25355,7 +25357,7 @@ Prüfstation.stopProcess();]]></ActionCode>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1761821668924</Id>
 					<Name><![CDATA[button3]]></Name>
-					<X>500</X><Y>160</Y>
+					<X>500</X><Y>150</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -28562,26 +28564,6 @@ else{
 					</Points>
 					<Closed>false</Closed>
 				</Polyline>
-				<Control Type="Button">
-				 	<EmbeddedIcon>false</EmbeddedIcon>				
-					<Id>1760028014649</Id>
-					<Name><![CDATA[but_test]]></Name>
-					<X>-150</X><Y>-200</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<BasicProperties Width="100" Height="30">
-                        <EmbeddedIcon>false</EmbeddedIcon>	
-						<TextColor>-16777216</TextColor>
-						<Enabled>true</Enabled>
-					</BasicProperties>
-					<ExtendedProperties>
-						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[Test]]></LabelText>
-					</ExtendedProperties>
-				</Control>
 			</Presentation>
 
 				</Level>
@@ -28825,7 +28807,7 @@ else{
 				<Variable Class="CollectionVariable">
 					<Id>1760466686947</Id>
 					<Name><![CDATA[col_farben]]></Name>
-					<X>250</X><Y>50</Y>
+					<X>50</X><Y>400</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -29150,7 +29132,7 @@ Color.yellow}]]></Code>
 					<Id>1760465153833</Id>
 					<Name><![CDATA[f_onCreate]]></Name>
 					<Description><![CDATA[Ändert p_farbe zu einer  zufälligen farbe aus col_farben]]></Description>
-					<X>50</X><Y>400</Y>
+					<X>50</X><Y>500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -29352,7 +29334,7 @@ p_auftragsNr = auftragsNr;
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
 				<ExternalTableName><![CDATA["Tabelle1"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
+				<AutoImport>true</AutoImport>
 			</TableImportSettings>
 		</ImportSettings>
 		<ExportSettings>
@@ -29513,7 +29495,7 @@ p_auftragsNr = auftragsNr;
 					<Description><![CDATA[Optimiert
 Zufällig
 Abwechselnd
-Der Reihe nach]]></Description>
+Sequenziell]]></Description>
 					<X>300</X><Y>350</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -29532,7 +29514,7 @@ Der Reihe nach]]></Description>
 						<Button><![CDATA[Optimiert]]></Button>
 						<Button><![CDATA[Zufällig]]></Button>
 						<Button><![CDATA[Abwechselnd]]></Button>
-						<Button><![CDATA[Der Reihe nach]]></Button>
+						<Button><![CDATA[Sequenziell]]></Button>
 						<LinkTo>true</LinkTo>
 						<Link>v_chooseNextAgent</Link>
 					</ExtendedProperties>
@@ -35056,7 +35038,7 @@ if (bestInfeasibleObjective != Double.NEGATIVE_INFINITY) {
 			<Description><![CDATA[Optimiert
 Zufällig
 Abwechselnd
-Der Reihe nach
+Sequenziell
 
 
 // 1. Setze den manuellen Zähler auf 0 zurück
@@ -35132,7 +35114,7 @@ deleteFrom(simulationslauf_ergebnisse).execute();]]></InitialSetupCode>
 int simulationslauf_nr = v_runCounter; 
 
 // 1. Daten aus dem 'root'-Agenten holen
-double durchsatz = (double) root.sink.count(); 
+double output = (double) root.sink.count(); 
 double auslastung_durchschnitt = root.f_auslastungAlleStationen();
 double auslastung_bohrstation1 = root.Bohrstation1.getUtilization();
 double auslastung_bohrstation2 = root.Bohrstation2.getUtilization();
@@ -35148,7 +35130,7 @@ double auslastung_pruefstation = root.Prüfstation.getUtilization();
 insertInto( simulationslauf_ergebnisse )
     .columns(
         simulationslauf_ergebnisse.simulationslauf_nr,
-        simulationslauf_ergebnisse.durchsatz, 
+        simulationslauf_ergebnisse.output, 
         simulationslauf_ergebnisse.auslastung_durchschnitt,
         simulationslauf_ergebnisse.auslastung_bohrstation1,
         simulationslauf_ergebnisse.auslastung_bohrstation2,
@@ -35162,7 +35144,7 @@ insertInto( simulationslauf_ergebnisse )
     )
     .values(
         simulationslauf_nr,
-        durchsatz, 
+        output, 
         auslastung_durchschnitt,
         auslastung_bohrstation1,
         auslastung_bohrstation2,
@@ -35705,7 +35687,7 @@ insertInto( simulationslauf_ergebnisse )
 			<ReplicationsProperties>
 				<UseReplication>true</UseReplication>
 				<FixedReplicationsNumber>true</FixedReplicationsNumber>
-				<ReplicationPerIteration>500</ReplicationPerIteration>
+				<ReplicationPerIteration>5</ReplicationPerIteration>
 				<MinimumReplication>2</MinimumReplication>
 				<MaximumReplication>10</MaximumReplication>
 				<ConfidenceLevel>LEVEL_80</ConfidenceLevel>
