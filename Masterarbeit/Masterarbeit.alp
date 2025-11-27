@@ -4098,7 +4098,7 @@ double score = 0;
 
 
 
-// --- 1. Basis-Priorität ---
+// 1. Basis-Komponente
 // Startet mit dem Wert aus den Start-Parametern
 double scoreStart = v_optStartWerte[type];
 
@@ -4109,7 +4109,7 @@ score += scoreStart * p_faktorStart;
 
 
 
-// --- 2. Berücksichtigung nachfolgender Bereiche  ---
+// 2. Bereichskomponente
 // Gehe durch alle Bereiche
 double scoreBereiche = 0;
 for (int i = 0; i < v_optAlleBereiche.length; i++) {
@@ -4124,7 +4124,7 @@ for (int i = 0; i < v_optAlleBereiche.length; i++) {
 
 
 
-// --- 3. Berücksichtigung der agenten im gesamten system  ---
+// 3. Systemkomponente
 // jeder einzelne typ bekommt eine eigene Gewichtung für jeden möglichen nächsten typ (4x4 Parameter)
 double scoreSystem = 0;
 // Berechne den Bonus für den aktuellen Hanteltyp 'type' (potentieller nächster agent)
@@ -4140,7 +4140,7 @@ score += scoreSystem * p_faktorGesamt;
 
 
 
-// --- 4. Berücksichtigung der agenten in der Warteschlange vom aktuellen Auftrag  ---
+// 4. Warteschlangenkomponente
 // berechne Bonus: (agenten des eigenen typs in Warteschlange) *  (dessen Gewichtung)
 double scoreQueues = 0;
 scoreQueues += col_queuesAllTypes.get(type).size() * v_optQueAlleTypes[type];
