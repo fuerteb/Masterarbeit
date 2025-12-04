@@ -3607,11 +3607,6 @@ if(v_isDigitalTwin){
 	//mqtt Verbindung herstellen
 	A_TestJavaClass testJavaClass = add_pop_testJavaClass();
 	pop_testJavaClass(0).f_connectDT(p_broker);
-
-	// Prüfstation wartet auf externes Signal (stopProcess())
-	//Prüfstation.setDelayType(ConveyorSimpleStationDelayType.CONVEYOR_SIMPLE_STATION_DELAY_TYPE_MANUAL);
-	
-	//traceln(Prüfstation.getDelayType());
 	
 	// Vergangenen Log löschen
 	deleteFrom(log_dt).execute();
@@ -3690,15 +3685,15 @@ if (message.equals("Objekt erkannt")) {
 
 // Feste Zuweisung für Typ 2 und 3
 if (agent.p_type == 2) {
-    return true; // Muss zu Station 1
+    return true;
 } else if (agent.p_type == 3) {
-    return false; // Muss zu Station 2
+    return false; 
 } else {
     // Verteilung für Typ 0 und 1 basierend auf der Anzahl der Agenten im Convey-Block
     if (con_bohrstation1.size() <= con_bohrstation2.size()) {
-        return true; // Schicke zu Station 1
+        return true;
     } else {
-        return false; // Schicke zu Station 2
+        return false;
     }
 }]]></Body>
 				</Function>
@@ -3745,11 +3740,11 @@ if (agent.p_type == 1 || agent.p_type == 2) {
 
 // Feste Zuweisung für Typ 0, 1 und 2
 if (agent.p_type == 0) {
-    return 1; // Ausgang 1
+    return 1; 
 } else if (agent.p_type == 1) {
-    return 2; // Ausgang 2
+    return 2; 
 } else if (agent.p_type == 2) {
-    return 3; // Ausgang 3
+    return 3; 
 } else { // Agent ist Typ 3 - Verteilung nach Auslastung
 
     // Aktuelle Anzahl Agenten auf dem Weg zu den Stationen ermitteln
@@ -3759,11 +3754,11 @@ if (agent.p_type == 0) {
 
     // Station mit der geringsten Auslastung wählen (bei Gleichstand Prio 1 > 2 > 3)
     if (size1 <= size2 && size1 <= size3) {
-        return 1; // Nimm Ausgang 1
+        return 1;
     } else if (size2 <= size3) { // Station 1 ist voller, vergleiche 2 und 3
-        return 2; // Nimm Ausgang 2
+        return 2;
     } else {
-        return 3; // Nimm Ausgang 3
+        return 3;
     }
 }]]></Body>
 				</Function>
@@ -3814,11 +3809,11 @@ return max(0, gerundeteZufallsZeit);]]></Body>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[//Erzeugt Aufträge und erzeugt daraus agenten in den Source Blöcken
 
-int[] auftrag; // Dieses Array wird die absoluten Stückzahlen enthalten
+int[] auftrag; // absolute Stückzahlen 
 
 // Prüft nach DT
 if (v_isDigitalTwin){ 
-	// holt Verteilung als absolute Stückzahlen [int[]]
+	// holt Verteilung als absolute Stückzahlen
 	auftrag = f_getNextAuftrag(); 
 }
 else {
@@ -3830,15 +3825,15 @@ else {
 }
 
 
-// Injiziere die Agenten (Logik ist für beide Modi gleich)
+// Injiziere die Agenten
 for (int i = 0; i < auftrag.length; i++) { 
-    // injiziert die berechnete Anzahl von Agenten in den passenden source block.
+    // injiziert die berechnete Anzahl von Agenten in den passenden source block
     if (auftrag[i] > 0) { 
          col_sourceBlöcke.get(i).inject(auftrag[i]);
     }
 }
 
-// Erhöhe den Zähler für den nächsten Auftrag.
+// Erhöhe den Zähler für den nächsten Auftrag
 v_auftragsNrCount ++; 
 
 // Berechne die Gesamtanzahl für das Traceln
@@ -3859,9 +3854,9 @@ traceln("Auftrag Nr." + v_auftragsNrCount
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[// Funktion gibt double[] zurück
+					<Body><![CDATA[// Funktion gibt zufällige Verteilung als double[] zurück
 
-int n = 4; // Anzahl der Typen (Variablen)
+int n = 4; // Anzahl der Typen
 double[] weights = new double[n];
 double sumWeights = 0;
 
@@ -3898,7 +3893,6 @@ return ergebnisDouble;]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[double summe = sum(col_queuesAllTypes, p -> p.size());
-
 return (int) summe;]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
@@ -3911,8 +3905,7 @@ return (int) summe;]]></Body>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[// Wähle den Typ des nächsten Agenten, der gesendet werden soll (nur aus nicht-leeren Queues)
-int chosenType = 0;
+					<Body><![CDATA[int chosenType = 0;
 
 // speichert verfügbare hantel-types
 ArrayList<Integer> verfuegbareTypen = f_getAvailableTypes();
@@ -3954,12 +3947,12 @@ if (!verfuegbareTypen.isEmpty()) {
 						<Name><![CDATA[verfuegbareTypen]]></Name>
 						<Type><![CDATA[ArrayList<Integer>]]></Type>
 					</Parameter>
-					<Body><![CDATA[
+					<Body><![CDATA[// returnt den Index des ausgewählten Typs
+
 //Optimierte Auswahl
 if (p_chooseNextAgent.equals("Optimiert")  ) {
 	
 	// Gibt den Index des Typs mit dem höchsten Güte-Wert zurück (-1 wenn alle leer).
-	// Finde den Typ mit dem höchsten Güte-Wert
 	int besterTyp = -1;
 	double hoechsterScore = Double.NEGATIVE_INFINITY; // Start mit minimal möglichem Wert
 	for (int aktuellerTyp : verfuegbareTypen) {
@@ -3980,7 +3973,7 @@ if (p_chooseNextAgent.equals("Optimiert")  ) {
 
 // Zufällige Auswahl
 } else if (p_chooseNextAgent.equals("Zufällig")) {
-   // Einen zufälligen Index auswählen (von 0 bis zur Listengröße - 1)
+   // Einen zufälligen Index auswählen
     int zufallsIndex = uniform_discr(0, verfuegbareTypen.size() - 1);
     
     // Den Wert an diesem zufälligen Index aus der Liste holen
@@ -3992,17 +3985,16 @@ if (p_chooseNextAgent.equals("Optimiert")  ) {
 
 // Abwechselnde Auswahl
 } else if (p_chooseNextAgent.equals("Abwechselnd")) {
-	// 1. Anzahl der verfügbaren Typen holen
+	// Anzahl der verfügbaren Typen holen
     int anzahlVerfuegbar = verfuegbareTypen.size();
     
-    // 2. Den nächsten Index in der *verfügbaren* Liste bestimmen
-    //    Der Modulo-Operator (%) sorgt für den automatischen Überlauf (z.B. 5 % 3 = 2)
+    //  Den nächsten Index in der verfügbaren Liste bestimmen
     int indexInListe = v_alternatingIndexCounter % anzahlVerfuegbar;
     
-    // 3. Den Typ an dieser Listenposition holen
+    // Den Typ an dieser Listenposition holen
     int ausgewaehlterTyp = verfuegbareTypen.get(indexInListe);
     
-    // 4. Den globalen Zähler für das *nächste Mal* erhöhen
+    // Den globalen Zähler für das nächste Mal erhöhen
     v_alternatingIndexCounter++;
     
     traceln("Abwechselnd ausgewählt: Typ " + ausgewaehlterTyp + " (Index " + indexInListe + " aus " + verfuegbareTypen + ")");
@@ -4092,7 +4084,7 @@ return verfuegbareTypen;]]></Body>
 						<Name><![CDATA[type]]></Name>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
-					<Body><![CDATA[// Funktion berechnet einen Score für den übergebenen 'typ' (0-3)
+					<Body><![CDATA[// Funktion berechnet einen Score für den übergebenen typ
 // Höherer Score = höhere Priorität für die Auswahl
 double score = 0;
 
@@ -4110,12 +4102,10 @@ score += scoreStart * p_faktorStart;
 
 
 // 2. Bereichskomponente
-// Gehe durch alle Bereiche
 double scoreBereiche = 0;
 for (int i = 0; i < v_optAlleBereiche.length; i++) {
 
     // Berechne den Bonus für den aktuellen Bereich 'i' und den aktuellen Hanteltyp 'type'
-    // 2D-Array [bereichsIndex][typIndex]
     scoreBereiche += v_hantelnAlleBereiche[i][type] * v_optAlleBereiche[i][type];
 }
 
@@ -4127,11 +4117,10 @@ for (int i = 0; i < v_optAlleBereiche.length; i++) {
 // 3. Systemkomponente
 // jeder einzelne typ bekommt eine eigene Gewichtung für jeden möglichen nächsten typ (4x4 Parameter)
 double scoreSystem = 0;
-// Berechne den Bonus für den aktuellen Hanteltyp 'type' (potentieller nächster agent)
+// Berechne den Bonus für den aktuellen Hanteltyp
 for (int i = 0; i < v_optGesamtAlleTypes.length; i++) {
 
     // Berechne den Bonus für den aktuellen Type 'i' bei konstantem Hanteltyp 'type'
-    // (Anzahl hanteln im System von type i) * (Gewichtung für den entsprechenden type und type)
     scoreSystem += v_hantelnGesamt[i] * v_optGesamtAlleTypes[i][type];
 }
 // gewichtete Werte zum Gesamtscore addieren
@@ -4141,7 +4130,7 @@ score += scoreSystem * p_faktorGesamt;
 
 
 // 4. Warteschlangenkomponente
-// berechne Bonus: (agenten des eigenen typs in Warteschlange) *  (dessen Gewichtung)
+// berechne Bonus
 double scoreQueues = 0;
 scoreQueues += col_queuesAllTypes.get(type).size() * v_optQueAlleTypes[type];
 
@@ -4232,7 +4221,7 @@ int indexFuerDB = v_auftragsNrCount + 1;
 // Prüfe ob noch unbearbeitete Aufträge vorhanden sind
 if(indexFuerDB > anzahlAuftraege){
 	traceln("Alle Aufträge wurden bearbeitet. Simulation wird beendet");
-	getEngine().finish(); // Stoppt die Simulation
+	getEngine().finish();
 	return new int[]{ 0, 0, 0, 0}; // Fallback
 }
 
@@ -4296,10 +4285,10 @@ for (int i = 0; i < n; i++) {
     summeVorkomma += ergebnisInt[i];
 }
 
-// 2. Berechne Rundungsdifferenz
+// Berechne Rundungsdifferenz
 int rest = gesamtSumme - summeVorkomma;
 
-// 3. Verteile den Rest auf die größten Nachkommaanteile
+// Verteile den Rest auf die größten Nachkommaanteile
 if (rest > 0) {
     // Sortiere nach dem Nachkommaanteil (Index 1), absteigend
     Arrays.sort(nachkommaAnteile, new FractionalPartComparator());
@@ -12032,6 +12021,9 @@ v_hantelnGesamt[agent.p_type] --;]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[usageState]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[self.USAGE_IDLE]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[priority]]></Name>
@@ -27696,29 +27688,6 @@ v_polyline.setVisible(false);]]></Code>
 					<FillColor>-4144960</FillColor>
 					<FillMaterial>null</FillMaterial>
 				</Rectangle>
-				<Image>
-					<Id>1759877973034</Id>
-					<Name><![CDATA[img_itl_logo]]></Name>
-					<X>-495</X><Y>-30</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<OnClickCode><![CDATA[getExperimentHost().openWebSite("https://itl.mb.tu-dortmund.de/");]]></OnClickCode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Width>65.461</Width>
-					<Height>60</Height>
-					<Rotation>0.0</Rotation>
-					<ImageFiles>
-						<ImageResourceReference>
-							<PackageName><![CDATA[masterarbeit]]></PackageName>
-							<ClassName><![CDATA[110325_ITL Logo.png]]></ClassName>
-						</ImageResourceReference>
-					</ImageFiles>
-					<OriginalSize>false</OriginalSize>
-				</Image>
 				<Group>
 					<Id>1759877973036</Id>
 					<Name><![CDATA[group_exit]]></Name>
@@ -35046,7 +35015,7 @@ Sequenziell
 
 // 2. LÖSCHE ALLE ALTEN ERGEBNISSE aus der Datenbanktabelle!
 //    (Damit wir wieder bei 1 anfangen können zu zählen)
-deleteFrom(simulationslauf_ergebnisse).execute();
+deleteFrom(replications_ergebnisse).execute();
 
 
 
@@ -35074,17 +35043,17 @@ double auslastung_lackierstation2 = root.Lackierstation2.getUtilization();
 double auslastung_lackierstation3 = root.Lackierstation3.getUtilization();
 
 // 2. Daten in die (jetzt leere) Datenbanktabelle eintragen
-insertInto( simulationslauf_ergebnisse )
+insertInto( replications_ergebnisse )
     .columns(
-        simulationslauf_ergebnisse.simulationslauf_nr,
-        simulationslauf_ergebnisse.durchsatz, 
-        simulationslauf_ergebnisse.auslastung_durchschnitt,
-        simulationslauf_ergebnisse.auslastung_bohrstation1,
-        simulationslauf_ergebnisse.auslastung_bohrstation2,
-        simulationslauf_ergebnisse.auslastung_drehmaschine,
-        simulationslauf_ergebnisse.auslastung_lackierstation1,
-        simulationslauf_ergebnisse.auslastung_lackierstation2,
-        simulationslauf_ergebnisse.auslastung_lackierstation3
+        replications_ergebnisse.simulationslauf_nr,
+        replications_ergebnisse.durchsatz, 
+        replications_ergebnisse.auslastung_durchschnitt,
+        replications_ergebnisse.auslastung_bohrstation1,
+        replications_ergebnisse.auslastung_bohrstation2,
+        replications_ergebnisse.auslastung_drehmaschine,
+        replications_ergebnisse.auslastung_lackierstation1,
+        replications_ergebnisse.auslastung_lackierstation2,
+        replications_ergebnisse.auslastung_lackierstation3
     )
     .values(
         simulationslauf_nr,
@@ -35103,7 +35072,7 @@ insertInto( simulationslauf_ergebnisse )
 
 // 2. LÖSCHE ALLE ALTEN ERGEBNISSE aus der Datenbanktabelle!
 //    (Damit wir wieder bei 1 anfangen können zu zählen)
-deleteFrom(simulationslauf_ergebnisse).execute();]]></InitialSetupCode>
+deleteFrom(replications_ergebnisse).execute();]]></InitialSetupCode>
 			<MaximumMemory>4096</MaximumMemory>
 			<RandomNumberGenerationType>randomSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
@@ -35127,18 +35096,18 @@ double auslastung_pruefstation = root.Prüfstation.getUtilization();
 
 
 // 2. Daten in die (jetzt leere) Datenbanktabelle eintragen
-insertInto( simulationslauf_ergebnisse )
+insertInto( replications_ergebnisse )
     .columns(
-        simulationslauf_ergebnisse.simulationslauf_nr,
-        simulationslauf_ergebnisse.output, 
-        simulationslauf_ergebnisse.auslastung_durchschnitt,
-        simulationslauf_ergebnisse.auslastung_bohrstation1,
-        simulationslauf_ergebnisse.auslastung_bohrstation2,
-        simulationslauf_ergebnisse.auslastung_drehmaschine,
-        simulationslauf_ergebnisse.auslastung_lackierstation1,
-        simulationslauf_ergebnisse.auslastung_lackierstation2,
-        simulationslauf_ergebnisse.auslastung_lackierstation3,
-        simulationslauf_ergebnisse.auslastung_pruefstation
+        replications_ergebnisse.simulationslauf_nr,
+        replications_ergebnisse.output, 
+        replications_ergebnisse.auslastung_durchschnitt,
+        replications_ergebnisse.auslastung_bohrstation1,
+        replications_ergebnisse.auslastung_bohrstation2,
+        replications_ergebnisse.auslastung_drehmaschine,
+        replications_ergebnisse.auslastung_lackierstation1,
+        replications_ergebnisse.auslastung_lackierstation2,
+        replications_ergebnisse.auslastung_lackierstation3,
+        replications_ergebnisse.auslastung_pruefstation
 
         
     )
@@ -35687,7 +35656,7 @@ insertInto( simulationslauf_ergebnisse )
 			<ReplicationsProperties>
 				<UseReplication>true</UseReplication>
 				<FixedReplicationsNumber>true</FixedReplicationsNumber>
-				<ReplicationPerIteration>5</ReplicationPerIteration>
+				<ReplicationPerIteration>10</ReplicationPerIteration>
 				<MinimumReplication>2</MinimumReplication>
 				<MaximumReplication>10</MaximumReplication>
 				<ConfidenceLevel>LEVEL_80</ConfidenceLevel>
@@ -35857,12 +35826,6 @@ public class My_Mqtt_Client {
 		</JavaClass>
 	</JavaClasses>
 	<ModelResources>
-		<Resource>
-			<Id>1759875163611</Id>
-			<Path><![CDATA[110325_ITL Logo.png]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-			<Location>FILE_SYSTEM</Location>
-		</Resource>
 		<Resource>
 			<Id>1759875163613</Id>
 			<Path><![CDATA[org.eclipse.paho.client.mqttv3-1.2.5.jar]]></Path>
