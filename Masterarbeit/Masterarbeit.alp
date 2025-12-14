@@ -3630,6 +3630,13 @@ else{
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1760282691522</Id>
 					<Name><![CDATA[f_onMessageReceived]]></Name>
+					<Description><![CDATA[Subscribed to: minis/physical
+
+Messages:
+Objekt erkannt
+Prüfungsergebnis: Ausschuss
+
+]]></Description>
 					<X>-640</X><Y>250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -26202,78 +26209,6 @@ Prüfstation.stopProcess();]]></ActionCode>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
-				<RoundedRectangle>
-					<Id>1762264595487</Id>
-					<Name><![CDATA[roundRectangle16]]></Name>
-					<X>120</X><Y>-930</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Lock>true</Lock>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>1360</Width>
-					<Height>290</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-1644806</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<ArcRadius>10</ArcRadius>
-				</RoundedRectangle>
-				<RoundedRectangle>
-					<Id>1762264646083</Id>
-					<Name><![CDATA[roundRectangle17]]></Name>
-					<X>120</X><Y>-620</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Lock>true</Lock>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>1360</Width>
-					<Height>250</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-1644806</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<ArcRadius>10</ArcRadius>
-				</RoundedRectangle>
-				<RoundedRectangle>
-					<Id>1762264690408</Id>
-					<Name><![CDATA[roundRectangle18]]></Name>
-					<X>120</X><Y>-350</Y>
-					<Label><X>10</X><Y>10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<Lock>true</Lock>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<ZHeight>10</ZHeight>
-					<LineWidth>1</LineWidth>
-					<LineColor/>
-					<LineMaterial>null</LineMaterial>
-					<LineStyle>SOLID</LineStyle>
-					<Width>1360</Width>
-					<Height>170</Height>
-					<Rotation>0.0</Rotation>
-					<FillColor>-1644806</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<ArcRadius>10</ArcRadius>
-				</RoundedRectangle>
 				<Text>
 					<Id>1762264724917</Id>
 					<Name><![CDATA[text17]]></Name>
@@ -26379,6 +26314,92 @@ Prüfstation.stopProcess();]]></ActionCode>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
+				<Group>
+					<Id>1765293780925</Id>
+					<Name><![CDATA[group]]></Name>
+					<X>800</X><Y>-550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+				<RoundedRectangle>
+					<Id>1762264595487</Id>
+					<Name><![CDATA[roundRectangle16]]></Name>
+					<X>-680</X><Y>-380</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>1360</Width>
+					<Height>290</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1644806</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<RoundedRectangle>
+					<Id>1762264646083</Id>
+					<Name><![CDATA[roundRectangle17]]></Name>
+					<X>-680</X><Y>-70</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>1360</Width>
+					<Height>250</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1644806</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+				<RoundedRectangle>
+					<Id>1762264690408</Id>
+					<Name><![CDATA[roundRectangle18]]></Name>
+					<X>-680</X><Y>200</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor/>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>1360</Width>
+					<Height>170</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1644806</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<ArcRadius>10</ArcRadius>
+				</RoundedRectangle>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -29569,13 +29590,13 @@ Sequenziell]]></Description>
 				<Parameter>
 					<ParameterName><![CDATA[p_optStartWertType0]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[3]]></Code>
+						<Code><![CDATA[-2]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optStartWertType1]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-3]]></Code>
+						<Code><![CDATA[-2]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -29587,13 +29608,13 @@ Sequenziell]]></Description>
 				<Parameter>
 					<ParameterName><![CDATA[p_optStartWertType3]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-3]]></Code>
+						<Code><![CDATA[1]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnBereich1Type0]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-3]]></Code>
+						<Code><![CDATA[0]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -29605,7 +29626,7 @@ Sequenziell]]></Description>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnBereich1Type2]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-2]]></Code>
+						<Code><![CDATA[-3]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -29617,13 +29638,13 @@ Sequenziell]]></Description>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnBereich2Type0]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
+						<Code><![CDATA[-3]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnBereich2Type1]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-3]]></Code>
+						<Code><![CDATA[-2]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -29635,53 +29656,50 @@ Sequenziell]]></Description>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnBereich2Type3]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
+						<Code><![CDATA[2]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnBereich3Type0]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-2]]></Code>
+						<Code><![CDATA[1]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnBereich3Type1]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-3]]></Code>
+						<Code><![CDATA[3]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnBereich3Type2]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[-3]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnBereich3Type3]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-3]]></Code>
+						<Code><![CDATA[-2]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp0Typ0]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[5]]></Code>
+						<Code><![CDATA[-3]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp0Typ1]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-2]]></Code>
-					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp0Typ2]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-2]]></Code>
+						<Code><![CDATA[0]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp0Typ3]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp1Typ0]]></ParameterName>
@@ -29689,29 +29707,29 @@ Sequenziell]]></Description>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp1Typ1]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[5]]></Code>
+						<Code><![CDATA[-3]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp1Typ2]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-3]]></Code>
+						<Code><![CDATA[0]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp1Typ3]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-3]]></Code>
+						<Code><![CDATA[-1]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp2Typ0]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[5]]></Code>
-					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp2Typ1]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp2Typ2]]></ParameterName>
@@ -29722,37 +29740,31 @@ Sequenziell]]></Description>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp2Typ3]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
+						<Code><![CDATA[-3]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp3Typ0]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-2]]></Code>
+						<Code><![CDATA[-1]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp3Typ1]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-2]]></Code>
-					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp3Typ2]]></ParameterName>
-					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-2]]></Code>
-					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnGesamtTyp3Typ3]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[-2]]></Code>
+						<Code><![CDATA[-3]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnQueTyp0]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
+						<Code><![CDATA[2]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
@@ -29764,34 +29776,37 @@ Sequenziell]]></Description>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnQueTyp2]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
+						<Code><![CDATA[3]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_optHantelnQueTyp3]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
+						<Code><![CDATA[2]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_faktorStart]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
+						<Code><![CDATA[1.5]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_faktorBereiche]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
+						<Code><![CDATA[2.7]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_faktorGesamt]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1.5]]></Code>
+					</ParameterValue>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[p_faktorQueues]]></ParameterName>
 					<ParameterValue Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
+						<Code><![CDATA[0.9]]></Code>
 					</ParameterValue>
 				</Parameter>
 				<Parameter>
